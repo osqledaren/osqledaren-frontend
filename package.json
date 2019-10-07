@@ -1,0 +1,46 @@
+{
+  "name": "osqledaren-frontend",
+  "version": "1.0.0",
+  "main": "gatsby-config.js",
+  "repository": "git@github.com:osqledaren/osqledaren-frontend.git",
+  "author": "OL Developers",
+  "license": "UNLICENSED",
+  "private": true,
+  "engines": {
+    "node": "10.x"
+  },
+  "scripts": {
+    "build": "gatsby build",
+    "start": "gatsby develop",
+    "dev": "gatsby develop",
+    "type-check": "tsc",
+    "lint": "eslint --ignore-path .gitignore . --ext ts --ext tsx --ext js --ext jsx",
+    "lint:fix": "eslint --ignore-path .gitignore . --ext ts --ext tsx --ext js --ext jsx --fix"
+  },
+  "dependencies": {
+    "gatsby": "^2.15.29",
+    "gatsby-plugin-manifest": "^2.2.20",
+    "gatsby-plugin-offline": "^3.0.11",
+    "gatsby-plugin-react-helmet": "^3.1.10",
+    "gatsby-plugin-typescript": "^2.1.11",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-helmet": "^5.2.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@types/node": "^12.7.11",
+    "@types/react": "^16.9.5",
+    "@types/react-dom": "^16.9.1",
+    "@types/react-helmet": "^5.0.11",
+    "@typescript-eslint/eslint-plugin": "^2.3.2",
+    "@typescript-eslint/parser": "^2.3.2",
+    "eslint": "^6.5.1",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
+    "gatsby-cli": "^2.7.54",
+    "prettier": "^1.18.2",
+    "typescript": "^3.6.3"
+  }
+}
