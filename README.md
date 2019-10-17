@@ -15,7 +15,7 @@
 ## Project structure
 
 ### Atomic Design Methodology
-The comonents are structured in the `/src` folder according to the "Atomic Design Methodology" by Brad Frost. Read more [here](http://atomicdesign.bradfrost.com/chapter-2/)
+The components are structured in the `/src` folder according to the "Atomic Design Methodology" by Brad Frost. Read more [here](http://atomicdesign.bradfrost.com/chapter-2/)
 
 Put all components in the corresponding folder: 
 * `/src/atoms`
