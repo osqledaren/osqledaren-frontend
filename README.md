@@ -28,4 +28,5 @@ The `/src/pages` folder is a bit special, but fits well into the atomic design s
 Pages can also be generated programmatically.
 
 ### Styling
-Still not decided...
+
+We will use Emotion, more info soon...
