@@ -33,6 +33,6 @@ Pages can also be generated programmatically.
 
 ### Styling
 
-We will use Emotion for styling. This is a tools that works very much like styled components, but with a few nice Improvements.
+We will use Emotion for styling. This is a tools that works very much like styled components, but with a few nice improvements.
 
-There are great dics to read for more infe [here](https://emotion.sh/docs/introduction).
+There are great dics to read for more info [here](https://emotion.sh/docs/introduction).
