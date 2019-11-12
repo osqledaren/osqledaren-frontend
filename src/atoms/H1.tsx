@@ -1,17 +1,7 @@
-import React, { FunctionComponent } from 'react';
+import styled from '../styles/styled';
 
-interface H1Props {
-  text: string;
-}
-
-const H1: FunctionComponent<H1Props> = props => (
-  <h1
-    style={{
-      color: 'hotpink',
-    }}
-  >
-    {props.text}
-  </h1>
-);
+const H1 = styled.h1`
+  color: ${({ theme }) => theme.colors.primary};
+`;
 
 export default H1;

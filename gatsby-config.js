@@ -4,6 +4,7 @@ module.exports = {
     title: 'Osqledaren',
   },
   plugins: [
+    'gatsby-plugin-emotion',
     'gatsby-plugin-typescript',
     // 'gatsby-transformer-json',
     // 'gatsby-plugin-sharp',
