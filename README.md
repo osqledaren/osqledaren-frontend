@@ -1,4 +1,4 @@
-# Frontend application for the osqleadren.se website
+# Frontend application for the osqledaren.se website
 
 ## Installation
 
@@ -30,5 +30,3 @@ Pages can also be generated programmatically.
 ### Styling
 
 We will use Emotion, more info soon...
-
-This line is for testing issues
