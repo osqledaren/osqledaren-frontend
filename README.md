@@ -1,4 +1,4 @@
-# Frontend application for the osqleadren.se website
+# Frontend application for the osqledaren.se website
 
 ## Installation
 
@@ -36,3 +36,4 @@ Pages can also be generated programmatically.
 We will use Emotion for styling. This is a tools that works very much like styled components, but with a few nice Improvements.
 
 There are great dics to read for more infe [here](https://emotion.sh/docs/introduction).
+
