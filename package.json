@@ -19,11 +19,15 @@
   },
   "dependencies": {
     "@emotion/core": "^10.0.22",
+    "@emotion/styled": "^10.0.23",
+    "emotion-theming": "^10.0.19",
     "gatsby": "^2.15.29",
+    "gatsby-plugin-emotion": "^4.1.14",
     "gatsby-plugin-manifest": "^2.2.20",
     "gatsby-plugin-offline": "^3.0.11",
     "gatsby-plugin-react-helmet": "^3.1.10",
     "gatsby-plugin-typescript": "^2.1.11",
+    "normalize.css": "^8.0.1",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-helmet": "^5.2.1"
