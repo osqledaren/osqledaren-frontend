@@ -6,8 +6,16 @@ import styled from '@emotion/styled';
 const Header: FunctionComponent = () => {
     const data = useStaticQuery(graphql`
         query {
-            file(
+            logo: file(
                 relativePath: { eq: "logo-black.png" }) {
+                childImageSharp {
+                    fluid(maxWidth: 1000) {
+                    ...GatsbyImageSharpFluid
+                    }
+                }
+            }
+            search: file(
+                relativePath: { eq: "search.png" }) {
                 childImageSharp {
                     fluid(maxWidth: 1000) {
                     ...GatsbyImageSharpFluid
@@ -18,8 +26,8 @@ const Header: FunctionComponent = () => {
     `);
     return (
         <Container>
-            <Image fluid={data.file.childImageSharp.fluid} />
-            <Link to="/about">Search</Link>
+            <Logo fluid={data.logo.childImageSharp.fluid} />
+            <Search fluid={data.search.childImageSharp.fluid}/>                        
         </Container>
     )
 };
@@ -30,8 +38,12 @@ const Container = styled.div`
   padding-top: 30px;
 `;
 
-const Image = styled(Img)`
+const Logo = styled(Img)`
     width: 50%;
+`;
+
+const Search = styled(Img)`
+    width: 2%;
 `;
   
 export default Header;
