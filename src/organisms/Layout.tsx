@@ -2,14 +2,14 @@ import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 
 const Layout: FunctionComponent = ({ children }) => (
-  <Container>
+  <LayoutWrapper>
     <div>header</div>
     <main>{children}</main>
     <div>footer</div>
-  </Container>
+  </LayoutWrapper>
 );
 
-const Container = styled.div`
+const LayoutWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
