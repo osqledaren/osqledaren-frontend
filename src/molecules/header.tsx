@@ -14,20 +14,12 @@ const Header: FunctionComponent = () => {
                     }
                 }
             }
-            search: file(
-                relativePath: { eq: "search.png" }) {
-                childImageSharp {
-                    fluid(maxWidth: 1000) {
-                    ...GatsbyImageSharpFluid
-                    }
-                }
-            }
         }
     `);
     return (
         <Container>
             <Logo fluid={data.logo.childImageSharp.fluid} />
-            <Search fluid={data.search.childImageSharp.fluid}/>                        
+            <div>Filterbar</div>
         </Container>
     )
 };
@@ -35,16 +27,13 @@ const Header: FunctionComponent = () => {
 const Container = styled.div`
   display: flex;
   align-items: center;
-  padding-top: 30px;
+  flex-direction: column;
+  padding-top: 3%;
 `;
 
 const Logo = styled(Img)`
-    width: 50%;
+    width: 46%;
 `;
 
-const Search = styled(Img)`
-    width: 2%;
-`;
-  
 export default Header;
 
