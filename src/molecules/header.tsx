@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { graphql, useStaticQuery, Link } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from '@emotion/styled';
 
