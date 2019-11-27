@@ -1,12 +1,11 @@
 import React, { FunctionComponent } from 'react';
-import { Link } from 'gatsby';
 import H1 from '../atoms/H1';
+import Layout from '../organisms/Layout';
 
 const Index: FunctionComponent = () => (
-  <main>
-    <H1>Osqledaren</H1>
-    <Link to="/about">About</Link>
-  </main>
+  <Layout>
+    <H1>Main content</H1>
+  </Layout>
 );
 
 export default Index;
