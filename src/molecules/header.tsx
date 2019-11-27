@@ -17,14 +17,14 @@ const Header: FunctionComponent = () => {
         }
     `);
     return (
-        <Container>
+        <HeaderWrapper>
             <Logo fluid={data.logo.childImageSharp.fluid} />
             <div>Filterbar</div>
-        </Container>
+        </HeaderWrapper>
     )
 };
 
-const Container = styled.div`
+const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
