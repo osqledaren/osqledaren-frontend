@@ -1,9 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
+import Header from '../molecules/header';
 
 const Layout: FunctionComponent = ({ children }) => (
   <LayoutWrapper>
-    <div>header</div>
+    <Header />
     <main>{children}</main>
     <div>footer</div>
   </LayoutWrapper>
