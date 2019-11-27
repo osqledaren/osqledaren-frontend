@@ -30,7 +30,7 @@ const HeaderWrapper = styled.div`
   flex-direction: column;
   padding-top: 3%;
   @media (max-width: ${({ theme }) => theme.breakpoints.sm + 'px'}) {
-    width: 100%;
+    width: 90%;
   }
 `;
 
