@@ -1,0 +1,9 @@
+@font-face {
+  font-family: Avenir;
+  src: url('../fonts/Avenir-Black.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: ProximaNova;
+  src: url('../fonts/ProximaNova-Regular.ttf') format('truetype');
+}
