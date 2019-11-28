@@ -23,19 +23,21 @@ const FilterButt = styled.div<FilterButtProps>`
   max-width: 10%;
   min-width: 20%;
   text-align: center;
-  color: white;
+  color: black;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
-  padding: 5px;
+  text-transform: uppercase;
+  padding: 0.5%;
+  padding-top: 1.5%;
   font-size: 1vw;
-  height: 2.5vh;
+  height: 1.5vw;
   :hover{
   -moz-transition: height .35s;
   -ms-transition: height .35s;
   -o-transition: height .35s;
   -webkit-transition: height .35s;
   transition: height .35s;
-  height: 4vh;
+  height: 2.5vw;
   overflow: hidden;
 }
   }

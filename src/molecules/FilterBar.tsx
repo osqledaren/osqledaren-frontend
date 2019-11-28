@@ -18,7 +18,7 @@ const Bar = styled.div`
   flex-direction: row;
   justify-content: center;
   width: 100%;
-  max-height: 4vh;
+  max-height: 2vw;
   padding-top: 10px;
 `;
 
