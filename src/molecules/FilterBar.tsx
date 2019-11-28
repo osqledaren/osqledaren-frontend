@@ -16,7 +16,10 @@ const Filterbar: FunctionComponent = () => (
 const Bar = styled.div`
   display: flex;
   flex-direction: row;
-    justify-content: center;
+  justify-content: center;
+  width: 100%;
+  max-height: 4vh;
+  padding-top: 10px;
 `;
 
 export default Filterbar;
