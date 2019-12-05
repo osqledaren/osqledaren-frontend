@@ -1,10 +1,5 @@
 @font-face {
   font-family: Avenir;
-  src: url('../fonts/Avenir-Black.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: Avenir;
   font-weight: 700;
   font-style: normal;
   src: url('../fonts/Avenir-Heavy.ttf') format('truetype');
