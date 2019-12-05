@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import styled from '@emotion/styled';
+import styled from '../styles/styled';
 
 interface Props {
   name: string;
@@ -20,26 +20,33 @@ const FilterButt = styled.div<FilterButtProps>`
   background: ${props => {
     return props.background;
   }};
+  display: flex;
+  align-items: center;
+  justify-content: center;
   max-width: 10%;
   min-width: 20%;
-  text-align: center;
   color: black;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   text-transform: uppercase;
   padding: 0.5%;
-  padding-top: 1.5%;
   font-size: 1vw;
   height: 1.5vw;
-  :hover{
-  -moz-transition: height .35s;
-  -ms-transition: height .35s;
-  -o-transition: height .35s;
-  -webkit-transition: height .35s;
-  transition: height .35s;
-  height: 2.5vw;
-  overflow: hidden;
-}
+  word-break: break-all;
+  text-align: center;
+  :hover {
+    -moz-transition: height 0.35s;
+    -ms-transition: height 0.35s;
+    -o-transition: height 0.35s;
+    -webkit-transition: height 0.35s;
+    transition: height 0.35s;
+    height: 2.5vw;
+    overflow: hidden;
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm + 'px'}) {
+    height: 10vw;
+    color: black;
+    font-size: 2.5vw;
   }
 `;
 

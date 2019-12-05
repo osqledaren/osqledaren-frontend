@@ -29,15 +29,20 @@ const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-top: 3%;
-  padding-bottom: 3%;
+  padding-top: 2%;
   @media (max-width: ${({ theme }) => theme.breakpoints.sm + 'px'}) {
-    width: 90%;
+    width: 80%;
+    padding-top: 0%;
+    padding-bottom: 10%;
   }
 `;
 
 const Logo = styled(Img)`
-  width: 100%;
+  width: 90%;
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm + 'px'}) {
+    width: 90%;
+    display: none;
+  }
 `;
 
 export default Header;
