@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
-import H1 from '../atoms/H1';
+import H from '../atoms/H';
 
-const About: FunctionComponent = () => <H1>About</H1>;
+const About: FunctionComponent = () => <H>About</H>;
 
 export default About;

@@ -4,6 +4,20 @@
 }
 
 @font-face {
+  font-family: Avenir;
+  font-weight: 700;
+  font-style: normal;
+  src: url('../fonts/Avenir-Heavy.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: Avenir;
+  font-weight: 500;
+  font-style: normal;
+  src: url('../fonts/Avenir-Book.ttf') format('truetype');
+}
+
+@font-face {
   font-family: ProximaNova;
   src: url('../fonts/ProximaNova-Regular.ttf') format('truetype');
 }
