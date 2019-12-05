@@ -5,8 +5,11 @@ import Article from '../molecules/Article';
 
 const Index: FunctionComponent = () => (
   <Layout>
-    <H1>Main content</H1>
-    <Article></Article>
+    <Article
+      title="Bra titel"
+      date="Idag"
+      description="akljadfjaskfjalsjfklajdsfkjassakflasjklsfajkjdsfkljlkfjaklfjklasjfkalsfjkldjskljaskldjfklajklsdjfkljasflajklfjakljsdfklajsfklasjdfklsajflkjkljsfdalk"
+    ></Article>
     <Article reverse={true}></Article>
   </Layout>
 );
