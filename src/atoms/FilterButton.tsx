@@ -34,6 +34,7 @@ const FilterButt = styled.div<FilterButtProps>`
   height: 1.5vw;
   word-break: break-all;
   text-align: center;
+  box-shadow: 3px 4px 4px #a6a6a6;
   :hover {
     -moz-transition: height 0.35s;
     -ms-transition: height 0.35s;
