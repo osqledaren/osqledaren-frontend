@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { graphql, useStaticQuery, Link } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from '../styles/styled';
+import theme from '../styles/theme';
 import H1 from '../atoms/H1';
 
 interface ArticleProps {
@@ -9,6 +10,7 @@ interface ArticleProps {
   title?: string;
   date?: string;
   description?: string;
+  category?: string;
 }
 
 const Article: FunctionComponent<ArticleProps> = ({
@@ -16,6 +18,7 @@ const Article: FunctionComponent<ArticleProps> = ({
   title,
   date,
   description,
+  category,
 }) => {
   const data = useStaticQuery(graphql`
     query {
@@ -30,23 +33,32 @@ const Article: FunctionComponent<ArticleProps> = ({
   `);
   return (
     <ArticleWrapper to="/about" reverse={reverse}>
-      <Color reverse={reverse}></Color>
-      <Image fluid={data.logo.childImageSharp.fluid} />
-      <Text>
-        <Titel>{title ? title : 'Titel saknas'}</Titel>
-        <Date>{date ? date : 'Datum saknas'}</Date>
-        {description ? description : 'Beskrivning saknas'}
-      </Text>
+      <Color reverse={reverse} category={category}></Color>
+      <ArticleContent reverse={reverse}>
+        <Image fluid={data.logo.childImageSharp.fluid} reverse={reverse} />
+        <Text>
+          <Titel>{title ? title : 'Titel saknas'}</Titel>
+          <Date>{date ? date : 'Datum saknas'}</Date>
+          <Description>
+            {description
+              ? description
+              : 'Beskrivning saknas Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'}
+          </Description>
+        </Text>
+      </ArticleContent>
     </ArticleWrapper>
   );
 };
 
 const ArticleWrapper = styled(Link)<ArticleProps>`
   display: flex;
+  flex-direction: ${props => {
+    return props.reverse ? 'row-reverse' : 'row';
+  }};
+  width: 60%;
   margin-top: 2rem;
-  margin-bottom: 2rem;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   align-content: center;
   text-decoration: none;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -54,42 +66,79 @@ const ArticleWrapper = styled(Link)<ArticleProps>`
   &:hover {
     box-shadow: 0 4px 5px rgba(0, 0, 0, 0.16), 0 4px 5px rgba(0, 0, 0, 0.22);
   }
-  flex-direction: ${props => {
-    return props.reverse ? 'row-reverse' : 'row';
-  }};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm + 'px'}) {
-    width: 70%;
+  @media (max-width: ${theme.breakpoints.md + 'px'}) {
+    width: 80%;
   }
 `;
 
 const Color = styled.div<ArticleProps>`
-  background: #d51217;
-  width: 1.5%;
-  margin: ${props => {
-    return props.reverse ? '0 0 0 1rem' : '0 1rem 0 0';
+  background: ${props => {
+    return props.category;
   }};
+  width: 12px;
+  min-width: 12px;
 `;
-const Image = styled(Img)`
-  align-self: center;
-  width: 50%;
+
+const ArticleContent = styled.div<ArticleProps>`
+  display: flex;
+  width: 100%;
+  flex-direction: ${props => {
+    return props.reverse ? 'row-reverse' : 'row';
+  }};
+  @media (max-width: ${theme.breakpoints.sm + 'px'}) {
+    flex-direction: column;
+  }
+`;
+const Image = styled(Img)<ArticleProps>`
+  width: 40%;
+  margin: ${props => {
+    return props.reverse ? '0 1rem 0 0' : '0 0 0 1rem';
+  }};
+  @media (max-width: ${theme.breakpoints.sm + 'px'}) {
+    width: 85%;
+    margin-left: 2rem;
+  }
+`;
+
+const Text = styled.div`
+  width: 55%;
+  word-wrap: break-word;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  color: black;
+  @media (max-width: ${theme.breakpoints.sm + 'px'}) {
+    width: 85%;
+  }
 `;
 
 const Titel = styled(H1)`
   margin: 0;
   color: black;
+  @media (max-width: ${theme.breakpoints.md + 'px'}) {
+    font-size: 20px;
+  }
 `;
 
 const Date = styled.h5`
   margin: 1rem 0 2rem 0;
+  @media (max-width: ${theme.breakpoints.md + 'px'}) {
+    margin: 1rem 0 1rem 0;
+  }
 `;
-const Text = styled.div`
-  width: 50%;
-  word-wrap: break-word;
+
+const Description = styled.div`
+  display: block;
   overflow: hidden;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  color: black;
+
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  @media (max-width: ${theme.breakpoints.md + 'px'}) {
+    font-size: 16px;
+    -webkit-line-clamp: 4;
+  }
 `;
 
 export default Article;

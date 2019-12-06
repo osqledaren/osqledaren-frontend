@@ -5,7 +5,7 @@ import Header from '../molecules/header';
 const Layout: FunctionComponent = ({ children }) => (
   <LayoutWrapper>
     <Header />
-    <main>{children}</main>
+    {children}
     <div>footer</div>
   </LayoutWrapper>
 );
