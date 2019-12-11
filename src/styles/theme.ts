@@ -5,6 +5,12 @@ export type Theme = typeof theme;
 const theme = {
   colors: {
     primary: 'green',
+    branch: '#dc702d',
+    english: '#374e9b',
+    olGraver: '#008247',
+    underhallning: '#f5c832',
+    aktuellt: '#d51217',
+    podcast: '#606263',
   },
   contentWidth: 1000,
   hSize: {

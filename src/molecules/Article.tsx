@@ -8,7 +8,7 @@ import P from '../atoms/P';
 import B from '../atoms/B';
 
 interface ArticleProps {
-  reverse?: boolean;
+  reverse?: string;
   title?: string;
   date?: string;
   description?: string;
@@ -57,7 +57,7 @@ const Article: FunctionComponent<ArticleProps> = ({
 const ArticleWrapper = styled(Link)<ArticleProps>`
   display: flex;
   flex-direction: ${props => {
-    return props.reverse ? 'row-reverse' : 'row';
+    return props.reverse == 'true' ? 'row-reverse' : 'row';
   }};
   width: 60%;
   margin-top: 2rem;
@@ -78,7 +78,7 @@ const ArticleWrapper = styled(Link)<ArticleProps>`
 
 const Color = styled.div<ArticleProps>`
   background: ${props => {
-    return props.category;
+    return theme.colors[props.category];
   }};
   width: 12px;
   min-width: 12px;
@@ -88,7 +88,7 @@ const ArticleContent = styled.div<ArticleProps>`
   display: flex;
   width: 100%;
   flex-direction: ${props => {
-    return props.reverse ? 'row-reverse' : 'row';
+    return props.reverse == 'true' ? 'row-reverse' : 'row';
   }};
   @media (max-width: ${theme.breakpoints.sm + 'px'}) {
     flex-direction: column;
@@ -97,7 +97,7 @@ const ArticleContent = styled.div<ArticleProps>`
 const Image = styled(Img)<ArticleProps>`
   width: 40%;
   margin: ${props => {
-    return props.reverse ? '0 1rem 0 0' : '0 0 0 1rem';
+    return props.reverse == 'true' ? '0 1rem 0 0' : '0 0 0 1rem';
   }};
   @media (max-width: ${theme.breakpoints.sm + 'px'}) {
     width: 85%;
