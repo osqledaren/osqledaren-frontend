@@ -39,10 +39,8 @@ const Article: FunctionComponent<ArticleProps> = ({
       <ArticleContent reverse={reverse}>
         <Image fluid={data.logo.childImageSharp.fluid} reverse={reverse} />
         <Text>
-          <Titel variant="2">{title ? title : 'Titel saknas'}</Titel>
-          <Date>
-            <B>{date ? date : 'Datum saknas'}</B>
-          </Date>
+          <Titel variant="4">{title ? title : 'Titel saknas'}</Titel>
+          <Date size="11">{date ? date : 'Datum saknas'}</Date>
           <Description>
             {description
               ? description
@@ -123,8 +121,8 @@ const Titel = styled(H)`
   }
 `;
 
-const Date = styled(P)`
-  margin: 1rem 0 2rem 0;
+const Date = styled(B)`
+  color: gray;
   @media (max-width: ${theme.breakpoints.md + 'px'}) {
     margin: 1rem 0 1rem 0;
   }

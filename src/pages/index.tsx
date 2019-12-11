@@ -12,7 +12,11 @@ const Index: FunctionComponent = () => (
     <P>
       Hej <B>bold</B>
     </P>
-    <Article category={'branch'}></Article>
+    <Article
+      category={'branch'}
+      title="En najs artikel om coola saker"
+      date="2020-01-01"
+    ></Article>
     <Article category={'english'} reverse="true"></Article>
     <Article category={'olGraver'}></Article>
     <Article category={'underhallning'} reverse="true"></Article>
