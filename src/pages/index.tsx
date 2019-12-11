@@ -1,19 +1,16 @@
 import React, { FunctionComponent } from 'react';
-import H1 from '../atoms/H1';
+import H from '../atoms/H';
 import Layout from '../organisms/Layout';
-import Article from '../molecules/Article';
-import theme from '../styles/theme';
+import P from '../atoms/P';
+import B from '../atoms/B';
 
 const Index: FunctionComponent = () => (
-  <Layout>
-    <Article
-      title="Bra titel"
-      date="Idag"
-      description="test"
-      category={theme.colors.primary}
-    ></Article>
-    <Article reverse={true} category={theme.colors.primary}></Article>
-  </Layout>
+    <Layout>
+      <H>Main content</H>
+      <P>
+        Hej <B>bold</B>
+      </P>
+    </Layout>
 );
 
 export default Index;
