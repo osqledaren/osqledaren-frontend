@@ -3,7 +3,9 @@ import { graphql, useStaticQuery, Link } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from '../styles/styled';
 import theme from '../styles/theme';
-import H1 from '../atoms/H1';
+import H from '../atoms/H';
+import P from '../atoms/P';
+import B from '../atoms/B';
 
 interface ArticleProps {
   reverse?: boolean;
@@ -32,13 +34,15 @@ const Article: FunctionComponent<ArticleProps> = ({
     }
   `);
   return (
-    <ArticleWrapper to="/about" reverse={reverse}>
-      <Color reverse={reverse} category={category}></Color>
+    <ArticleWrapper to="/" reverse={reverse}>
+      <Color category={category}></Color>
       <ArticleContent reverse={reverse}>
         <Image fluid={data.logo.childImageSharp.fluid} reverse={reverse} />
         <Text>
-          <Titel>{title ? title : 'Titel saknas'}</Titel>
-          <Date>{date ? date : 'Datum saknas'}</Date>
+          <Titel variant="2">{title ? title : 'Titel saknas'}</Titel>
+          <Date>
+            <B>{date ? date : 'Datum saknas'}</B>
+          </Date>
           <Description>
             {description
               ? description
@@ -112,22 +116,21 @@ const Text = styled.div`
   }
 `;
 
-const Titel = styled(H1)`
+const Titel = styled(H)`
   margin: 0;
-  color: black;
   @media (max-width: ${theme.breakpoints.md + 'px'}) {
     font-size: 20px;
   }
 `;
 
-const Date = styled.h5`
+const Date = styled(P)`
   margin: 1rem 0 2rem 0;
   @media (max-width: ${theme.breakpoints.md + 'px'}) {
     margin: 1rem 0 1rem 0;
   }
 `;
 
-const Description = styled.div`
+const Description = styled(P)`
   display: block;
   overflow: hidden;
 
