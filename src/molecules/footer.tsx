@@ -13,12 +13,39 @@ const Footer: FunctionComponent = () => {
           }
         }
       }
+      facebook: file(relativePath: { eq: "facebook.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 1000) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      instagram: file(relativePath: { eq: "instagram.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 1000) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      github: file(relativePath: { eq: "github.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 1000) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   `);
   return (
     <FooterWrapper>
-      <Logo fluid={data.logo.childImageSharp.fluid} />
-      <SocialMedia></SocialMedia>
+      <LogoContainer>
+        <Logo fluid={data.logo.childImageSharp.fluid} />
+      </LogoContainer>
+      <SocialMedia>
+        <Facebook fluid={data.facebook.childImageSharp.fluid} />
+        <Instagram fluid={data.instagram.childImageSharp.fluid} />
+        <Github fluid={data.github.childImageSharp.fluid} />
+      </SocialMedia>
       <Links></Links>
     </FooterWrapper>
   );
@@ -26,15 +53,41 @@ const Footer: FunctionComponent = () => {
 
 const FooterWrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  padding-top: 3%;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 24%;
+  background-color: black;
+`;
+
+const LogoContainer = styled.div`
+  display: inline-flex;
+
+  margin-left: 4vw;
+  align-items: center;
 `;
 
 const Logo = styled(Img)`
-  width: 46%;
+  max-width: 80%;
+  height: auto;
+  width: 16vh;
 `;
 
-const SocialMedia = styled.div``;
+const SocialMedia = styled.div`
+  align-items: center;
+  display: inline-flex;
+`;
+
+const Facebook = styled(Img)`
+  max-width: 80%;
+  height: auto;
+`;
+const Instagram = styled(Img)`
+  filter: invert(100%);
+`;
+const Github = styled(Img)`
+  filter: invert(100%);
+`;
 
 const Links = styled.div``;
 
