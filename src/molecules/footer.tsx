@@ -62,7 +62,6 @@ const FooterWrapper = styled.div`
 
 const LogoContainer = styled.div`
   display: inline-flex;
-
   margin-left: 4vw;
   align-items: center;
 `;
@@ -75,6 +74,7 @@ const Logo = styled(Img)`
 
 const SocialMedia = styled.div`
   align-items: center;
+  justify-content: center;
   display: inline-flex;
 `;
 
@@ -82,12 +82,10 @@ const Facebook = styled(Img)`
   max-width: 80%;
   height: auto;
 `;
-const Instagram = styled(Img)`
-  filter: invert(100%);
-`;
-const Github = styled(Img)`
-  filter: invert(100%);
-`;
+
+const Instagram = styled(Img)``;
+
+const Github = styled(Img)``;
 
 const Links = styled.div``;
 
