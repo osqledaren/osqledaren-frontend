@@ -1,11 +1,16 @@
 import React, { FunctionComponent } from 'react';
-import H1 from '../atoms/H1';
+import H from '../atoms/H';
 import Layout from '../organisms/Layout';
+import P from '../atoms/P';
+import B from '../atoms/B';
 
 const Index: FunctionComponent = () => (
-  <Layout>
-    <H1>Main content</H1>
-  </Layout>
+    <Layout>
+      <H>Main content</H>
+      <P>
+        Hej <B>bold</B>
+      </P>
+    </Layout>
 );
 
 export default Index;
