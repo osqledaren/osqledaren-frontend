@@ -22,6 +22,7 @@ const Article: FunctionComponent<ArticleProps> = ({
   description,
   category,
 }) => {
+  //Update how to fetch images when the cms is ready, this only fetches a local image./Johannes
   const data = useStaticQuery(graphql`
     query {
       logo: file(relativePath: { eq: "test.png" }) {
@@ -34,10 +35,12 @@ const Article: FunctionComponent<ArticleProps> = ({
     }
   `);
   return (
-    <ArticleWrapper to="/" reverse={reverse}>
+    <ArticleWrapper to="/">
       <Color category={category}></Color>
       <ArticleContent reverse={reverse}>
-        <Image fluid={data.logo.childImageSharp.fluid} reverse={reverse} />
+        <Image reverse={reverse}>
+          <Img fluid={data.logo.childImageSharp.fluid}></Img>
+        </Image>
         <Text>
           <Titel variant="4">{title ? title : 'Titel saknas'}</Titel>
           <Date size="11">{date ? date : 'Datum saknas'}</Date>
@@ -92,8 +95,9 @@ const ArticleContent = styled.div<ArticleProps>`
     flex-direction: column;
   }
 `;
-const Image = styled(Img)<ArticleProps>`
-  width: 40%;
+
+const Image = styled.div<ArticleProps>`
+  width: 50%;
   margin: ${props => {
     return props.reverse == 'true' ? '0 1rem 0 0' : '0 0 0 1rem';
   }};
@@ -104,7 +108,7 @@ const Image = styled(Img)<ArticleProps>`
 `;
 
 const Text = styled.div`
-  width: 55%;
+  width: 50%;
   word-wrap: break-word;
   padding-left: 2rem;
   padding-right: 2rem;
@@ -118,6 +122,7 @@ const Titel = styled(H)`
   margin: 0;
   @media (max-width: ${theme.breakpoints.md + 'px'}) {
     font-size: 20px;
+    padding-top: 1rem;
   }
 `;
 
