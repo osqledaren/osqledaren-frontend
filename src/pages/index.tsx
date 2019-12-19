@@ -17,7 +17,7 @@ const Index: FunctionComponent = () => (
       title="En najs artikel om coola saker"
       date="2020-01-01"
     ></Article>
-    <Article category={'english'} reverse="true"></Article>
+    <Article category={'english'} reverse="true" expand="false"></Article>
     <Article category={'olGraver'}></Article>
     <Article category={'underhallning'} reverse="true"></Article>
     <Article category={'aktuellt'}></Article>

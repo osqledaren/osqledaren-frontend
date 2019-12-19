@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import { graphql, useStaticQuery, Link } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from '../styles/styled';
@@ -13,6 +13,7 @@ interface ArticleProps {
   date?: string;
   description?: string;
   category?: string;
+  expand?: string;
 }
 
 const Article: FunctionComponent<ArticleProps> = ({
@@ -21,6 +22,7 @@ const Article: FunctionComponent<ArticleProps> = ({
   date,
   description,
   category,
+  expand,
 }) => {
   //Update how to fetch images when the cms is ready, this only fetches a local image./Johannes
   const data = useStaticQuery(graphql`
@@ -34,36 +36,44 @@ const Article: FunctionComponent<ArticleProps> = ({
       }
     }
   `);
+  const [isExpanded, setExpand] = useState(expand);
   return (
-    <ArticleWrapper to="/">
+    <ArticleWrapper>
       <Color category={category}></Color>
-      <ArticleContent reverse={reverse}>
-        <Image reverse={reverse}>
+      <ArticleContent to="/" reverse={reverse}>
+        <Image expand={isExpanded}>
           <Img fluid={data.logo.childImageSharp.fluid}></Img>
         </Image>
         <Text>
           <Titel variant="4">{title ? title : 'Titel saknas'}</Titel>
-          <Date size="11">{date ? date : 'Datum saknas'}</Date>
-          <Description>
+          <Date size="11" expand={isExpanded}>
+            {date ? date : 'Datum saknas'}
+          </Date>
+          <Description expand={isExpanded}>
             {description
               ? description
               : 'Beskrivning saknas Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'}
           </Description>
         </Text>
       </ArticleContent>
+      <ArrowDown expand={isExpanded} onClick={() => setExpand('true')}>
+        Pilen Ner
+      </ArrowDown>
+      <ArrowUp expand={isExpanded} onClick={() => setExpand('false')}>
+        Pilen Upp
+      </ArrowUp>
     </ArticleWrapper>
   );
 };
 
-const ArticleWrapper = styled(Link)<ArticleProps>`
+const ArticleWrapper = styled.div<ArticleProps>`
   display: flex;
+  z-index: 1;
   flex-direction: ${props => {
     return props.reverse == 'true' ? 'row-reverse' : 'row';
   }};
   width: 60%;
   margin-top: 2rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
   align-content: center;
   text-decoration: none;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -71,7 +81,6 @@ const ArticleWrapper = styled(Link)<ArticleProps>`
   &:hover {
     box-shadow: 0 4px 5px rgba(0, 0, 0, 0.16), 0 4px 5px rgba(0, 0, 0, 0.22);
   }
-
   @media (max-width: ${theme.breakpoints.md + 'px'}) {
     width: 80%;
   }
@@ -85,8 +94,10 @@ const Color = styled.div<ArticleProps>`
   min-width: 12px;
 `;
 
-const ArticleContent = styled.div<ArticleProps>`
+const ArticleContent = styled(Link)<ArticleProps>`
   display: flex;
+  text-decoration: none;
+  margin: 1rem;
   width: 100%;
   flex-direction: ${props => {
     return props.reverse == 'true' ? 'row-reverse' : 'row';
@@ -97,13 +108,16 @@ const ArticleContent = styled.div<ArticleProps>`
 `;
 
 const Image = styled.div<ArticleProps>`
-  width: 50%;
-  margin: ${props => {
-    return props.reverse == 'true' ? '0 1rem 0 0' : '0 0 0 1rem';
+  display: ${props => {
+    return props.expand == 'false' ? 'none' : '';
   }};
+  width: 50%;
   @media (max-width: ${theme.breakpoints.sm + 'px'}) {
     width: 85%;
     margin-left: 2rem;
+    margin-bottom: ${props => {
+      return props.expand == 'false' ? '0' : '1rem';
+    }};
   }
 `;
 
@@ -122,29 +136,51 @@ const Titel = styled(H)`
   margin: 0;
   @media (max-width: ${theme.breakpoints.md + 'px'}) {
     font-size: 20px;
-    padding-top: 1rem;
+    padding-top: 0rem;
   }
 `;
 
-const Date = styled(B)`
+const Date = styled(B)<ArticleProps>`
+  display: ${props => {
+    return props.expand == 'false' ? 'none' : '';
+  }};
   color: gray;
   @media (max-width: ${theme.breakpoints.md + 'px'}) {
     margin: 1rem 0 1rem 0;
   }
 `;
 
-const Description = styled(P)`
-  display: block;
-  overflow: hidden;
-
-  text-overflow: ellipsis;
-  display: -webkit-box;
+const Description = styled(P)<ArticleProps>`
+  display: ${props => {
+    return props.expand == 'false' ? 'none' : '-webkit-box';
+  }};
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 5;
+  overflow: hidden;
+  text-overflow: ellipsis;
   @media (max-width: ${theme.breakpoints.md + 'px'}) {
     font-size: 16px;
     -webkit-line-clamp: 4;
   }
+`;
+
+const Arrow = styled.div`
+  height: 10px;
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+const ArrowDown = styled(Arrow)<ArticleProps>`
+  display: ${props => {
+    return props.expand == 'false' ? '' : 'none';
+  }};
+`;
+
+const ArrowUp = styled(Arrow)<ArticleProps>`
+  display: ${props => {
+    return props.expand == 'false' ? 'none' : '';
+  }};
 `;
 
 export default Article;
