@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import Filterbar from '../molecules/FilterBar'
 import Img from 'gatsby-image';
 import styled from '../styles/styled';
 
@@ -19,13 +18,13 @@ const Header: FunctionComponent = () => {
   return (
     <HeaderWrapper>
       <Logo fluid={data.logo.childImageSharp.fluid} />
-      <Filterbar></Filterbar>
     </HeaderWrapper>
   );
 };
 
 const HeaderWrapper = styled.div`
   width: 50%;
+  justify-content: center;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -38,9 +37,8 @@ const HeaderWrapper = styled.div`
 `;
 
 const Logo = styled(Img)`
-  width: 90%;
+  width: 50vw;
   @media (max-width: ${({ theme }) => theme.breakpoints.sm + 'px'}) {
-    width: 90%;
     display: none;
   }
 `;

@@ -17,9 +17,16 @@ const Bar = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 100%;
+  width: 55vw;
   padding-bottom: 2%;
   max-height: 2vw;
+  position: sticky;
+  top: 0;
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm + 'px'}) {
+    width: 80%;
+    position: fixed;
+    top: 0;
+  }
 `;
 
 export default Filterbar;
