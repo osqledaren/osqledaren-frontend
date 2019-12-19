@@ -18,24 +18,29 @@ const Header: FunctionComponent = () => {
   return (
     <HeaderWrapper>
       <Logo fluid={data.logo.childImageSharp.fluid} />
-      <div>Filterbar</div>
     </HeaderWrapper>
   );
 };
 
 const HeaderWrapper = styled.div`
   width: 50%;
+  justify-content: center;
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-top: 3%;
+  padding-top: 2%;
   @media (max-width: ${({ theme }) => theme.breakpoints.sm + 'px'}) {
-    width: 90%;
+    width: 80%;
+    padding-top: 0%;
+    padding-bottom: 10%;
   }
 `;
 
 const Logo = styled(Img)`
-  width: 100%;
+  width: 50vw;
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm + 'px'}) {
+    display: none;
+  }
 `;
 
 export default Header;
