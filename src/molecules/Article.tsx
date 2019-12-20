@@ -146,8 +146,13 @@ const Text = styled.div<ArticleProps>`
     return props.expandstring == 'false' ? '100%' : '50%';
   }};
   padding: ${props => {
-    return props.reversestring == 'true' ? '0 1rem 0 0' : '0 0 0 1rem';
+    if (props.expandstring == 'true') {
+      return props.reversestring == 'true' ? '0 1rem 0 0' : '0 0 0 1rem';
+    } else {
+      return '0';
+    }
   }};
+
   word-wrap: break-word;
   color: black;
 
