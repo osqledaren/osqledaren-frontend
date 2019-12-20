@@ -8,12 +8,14 @@ import P from '../atoms/P';
 import B from '../atoms/B';
 
 interface ArticleProps {
-  reverse?: string;
+  reverse?: boolean;
+  reversestring?: string;
   title?: string;
   date?: string;
   description?: string;
   category?: string;
-  expand?: string;
+  expand?: boolean;
+  expandstring?: string;
 }
 
 const Article: FunctionComponent<ArticleProps> = ({
@@ -22,7 +24,7 @@ const Article: FunctionComponent<ArticleProps> = ({
   date,
   description,
   category,
-  expand,
+  expand = true,
 }) => {
   //Update how to fetch images when the cms is ready, this only fetches a local image./Johannes
   const data = useStaticQuery(graphql`
@@ -46,33 +48,43 @@ const Article: FunctionComponent<ArticleProps> = ({
   const [isExpanded, setExpand] = useState(expand);
 
   function checkExpand() {
-    if (isExpanded == 'false') {
-      setExpand('true');
+    if (isExpanded) {
+      setExpand(false);
     } else {
-      setExpand('false');
+      setExpand(true);
+    }
+  }
+
+  //Needed because of unsolvable error when using only boolean
+  function valueToString(value: boolean) {
+    if (value != undefined) {
+      return value.toString();
     }
   }
 
   return (
     <ArticleWrapper>
       <Color category={category}></Color>
-      <ArticleContent to="/" reverse={reverse}>
-        <Image expand={isExpanded}>
+      <ArticleContent to="/" reversestring={valueToString(reverse)}>
+        <Image expandstring={valueToString(isExpanded)}>
           <Img fluid={data.logo.childImageSharp.fluid}></Img>
         </Image>
-        <Text expand={isExpanded} reverse={reverse}>
+        <Text
+          expandstring={valueToString(isExpanded)}
+          reversestring={valueToString(reverse)}
+        >
           <Titel variant="4">{title ? title : 'Titel saknas'}</Titel>
-          <Date size="11" expand={isExpanded}>
+          <Date size="11" expandstring={valueToString(isExpanded)}>
             {date ? date : 'Datum saknas'}
           </Date>
-          <Description expand={isExpanded}>
+          <Description expandstring={valueToString(isExpanded)}>
             {description
               ? description
               : 'Beskrivning saknas Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'}
           </Description>
         </Text>
       </ArticleContent>
-      <Arrow expand={isExpanded} onClick={checkExpand}>
+      <Arrow expandstring={valueToString(isExpanded)} onClick={checkExpand}>
         <Img fluid={data.arrow.childImageSharp.fluid}></Img>
       </Arrow>
     </ArticleWrapper>
@@ -110,7 +122,7 @@ const ArticleContent = styled(Link)<ArticleProps>`
   margin: 1rem;
   width: 95%;
   flex-direction: ${props => {
-    return props.reverse == 'true' ? 'row-reverse' : 'row';
+    return props.reversestring == 'true' ? 'row-reverse' : 'row';
   }};
   @media (max-width: ${theme.breakpoints.sm + 'px'}) {
     flex-direction: column;
@@ -120,7 +132,7 @@ const ArticleContent = styled(Link)<ArticleProps>`
 
 const Image = styled.div<ArticleProps>`
   display: ${props => {
-    return props.expand == 'false' ? 'none' : '';
+    return props.expandstring == 'false' ? 'none' : '';
   }};
   width: 50%;
   @media (max-width: ${theme.breakpoints.sm + 'px'}) {
@@ -131,10 +143,10 @@ const Image = styled.div<ArticleProps>`
 
 const Text = styled.div<ArticleProps>`
   width: ${props => {
-    return props.expand == 'false' ? '100%' : '50%';
+    return props.expandstring == 'false' ? '100%' : '50%';
   }};
   padding: ${props => {
-    return props.reverse == 'true' ? '0 1rem 0 0' : '0 0 0 1rem';
+    return props.reversestring == 'true' ? '0 1rem 0 0' : '0 0 0 1rem';
   }};
   word-wrap: break-word;
   color: black;
@@ -155,7 +167,7 @@ const Titel = styled(H)`
 
 const Date = styled(B)<ArticleProps>`
   display: ${props => {
-    return props.expand == 'false' ? 'none' : '';
+    return props.expandstring == 'false' ? 'none' : '';
   }};
   color: gray;
   @media (max-width: ${theme.breakpoints.md + 'px'}) {
@@ -165,7 +177,7 @@ const Date = styled(B)<ArticleProps>`
 
 const Description = styled(P)<ArticleProps>`
   display: ${props => {
-    return props.expand == 'false' ? 'none' : '-webkit-box';
+    return props.expandstring == 'false' ? 'none' : '-webkit-box';
   }};
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 5;
@@ -188,7 +200,7 @@ const Arrow = styled.div<ArticleProps>`
   }
   padding-top: 1rem;
   transform: ${props => {
-    return props.expand == 'false' ? '' : 'rotate(180deg)';
+    return props.expandstring == 'false' ? '' : 'rotate(180deg)';
   }};
 `;
 
