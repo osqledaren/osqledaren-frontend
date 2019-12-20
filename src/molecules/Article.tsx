@@ -34,9 +34,25 @@ const Article: FunctionComponent<ArticleProps> = ({
           }
         }
       }
+      arrow: file(relativePath: { eq: "down.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 1000) {
+            ...GatsbyImageSharpFluid_noBase64
+          }
+        }
+      }
     }
   `);
   const [isExpanded, setExpand] = useState(expand);
+
+  function checkExpand() {
+    if (isExpanded == 'false') {
+      setExpand('true');
+    } else {
+      setExpand('false');
+    }
+  }
+
   return (
     <ArticleWrapper>
       <Color category={category}></Color>
@@ -44,7 +60,7 @@ const Article: FunctionComponent<ArticleProps> = ({
         <Image expand={isExpanded}>
           <Img fluid={data.logo.childImageSharp.fluid}></Img>
         </Image>
-        <Text>
+        <Text expand={isExpanded} reverse={reverse}>
           <Titel variant="4">{title ? title : 'Titel saknas'}</Titel>
           <Date size="11" expand={isExpanded}>
             {date ? date : 'Datum saknas'}
@@ -56,25 +72,19 @@ const Article: FunctionComponent<ArticleProps> = ({
           </Description>
         </Text>
       </ArticleContent>
-      <ArrowDown expand={isExpanded} onClick={() => setExpand('true')}>
-        Pilen Ner
-      </ArrowDown>
-      <ArrowUp expand={isExpanded} onClick={() => setExpand('false')}>
-        Pilen Upp
-      </ArrowUp>
+      <Arrow expand={isExpanded} onClick={checkExpand}>
+        <Img fluid={data.arrow.childImageSharp.fluid}></Img>
+      </Arrow>
     </ArticleWrapper>
   );
 };
 
-const ArticleWrapper = styled.div<ArticleProps>`
+const ArticleWrapper = styled.div`
   display: flex;
-  z-index: 1;
-  flex-direction: ${props => {
-    return props.reverse == 'true' ? 'row-reverse' : 'row';
-  }};
+  flex-direction: row;
+  align-content: center;
   width: 60%;
   margin-top: 2rem;
-  align-content: center;
   text-decoration: none;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -98,12 +108,13 @@ const ArticleContent = styled(Link)<ArticleProps>`
   display: flex;
   text-decoration: none;
   margin: 1rem;
-  width: 100%;
+  width: 95%;
   flex-direction: ${props => {
     return props.reverse == 'true' ? 'row-reverse' : 'row';
   }};
   @media (max-width: ${theme.breakpoints.sm + 'px'}) {
     flex-direction: column;
+    margin-right: 0;
   }
 `;
 
@@ -113,22 +124,24 @@ const Image = styled.div<ArticleProps>`
   }};
   width: 50%;
   @media (max-width: ${theme.breakpoints.sm + 'px'}) {
-    width: 85%;
-    margin-left: 2rem;
-    margin-bottom: ${props => {
-      return props.expand == 'false' ? '0' : '1rem';
-    }};
+    width: 95%;
+    margin-bottom: 1rem;
   }
 `;
 
-const Text = styled.div`
-  width: 50%;
+const Text = styled.div<ArticleProps>`
+  width: ${props => {
+    return props.expand == 'false' ? '100%' : '50%';
+  }};
+  padding: ${props => {
+    return props.reverse == 'true' ? '0 1rem 0 0' : '0 0 0 1rem';
+  }};
   word-wrap: break-word;
-  padding-left: 2rem;
-  padding-right: 2rem;
   color: black;
+
   @media (max-width: ${theme.breakpoints.sm + 'px'}) {
-    width: 85%;
+    width: 100%;
+    padding: 0;
   }
 `;
 
@@ -164,22 +177,18 @@ const Description = styled(P)<ArticleProps>`
   }
 `;
 
-const Arrow = styled.div`
-  height: 10px;
+const Arrow = styled.div<ArticleProps>`
+  height: 100%;
+  width: 5%;
+  @media (max-width: ${theme.breakpoints.sm + 'px'}) {
+    width: 10%;
+  }
   &:hover {
     cursor: pointer;
   }
-`;
-
-const ArrowDown = styled(Arrow)<ArticleProps>`
-  display: ${props => {
-    return props.expand == 'false' ? '' : 'none';
-  }};
-`;
-
-const ArrowUp = styled(Arrow)<ArticleProps>`
-  display: ${props => {
-    return props.expand == 'false' ? 'none' : '';
+  padding-top: 1rem;
+  transform: ${props => {
+    return props.expand == 'false' ? '' : 'rotate(180deg)';
   }};
 `;
 
