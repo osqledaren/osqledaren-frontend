@@ -65,7 +65,11 @@ const Article: FunctionComponent<ArticleProps> = ({
   return (
     <ArticleWrapper>
       <Color category={category}></Color>
-      <ArticleContent to="/" reversestring={valueToString(reverse)}>
+      <ArticleContent
+        to="/"
+        reversestring={valueToString(reverse)}
+        expandstring={valueToString(isExpanded)}
+      >
         <Image expandstring={valueToString(isExpanded)}>
           <Img fluid={data.logo.childImageSharp.fluid}></Img>
         </Image>
@@ -122,7 +126,9 @@ const ArticleContent = styled(Link)<ArticleProps>`
   margin: 1rem;
   width: 95%;
   flex-direction: ${props => {
-    return props.reversestring == 'true' ? 'row-reverse' : 'row';
+    return props.reversestring == 'true' && props.expandstring == 'true'
+      ? 'row-reverse'
+      : 'row';
   }};
   @media (max-width: ${theme.breakpoints.sm + 'px'}) {
     flex-direction: column;
@@ -135,6 +141,15 @@ const Image = styled.div<ArticleProps>`
     return props.expandstring == 'false' ? 'none' : '';
   }};
   width: 50%;
+  animation: fadeIn 0s forwards;
+  animation-duration: 1s;
+  opacity: 0;
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
   @media (max-width: ${theme.breakpoints.sm + 'px'}) {
     width: 95%;
     margin-bottom: 1rem;
@@ -152,7 +167,6 @@ const Text = styled.div<ArticleProps>`
       return '0';
     }
   }};
-
   word-wrap: break-word;
   color: black;
 
@@ -164,6 +178,7 @@ const Text = styled.div<ArticleProps>`
 
 const Titel = styled(H)`
   margin: 0;
+  visibility: visible;
   @media (max-width: ${theme.breakpoints.md + 'px'}) {
     font-size: 20px;
     padding-top: 0rem;
@@ -178,12 +193,28 @@ const Date = styled(B)<ArticleProps>`
   @media (max-width: ${theme.breakpoints.md + 'px'}) {
     margin: 1rem 0 1rem 0;
   }
+  animation: fadeIn 0s forwards;
+  animation-duration: 1s;
+  opacity: 0;
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
 `;
 
 const Description = styled(P)<ArticleProps>`
   display: ${props => {
     return props.expandstring == 'false' ? 'none' : '-webkit-box';
   }};
+  animation: fadeIn 0s forwards;
+  animation-duration: 1s;
+  opacity: 0;
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 5;
   overflow: hidden;
