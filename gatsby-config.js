@@ -11,6 +11,16 @@ module.exports = {
         name: 'images',
       },
     },
+    {
+      resolve: 'gatsby-source-sanity',
+      options: {
+        projectId: 'ih69fm79',
+        dataset: 'production',
+        // a token with read permissions is required
+        // // if you have a private dataset
+        // token: process.env.MY_SANITY_TOKEN,
+      },
+    },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     'gatsby-plugin-emotion',
