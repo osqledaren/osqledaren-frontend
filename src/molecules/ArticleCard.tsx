@@ -117,7 +117,7 @@ const Image = styled.div<ArticleProps>`
   }};
   width: 50%;
   animation: fadeIn 0s forwards;
-  animation-duration: 1s;
+  animation-duration: 1.5s;
   opacity: 0;
   @keyframes fadeIn {
     to {
@@ -169,7 +169,7 @@ const Date = styled(B)<ArticleProps>`
     margin: 1rem 0 1rem 0;
   }
   animation: fadeIn 0s forwards;
-  animation-duration: 1s;
+  animation-duration: 1.5s;
   opacity: 0;
   @keyframes fadeIn {
     to {
@@ -183,7 +183,7 @@ const Description = styled(P)<ArticleProps>`
     return props.expandstring == 'false' ? 'none' : '-webkit-box';
   }};
   animation: fadeIn 0s forwards;
-  animation-duration: 1s;
+  animation-duration: 1.5s;
   opacity: 0;
   @keyframes fadeIn {
     to {
