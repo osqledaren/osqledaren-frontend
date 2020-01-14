@@ -1,5 +1,6 @@
 import React, { FunctionComponent, useState } from 'react';
 import { graphql, useStaticQuery, Link } from 'gatsby';
+import MediaCard from './MediaCard';
 import Img from 'gatsby-image';
 import styled from '../styles/styled';
 import theme from '../styles/theme';
@@ -13,12 +14,12 @@ interface ArticleProps {
   title?: string;
   date?: string;
   description?: string;
-  category?: string;
+  category?: string; //Takes: branch, english, olGraver, underhallning, aktuellt or podcast as input
   expand?: boolean;
   expandstring?: string;
 }
 
-const Article: FunctionComponent<ArticleProps> = ({
+const ArticleCard: FunctionComponent<ArticleProps> = ({
   reverse,
   title,
   date,
@@ -63,10 +64,9 @@ const Article: FunctionComponent<ArticleProps> = ({
   }
 
   return (
-    <ArticleWrapper>
-      <Color category={category}></Color>
+    <MediaCard category={category}>
       <ArticleContent
-        to="/"
+        to="/about"
         reversestring={valueToString(reverse)}
         expandstring={valueToString(isExpanded)}
       >
@@ -91,34 +91,9 @@ const Article: FunctionComponent<ArticleProps> = ({
       <Arrow expandstring={valueToString(isExpanded)} onClick={checkExpand}>
         <Img fluid={data.arrow.childImageSharp.fluid}></Img>
       </Arrow>
-    </ArticleWrapper>
+    </MediaCard>
   );
 };
-
-const ArticleWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-content: center;
-  width: 60%;
-  margin-top: 2rem;
-  text-decoration: none;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  &:hover {
-    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.16), 0 4px 5px rgba(0, 0, 0, 0.22);
-  }
-  @media (max-width: ${theme.breakpoints.md + 'px'}) {
-    width: 80%;
-  }
-`;
-
-const Color = styled.div<ArticleProps>`
-  background: ${props => {
-    return theme.colors[props.category];
-  }};
-  width: 12px;
-  min-width: 12px;
-`;
 
 const ArticleContent = styled(Link)<ArticleProps>`
   display: flex;
@@ -240,4 +215,4 @@ const Arrow = styled.div<ArticleProps>`
   }};
 `;
 
-export default Article;
+export default ArticleCard;
