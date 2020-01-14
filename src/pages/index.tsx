@@ -5,12 +5,12 @@ import P from '../atoms/P';
 import B from '../atoms/B';
 
 const Index: FunctionComponent = () => (
-    <Layout>
-      <H>Main content</H>
-      <P>
-        Hej <B>bold</B>
-      </P>
-    </Layout>
+  <Layout>
+    <H>Main content</H>
+    <P>
+      Hej <B>bold</B>
+    </P>
+  </Layout>
 );
 
 export default Index;
