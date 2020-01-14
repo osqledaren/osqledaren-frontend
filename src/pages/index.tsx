@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import Layout from '../organisms/Layout';
 import ArticleCard from '../molecules/ArticleCard';
-import MediaCard from '../molecules/MediaCard';
 const Index: FunctionComponent = () => (
   <Layout>
     <ArticleCard

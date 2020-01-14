@@ -1,6 +1,3 @@
-// This is the types for theme variables
-export type Theme = typeof theme;
-
 // This is where the theme variables are defined
 const theme = {
   colors: {
@@ -27,5 +24,8 @@ const theme = {
     xl: 1200,
   },
 };
+
+// This is the types for theme variables
+export type Theme = typeof theme;
 
 export default theme;
