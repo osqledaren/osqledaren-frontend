@@ -46,7 +46,11 @@ const Footer: FunctionComponent = () => {
         <Instagram fluid={data.instagram.childImageSharp.fluid} />
         <Github fluid={data.github.childImageSharp.fluid} />
       </SocialMedia>
-      <Links></Links>
+      <Links>
+        <Link>About</Link>
+        <Link>Advertize</Link>
+        <Link>Apply to OL</Link>
+      </Links>
     </FooterWrapper>
   );
 };
@@ -76,17 +80,32 @@ const SocialMedia = styled.div`
   align-items: center;
   justify-content: center;
   display: inline-flex;
+  width: 30vw;
 `;
 
 const Facebook = styled(Img)`
   max-width: 80%;
   height: auto;
+  width: 3vh;
+  margin: 10%;
 `;
 
-const Instagram = styled(Img)``;
+const Instagram = styled(Img)`
+  max-width: 80%;
+  height: auto;
+  width: 4vh;
+`;
 
-const Github = styled(Img)``;
+const Github = styled(Img)`
+  max-width: 80%;
+  height: auto;
+  width: 4vh;
+`;
 
 const Links = styled.div``;
+
+const Link = styled.div`
+  color: white;
+`;
 
 export default Footer;
