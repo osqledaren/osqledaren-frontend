@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery, Link } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from '@emotion/styled';
 
@@ -36,20 +36,33 @@ const Footer: FunctionComponent = () => {
       }
     }
   `);
+
+  const goTo = (url: string) => (): void => {
+    window.location.href = url;
+  };
+
   return (
     <FooterWrapper>
       <LogoContainer>
         <Logo fluid={data.logo.childImageSharp.fluid} />
       </LogoContainer>
       <SocialMedia>
-        <Facebook fluid={data.facebook.childImageSharp.fluid} />
-        <Instagram fluid={data.instagram.childImageSharp.fluid} />
-        <Github fluid={data.github.childImageSharp.fluid} />
+        <FacebookWrapper onClick={goTo('https://www.facebook.com/osqledaren')}>
+          <Facebook fluid={data.facebook.childImageSharp.fluid} />
+        </FacebookWrapper>
+        <InstagramWrapper
+          onClick={goTo('https://www.instagram.com/osqledaren/')}
+        >
+          <Instagram fluid={data.instagram.childImageSharp.fluid} />
+        </InstagramWrapper>
+        <GithubWrapper onClick={goTo('https://github.com/osqledaren')}>
+          <Github fluid={data.github.childImageSharp.fluid} />
+        </GithubWrapper>
       </SocialMedia>
       <Links>
-        <Link>About</Link>
-        <Link>Advertize</Link>
-        <Link>Apply to OL</Link>
+        <PageLink to="/about">About</PageLink>
+        <PageLink to="/">Advertize</PageLink>
+        <PageLink to="/">Apply to OL</PageLink>
       </Links>
     </FooterWrapper>
   );
@@ -83,28 +96,41 @@ const SocialMedia = styled.div`
   width: 30vw;
 `;
 
-const Facebook = styled(Img)`
+const FacebookWrapper = styled.div`
   max-width: 80%;
   height: auto;
   width: 3vh;
   margin: 10%;
 `;
 
-const Instagram = styled(Img)`
+const InstagramWrapper = styled.div`
   max-width: 80%;
   height: auto;
-  width: 4vh;
+  width: 5vh;
 `;
 
-const Github = styled(Img)`
-  max-width: 80%;
+const GithubWrapper = styled.div`
+  max-width: 100%;
   height: auto;
-  width: 4vh;
+  width: 5vh;
+  margin: 10%;
 `;
 
-const Links = styled.div``;
+const Facebook = styled(Img)``;
 
-const Link = styled.div`
+const Instagram = styled(Img)``;
+
+const Github = styled(Img)``;
+
+const Links = styled.div`
+  display: block;
+  position: absolute;
+  right: 14%;
+  margin-top: 8vh;
+`;
+
+const PageLink = styled(Link)`
+  display: block;
   color: white;
 `;
 
