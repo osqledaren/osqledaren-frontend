@@ -48,15 +48,15 @@ const Footer: FunctionComponent = () => {
       </LogoContainer>
       <SocialMedia>
         <FacebookWrapper onClick={goTo('https://www.facebook.com/osqledaren')}>
-          <Facebook fluid={data.facebook.childImageSharp.fluid} />
+          <Img fluid={data.facebook.childImageSharp.fluid} />
         </FacebookWrapper>
         <InstagramWrapper
           onClick={goTo('https://www.instagram.com/osqledaren/')}
         >
-          <Instagram fluid={data.instagram.childImageSharp.fluid} />
+          <Img fluid={data.instagram.childImageSharp.fluid} />
         </InstagramWrapper>
         <GithubWrapper onClick={goTo('https://github.com/osqledaren')}>
-          <Github fluid={data.github.childImageSharp.fluid} />
+          <Img fluid={data.github.childImageSharp.fluid} />
         </GithubWrapper>
       </SocialMedia>
       <Links>
@@ -115,12 +115,6 @@ const GithubWrapper = styled.div`
   width: 5vh;
   margin: 10%;
 `;
-
-const Facebook = styled(Img)``;
-
-const Instagram = styled(Img)``;
-
-const Github = styled(Img)``;
 
 const Links = styled.div`
   display: block;
