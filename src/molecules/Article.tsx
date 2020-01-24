@@ -3,7 +3,7 @@ import { graphql, useStaticQuery, Link } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from '../styles/styled';
 import theme from '../styles/theme';
-import H1 from '../atoms/H1';
+import H from '../atoms/H';
 
 interface ArticleProps {
   reverse?: boolean;
@@ -112,7 +112,7 @@ const Text = styled.div`
   }
 `;
 
-const Titel = styled(H1)`
+const Titel = styled(H)`
   margin: 0;
   color: black;
   @media (max-width: ${theme.breakpoints.md + 'px'}) {
