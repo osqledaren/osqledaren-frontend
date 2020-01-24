@@ -89,6 +89,7 @@ const LinkWrapper = styled(Link)`
 `;
 const ArticleContent = styled.div<ArticleProps>`
   display: flex;
+
   margin: 1rem;
   flex-direction: ${props => {
     return props.reverse && props.expand ? 'row-reverse' : 'row';
@@ -121,7 +122,7 @@ const Image = styled.div<ArticleProps>`
 
 const Text = styled.div<ArticleProps>`
   width: ${props => {
-    return props.expand ? '100%' : '50%';
+    return props.expand ? '50%' : '50%';
   }};
   padding: ${props => {
     if (props.expand) {
