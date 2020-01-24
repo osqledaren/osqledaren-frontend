@@ -15,7 +15,7 @@ const MediaCard: FunctionComponent<CardProps> = ({ children, category }) => {
   );
 };
 
-const MediaWrapper = styled.div`
+const MediaWrapper = styled.div<CardProps>`
   display: flex;
   flex-direction: row;
   align-content: center;

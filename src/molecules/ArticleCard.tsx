@@ -10,13 +10,12 @@ import B from '../atoms/B';
 
 interface ArticleProps {
   reverse?: boolean;
-  reversestring?: string;
   title?: string;
   date?: string;
   description?: string;
   category?: string; //Takes: branch, english, olGraver, underhallning, aktuellt or podcast as input
   expand?: boolean;
-  expandstring?: string;
+  to?: string;
 }
 
 const ArticleCard: FunctionComponent<ArticleProps> = ({
@@ -25,6 +24,7 @@ const ArticleCard: FunctionComponent<ArticleProps> = ({
   date,
   description,
   category,
+  to = '/',
   expand = true,
 }) => {
   //Update how to fetch images when the cms is ready, this only fetches a local image./Johannes
@@ -56,54 +56,42 @@ const ArticleCard: FunctionComponent<ArticleProps> = ({
     }
   }
 
-  //Needed because of unsolvable error when using only boolean
-  function valueToString(value: boolean) {
-    if (value != undefined) {
-      return value.toString();
-    }
-  }
-
   return (
     <MediaCard category={category}>
-      <ArticleContent
-        to="/about"
-        reversestring={valueToString(reverse)}
-        expandstring={valueToString(isExpanded)}
-      >
-        <Image expandstring={valueToString(isExpanded)}>
-          <Img fluid={data.logo.childImageSharp.fluid}></Img>
-        </Image>
-        <Text
-          expandstring={valueToString(isExpanded)}
-          reversestring={valueToString(reverse)}
-        >
-          <Titel variant="4">{title ? title : 'Titel saknas'}</Titel>
-          <Date size="11" expandstring={valueToString(isExpanded)}>
-            {date ? date : 'Datum saknas'}
-          </Date>
-          <Description expandstring={valueToString(isExpanded)}>
-            {description
-              ? description
-              : 'Beskrivning saknas Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'}
-          </Description>
-        </Text>
-      </ArticleContent>
-      <Arrow expandstring={valueToString(isExpanded)} onClick={checkExpand}>
+      <LinkWrapper to={to}>
+        <ArticleContent reverse={reverse} expand={isExpanded}>
+          <Image expand={isExpanded}>
+            <Img fluid={data.logo.childImageSharp.fluid}></Img>
+          </Image>
+          <Text expand={isExpanded} reverse={reverse}>
+            <Titel variant="4">{title ? title : 'Titel saknas'}</Titel>
+            <Date size="11" expand={isExpanded}>
+              {date ? date : 'Datum saknas'}
+            </Date>
+            <Description expand={isExpanded}>
+              {description
+                ? description
+                : 'Beskrivning saknas Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'}
+            </Description>
+          </Text>
+        </ArticleContent>
+      </LinkWrapper>
+      <Arrow expand={isExpanded} onClick={checkExpand}>
         <Img fluid={data.arrow.childImageSharp.fluid}></Img>
       </Arrow>
     </MediaCard>
   );
 };
 
-const ArticleContent = styled(Link)<ArticleProps>`
-  display: flex;
-  text-decoration: none;
-  margin: 1rem;
+const LinkWrapper = styled(Link)`
   width: 95%;
+  text-decoration: none;
+`;
+const ArticleContent = styled.div<ArticleProps>`
+  display: flex;
+  margin: 1rem;
   flex-direction: ${props => {
-    return props.reversestring == 'true' && props.expandstring == 'true'
-      ? 'row-reverse'
-      : 'row';
+    return props.reverse && props.expand ? 'row-reverse' : 'row';
   }};
   @media (max-width: ${theme.breakpoints.sm + 'px'}) {
     flex-direction: column;
@@ -113,7 +101,7 @@ const ArticleContent = styled(Link)<ArticleProps>`
 
 const Image = styled.div<ArticleProps>`
   display: ${props => {
-    return props.expandstring == 'false' ? 'none' : '';
+    return props.expand ? '' : 'none';
   }};
   width: 50%;
   animation: fadeIn 0s forwards;
@@ -133,11 +121,11 @@ const Image = styled.div<ArticleProps>`
 
 const Text = styled.div<ArticleProps>`
   width: ${props => {
-    return props.expandstring == 'false' ? '100%' : '50%';
+    return props.expand ? '100%' : '50%';
   }};
   padding: ${props => {
-    if (props.expandstring == 'true') {
-      return props.reversestring == 'true' ? '0 1rem 0 0' : '0 0 0 1rem';
+    if (props.expand) {
+      return props.reverse ? '0 1rem 0 0' : '0 0 0 1rem';
     } else {
       return '0';
     }
@@ -162,7 +150,7 @@ const Titel = styled(H)`
 
 const Date = styled(B)<ArticleProps>`
   display: ${props => {
-    return props.expandstring == 'false' ? 'none' : '';
+    return props.expand ? '' : 'none';
   }};
   color: gray;
   @media (max-width: ${theme.breakpoints.md + 'px'}) {
@@ -180,7 +168,7 @@ const Date = styled(B)<ArticleProps>`
 
 const Description = styled(P)<ArticleProps>`
   display: ${props => {
-    return props.expandstring == 'false' ? 'none' : '-webkit-box';
+    return props.expand ? '-webkit-box' : 'none';
   }};
   animation: fadeIn 0s forwards;
   animation-duration: 1.5s;
@@ -203,15 +191,16 @@ const Description = styled(P)<ArticleProps>`
 const Arrow = styled.div<ArticleProps>`
   height: 100%;
   width: 5%;
+  margin-right: 2%;
   @media (max-width: ${theme.breakpoints.sm + 'px'}) {
-    width: 10%;
+    width: 8%;
   }
   &:hover {
     cursor: pointer;
   }
   padding-top: 1rem;
   transform: ${props => {
-    return props.expandstring == 'false' ? '' : 'rotate(180deg)';
+    return props.expand ? 'rotate(180deg)' : '';
   }};
 `;
 

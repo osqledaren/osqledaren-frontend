@@ -4,6 +4,7 @@ import ArticleCard from '../molecules/ArticleCard';
 const Index: FunctionComponent = () => (
   <Layout>
     <ArticleCard
+      to="/about"
       category={'branch'}
       title="En najs artikel om coola saker"
       date="2020-01-01"
