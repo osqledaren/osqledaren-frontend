@@ -4,31 +4,39 @@ import { graphql } from 'gatsby';
 import H from '../atoms/H';
 import P from '../atoms/P';
 
+interface Article {
+  title: string;
+  publishDate: string;
+  category?: {
+    title: string;
+  };
+}
+
 interface Props {
-  data: any;
+  data: {
+    sanityArticle: Article;
+  };
 }
 
 const Article: FunctionComponent<Props> = ({
-  data: { articlesJson: article },
+  data: { sanityArticle: article },
 }) => (
   <Layout>
     <H variant="2">{article.title}</H>
-    <P>{article.creators}</P>
-    <P>{article.publishedAt}</P>
+    <P>{article.publishDate}</P>
   </Layout>
 );
 
 export default Article;
 
 export const query = graphql`
-  query ArticlePage {
-    articlesJson {
+  query ArticlePage($slug: String!) {
+    sanityArticle(slug: { current: { eq: $slug } }) {
       title
-      creators
-      publishedAt
-      category
-      ingress
-      content
+      publishDate
+      category {
+        title
+      }
     }
   }
 `;
