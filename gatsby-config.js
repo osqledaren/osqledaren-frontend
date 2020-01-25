@@ -11,11 +11,17 @@ module.exports = {
         name: 'images',
       },
     },
+    {
+      resolve: 'gatsby-source-sanity',
+      options: {
+        projectId: 'ih69fm79',
+        dataset: 'production',
+      },
+    },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     'gatsby-plugin-emotion',
     'gatsby-plugin-typescript',
-    // 'gatsby-transformer-json',
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-manifest',
