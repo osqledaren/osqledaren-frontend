@@ -49,11 +49,7 @@ const ArticleCard: FunctionComponent<ArticleProps> = ({
   const [isExpanded, setExpand] = useState(expand);
 
   function checkExpand() {
-    if (isExpanded) {
-      setExpand(false);
-    } else {
-      setExpand(true);
-    }
+    setExpand(!isExpanded);
   }
 
   return (
@@ -64,7 +60,7 @@ const ArticleCard: FunctionComponent<ArticleProps> = ({
             <Img fluid={data.logo.childImageSharp.fluid}></Img>
           </Image>
           <Text expand={isExpanded} reverse={reverse}>
-            <Titel variant="4">{title ? title : 'Titel saknas'}</Titel>
+            <Title variant="4">{title ? title : 'Titel saknas'}</Title>
             <Date size="11" expand={isExpanded}>
               {date ? date : 'Datum saknas'}
             </Date>
@@ -140,7 +136,7 @@ const Text = styled.div<ArticleProps>`
   }
 `;
 
-const Titel = styled(H)`
+const Title = styled(H)`
   margin: 0;
   visibility: visible;
   @media (max-width: ${theme.breakpoints.md + 'px'}) {
