@@ -1,16 +1,23 @@
 import React, { FunctionComponent } from 'react';
-import H from '../atoms/H';
 import Layout from '../organisms/Layout';
-import P from '../atoms/P';
-import B from '../atoms/B';
-
+import ArticleCard from '../molecules/ArticleCard';
 const Index: FunctionComponent = () => (
-    <Layout>
-      <H>Main content</H>
-      <P>
-        Hej <B>bold</B>
-      </P>
-    </Layout>
+  <Layout>
+    <ArticleCard
+      to="/about"
+      category={'branch'}
+      title="En najs artikel om coola saker"
+      date="2020-01-01"
+    ></ArticleCard>
+    <ArticleCard category={'english'} reverse></ArticleCard>
+    <ArticleCard category={'olGraver'}></ArticleCard>
+    <ArticleCard
+      category={'underhallning'}
+      reverse
+      expand={false}
+    ></ArticleCard>
+    <ArticleCard category={'aktuellt'} expand={false}></ArticleCard>
+  </Layout>
 );
 
 export default Index;
