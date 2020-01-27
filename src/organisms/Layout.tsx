@@ -8,7 +8,7 @@ const Layout: FunctionComponent = ({ children }) => (
   <LayoutWrapper>
     <Header />
     <Filterbar></Filterbar>
-    <main>{children}</main>
+    {children}
     <Footer />
   </LayoutWrapper>
 );
