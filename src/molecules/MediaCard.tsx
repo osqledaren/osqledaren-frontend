@@ -1,9 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import styled from '../styles/styled';
 import theme from '../styles/theme';
+import { Category } from '../utils/types';
 
 interface CardProps {
-  category?: string; //Takes: branch, english, olGraver, underhallning, aktuellt, podcast as input
+  category?: Category; //Takes: branch, english, olGraver, underhallning, aktuellt, podcast as input
 }
 
 const MediaCard: FunctionComponent<CardProps> = ({ children, category }) => {
@@ -32,9 +33,9 @@ const MediaWrapper = styled.div<CardProps>`
   }
 `;
 
-const Color = styled.div<CardProps>`
+const Color = styled.div<{ category: Category }>`
   background: ${props => {
-    return theme.colors[props.category];
+    return props.category.color.hex;
   }};
   width: 12px;
   min-width: 12px;
