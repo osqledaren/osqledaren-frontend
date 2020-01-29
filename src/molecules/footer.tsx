@@ -43,7 +43,7 @@ const Footer: FunctionComponent = () => {
 
   return (
     <FooterWrapper>
-      <LogoContainer>
+      <LogoContainer to="/">
         <Logo fluid={data.logo.childImageSharp.fluid} />
       </LogoContainer>
       <SocialMedia>
@@ -70,14 +70,15 @@ const Footer: FunctionComponent = () => {
 
 const FooterWrapper = styled.div`
   display: flex;
-  position: fixed;
+  position: static;
   bottom: 0;
   width: 100%;
-  height: 24%;
+  height: 12rem;
+  margin-top: 40px;
   background-color: black;
 `;
 
-const LogoContainer = styled.div`
+const LogoContainer = styled(Link)`
   display: inline-flex;
   margin-left: 4vw;
   align-items: center;
@@ -119,12 +120,13 @@ const GithubWrapper = styled.div`
 const Links = styled.div`
   display: block;
   position: absolute;
-  right: 14%;
+  right: 10%;
   margin-top: 8vh;
 `;
 
 const PageLink = styled(Link)`
   display: block;
+  padding: 0.25rem;
   color: white;
 `;
 
