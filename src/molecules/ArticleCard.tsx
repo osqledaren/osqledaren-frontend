@@ -7,23 +7,18 @@ import theme from '../styles/theme';
 import H from '../atoms/H';
 import P from '../atoms/P';
 import B from '../atoms/B';
+import { Article } from '../utils/types';
 
-interface ArticleProps {
+interface Props {
   reverse?: boolean;
-  title?: string;
-  date?: string;
-  description?: string;
-  category?: string; //Takes: branch, english, olGraver, underhallning, aktuellt or podcast as input
+  article: Article;
   expand?: boolean;
   to?: string;
 }
 
-const ArticleCard: FunctionComponent<ArticleProps> = ({
+const ArticleCard: FunctionComponent<Props> = ({
   reverse,
-  title,
-  date,
-  description,
-  category,
+  article: { title, publishDate, ingress, category },
   to = '/',
   expand = true,
 }) => {
@@ -62,11 +57,11 @@ const ArticleCard: FunctionComponent<ArticleProps> = ({
           <Text expand={isExpanded} reverse={reverse}>
             <Title variant="4">{title ? title : 'Titel saknas'}</Title>
             <Date size="11" expand={isExpanded}>
-              {date ? date : 'Datum saknas'}
+              {publishDate ? publishDate : 'Datum saknas'}
             </Date>
             <Description expand={isExpanded}>
-              {description
-                ? description
+              {ingress
+                ? ingress
                 : 'Beskrivning saknas Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'}
             </Description>
           </Text>
@@ -83,7 +78,7 @@ const LinkWrapper = styled(Link)`
   width: 95%;
   text-decoration: none;
 `;
-const ArticleContent = styled.div<ArticleProps>`
+const ArticleContent = styled.div<{ reverse: boolean; expand: boolean }>`
   display: flex;
 
   margin: 1rem;
@@ -96,7 +91,7 @@ const ArticleContent = styled.div<ArticleProps>`
   }
 `;
 
-const Image = styled.div<ArticleProps>`
+const Image = styled.div<{ expand: boolean }>`
   display: ${props => {
     return props.expand ? '' : 'none';
   }};
@@ -116,7 +111,7 @@ const Image = styled.div<ArticleProps>`
   }
 `;
 
-const Text = styled.div<ArticleProps>`
+const Text = styled.div<{ expand: boolean; reverse: boolean }>`
   width: ${props => {
     return props.expand ? '50%' : '50%';
   }};
@@ -145,7 +140,7 @@ const Title = styled(H)`
   }
 `;
 
-const Date = styled(B)<ArticleProps>`
+const Date = styled(B)<{ expand: boolean }>`
   display: ${props => {
     return props.expand ? '' : 'none';
   }};
@@ -163,7 +158,7 @@ const Date = styled(B)<ArticleProps>`
   }
 `;
 
-const Description = styled(P)<ArticleProps>`
+const Description = styled(P)<{ expand: boolean }>`
   display: ${props => {
     return props.expand ? '-webkit-box' : 'none';
   }};
@@ -185,7 +180,7 @@ const Description = styled(P)<ArticleProps>`
   }
 `;
 
-const Arrow = styled.div<ArticleProps>`
+const Arrow = styled.div<{ expand: boolean }>`
   height: 100%;
   width: 5%;
   margin-right: 2%;
