@@ -9,7 +9,6 @@ interface Props {
 }
 
 const TestTemplate: FC<Props> = ({ data }) => {
-  console.log(data);
   return (
     <div>
       <h1>{data.sanityArticle.title}</h1>

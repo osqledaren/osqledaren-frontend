@@ -3,7 +3,8 @@ import Layout from '../organisms/Layout';
 import ArticleCard from '../molecules/ArticleCard';
 const Index: FunctionComponent = () => (
   <Layout>
-    <ArticleCard
+    {/* TODO: Render the article cards with real data */}
+    {/* <ArticleCard
       to="/about"
       category={'branch'}
       title="En najs artikel om coola saker"
@@ -16,7 +17,7 @@ const Index: FunctionComponent = () => (
       reverse
       expand={false}
     ></ArticleCard>
-    <ArticleCard category={'aktuellt'} expand={false}></ArticleCard>
+    <ArticleCard category={'aktuellt'} expand={false}></ArticleCard> */}
   </Layout>
 );
 
