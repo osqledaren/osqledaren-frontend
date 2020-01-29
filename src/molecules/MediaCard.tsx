@@ -29,7 +29,7 @@ const MediaWrapper = styled.div<CardProps>`
     box-shadow: 0 4px 5px rgba(0, 0, 0, 0.16), 0 4px 5px rgba(0, 0, 0, 0.22);
   }
   @media (max-width: ${theme.breakpoints.md + 'px'}) {
-    width: 80%;
+    width: 100%;
   }
 `;
 
