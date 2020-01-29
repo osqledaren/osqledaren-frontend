@@ -70,10 +70,11 @@ const Footer: FunctionComponent = () => {
 
 const FooterWrapper = styled.div`
   display: flex;
-  position: fixed;
+  position: static;
   bottom: 0;
   width: 100%;
-  height: 24%;
+  height: 12rem;
+  margin-top: 40px;
   background-color: black;
 `;
 
@@ -119,12 +120,13 @@ const GithubWrapper = styled.div`
 const Links = styled.div`
   display: block;
   position: absolute;
-  right: 14%;
+  right: 10%;
   margin-top: 8vh;
 `;
 
 const PageLink = styled(Link)`
   display: block;
+  padding: 4px;
   color: white;
 `;
 
