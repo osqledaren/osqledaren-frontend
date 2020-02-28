@@ -18,20 +18,13 @@ interface Props {
 
 const ArticleCard: FunctionComponent<Props> = ({
   reverse,
-  article: { title, publishDate, ingress, category },
+  article: { title, mainImage, publishDate, ingress, category },
   to = '/',
   expand = true,
 }) => {
   //Update how to fetch images when the cms is ready, this only fetches a local image./Johannes
   const data = useStaticQuery(graphql`
     query {
-      logo: file(relativePath: { eq: "test.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 1000) {
-            ...GatsbyImageSharpFluid_noBase64
-          }
-        }
-      }
       arrow: file(relativePath: { eq: "down.png" }) {
         childImageSharp {
           fluid(maxWidth: 1000) {
@@ -52,7 +45,7 @@ const ArticleCard: FunctionComponent<Props> = ({
       <LinkWrapper to={to}>
         <ArticleContent reverse={reverse} expand={isExpanded}>
           <Image expand={isExpanded}>
-            <Img fluid={data.logo.childImageSharp.fluid}></Img>
+            <Img fluid={mainImage.asset.fluid}></Img>
           </Image>
           <Text expand={isExpanded} reverse={reverse}>
             <Title variant="4">{title ? title : 'Titel saknas'}</Title>
