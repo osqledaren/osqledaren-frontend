@@ -1,6 +1,6 @@
 import styled from '../styles/styled';
 
-type HVariant = '1' | '2' | '3' | '4';
+type HVariant = '1' | '2' | '3' | '4' | '5';
 
 interface Props {
   size?: string;

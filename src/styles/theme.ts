@@ -15,6 +15,7 @@ const theme = {
     '2': '36px',
     '3': '30px',
     '4': '24px',
+    '5': '16px',
   },
   pSize: '14px',
   pLineHeight: '16px',
