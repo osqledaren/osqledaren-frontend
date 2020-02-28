@@ -3,6 +3,7 @@ import styled from '../styles/styled';
 import H from '../atoms/H';
 import P from '../atoms/P';
 import Layout from '../organisms/Layout';
+import Link from '../atoms/Link';
 
 const About: FunctionComponent = () => (
   <Layout>
@@ -16,6 +17,7 @@ const About: FunctionComponent = () => (
           om andra ämnen som kan vara intressanta för teknologstudenter; som
           till exempel nöje, teknik, karriär och utbildning.
         </P>
+        <Link to="/">Sök till OL</Link>
       </AboutText>
       <div className="contact">
         <H variant="4">Kontaktuppgifter</H>
@@ -29,6 +31,7 @@ const About: FunctionComponent = () => (
             <li>Osqledaren, THS, 100 44 Stockholm</li>
           </P>
         </ContactList>
+        <Link to="/">Annonsera</Link>
       </div>
     </AboutContainer>
   </Layout>
