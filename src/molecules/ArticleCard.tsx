@@ -43,9 +43,11 @@ const ArticleCard: FunctionComponent<Props> = ({
     <MediaCard category={category}>
       <LinkWrapper to={to}>
         <ArticleContent reverse={reverse} expand={isExpanded}>
-          <Image expand={isExpanded}>
-            <Img fluid={mainImage.asset.fluid}></Img>
-          </Image>
+          {mainImage && (
+            <Image expand={isExpanded}>
+              <Img fluid={mainImage.asset.fluid}></Img>
+            </Image>
+          )}
           <Text expand={isExpanded} reverse={reverse}>
             <Title variant="4">{title ? title : 'Titel saknas'}</Title>
             <Date size="11" expand={isExpanded}>
