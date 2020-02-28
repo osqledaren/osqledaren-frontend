@@ -5,19 +5,17 @@ const Index: FunctionComponent = () => (
   <Layout>
     {/* TODO: Render the article cards with real data */}
     {/* <ArticleCard
-      to="/about"
-      category={'branch'}
-      title="En najs artikel om coola saker"
-      date="2020-01-01"
+      article={article}
+      to="/"
+      expand
     ></ArticleCard>
-    <ArticleCard category={'english'} reverse></ArticleCard>
-    <ArticleCard category={'olGraver'}></ArticleCard>
     <ArticleCard
-      category={'underhallning'}
+      article={article}
+      to="/"
+      expand
       reverse
-      expand={false}
     ></ArticleCard>
-    <ArticleCard category={'aktuellt'} expand={false}></ArticleCard> */}
+     */}
   </Layout>
 );
 
