@@ -20,7 +20,7 @@ const MediaWrapper = styled.div<CardProps>`
   display: flex;
   flex-direction: row;
   align-content: center;
-  width: 60%;
+  width: 100%;
   margin-top: 2rem;
   text-decoration: none;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
