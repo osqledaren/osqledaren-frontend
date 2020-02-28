@@ -22,7 +22,6 @@ const ArticleCard: FunctionComponent<Props> = ({
   to = '/',
   expand = true,
 }) => {
-  //Update how to fetch images when the cms is ready, this only fetches a local image./Johannes
   const data = useStaticQuery(graphql`
     query {
       arrow: file(relativePath: { eq: "down.png" }) {
@@ -44,9 +43,11 @@ const ArticleCard: FunctionComponent<Props> = ({
     <MediaCard category={category}>
       <LinkWrapper to={to}>
         <ArticleContent reverse={reverse} expand={isExpanded}>
-          <Image expand={isExpanded}>
-            <Img fluid={mainImage.asset.fluid}></Img>
-          </Image>
+          {mainImage && (
+            <Image expand={isExpanded}>
+              <Img fluid={mainImage.asset.fluid}></Img>
+            </Image>
+          )}
           <Text expand={isExpanded} reverse={reverse}>
             <Title variant="4">{title ? title : 'Titel saknas'}</Title>
             <Date size="11" expand={isExpanded}>
