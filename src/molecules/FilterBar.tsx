@@ -17,13 +17,13 @@ const Bar = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 55vw;
+  width: 72vw;
   padding-bottom: 2%;
   max-height: 2vw;
   position: sticky;
   top: 0;
   @media (max-width: ${({ theme }) => theme.breakpoints.sm + 'px'}) {
-    width: 80%;
+    width: 100%;
     position: fixed;
     top: 0;
   }
