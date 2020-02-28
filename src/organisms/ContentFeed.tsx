@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { Article } from '../utils/types';
 import ArticleCard from '../molecules/ArticleCard';
+import { getArticleSlug } from '../utils/slug';
 
 interface Props {
   content: Array<{
@@ -15,7 +16,7 @@ const ContentFeed: FC<Props> = ({ content }) => {
         <ArticleCard
           expand={i <= 2}
           reverse={i % 2 === 1}
-          to={'/' + node.slug.current}
+          to={getArticleSlug(node.category.slug.current, node.slug.current)}
           key={node.id}
           article={node}
         ></ArticleCard>
