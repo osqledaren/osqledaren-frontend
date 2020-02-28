@@ -17,8 +17,9 @@ const theme = {
     '4': '24px',
   },
   pSize: '14px',
+  pLineHeight: '16px',
   breakpoints: {
-    sm: 576,
+    sm: 636,
     md: 768,
     lg: 992,
     xl: 1200,

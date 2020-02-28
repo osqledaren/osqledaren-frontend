@@ -8,7 +8,7 @@ const Layout: FunctionComponent = ({ children }) => (
   <LayoutWrapper>
     <Header />
     <Filterbar></Filterbar>
-    {children}
+    <Content>{children}</Content>
     <Footer />
   </LayoutWrapper>
 );
@@ -17,6 +17,10 @@ const LayoutWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+
+const Content = styled.div`
+  width: 72vw;
 `;
 
 export default Layout;
