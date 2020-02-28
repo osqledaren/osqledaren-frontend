@@ -11,9 +11,11 @@ interface Props {
 const ContentFeed: FC<Props> = ({ content }) => {
   return (
     <>
-      {content.map(({ node }) => (
+      {content.map(({ node }, i) => (
         <ArticleCard
-          to={node.slug.current}
+          expand={i <= 2}
+          reverse={i % 2 === 1}
+          to={'/' + node.slug.current}
           key={node.id}
           article={node}
         ></ArticleCard>
