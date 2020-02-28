@@ -24,7 +24,6 @@ const Index: FunctionComponent = () => {
       }
     }
   `);
-  console.log(allSanityArticle);
   return (
     <Layout>
       <ContentFeed content={allSanityArticle.edges} />

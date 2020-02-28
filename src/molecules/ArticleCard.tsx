@@ -22,7 +22,6 @@ const ArticleCard: FunctionComponent<Props> = ({
   to = '/',
   expand = true,
 }) => {
-  //Update how to fetch images when the cms is ready, this only fetches a local image./Johannes
   const data = useStaticQuery(graphql`
     query {
       arrow: file(relativePath: { eq: "down.png" }) {
