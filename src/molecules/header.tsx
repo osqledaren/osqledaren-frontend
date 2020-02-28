@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery, Link } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from '../styles/styled';
 
@@ -17,7 +17,9 @@ const Header: FunctionComponent = () => {
   `);
   return (
     <HeaderWrapper>
-      <Logo fluid={data.logo.childImageSharp.fluid} />
+      <Link to="/">
+        <Logo fluid={data.logo.childImageSharp.fluid} />
+      </Link>
     </HeaderWrapper>
   );
 };
