@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 export const articleFragment = graphql`
   fragment Article on SanityArticle {
     title
+    id
     mainImage {
       asset {
         fluid(maxWidth: 960) {
@@ -26,6 +27,9 @@ export const categoryFragment = graphql`
   fragment Category on SanityCategory {
     title
     description
+    slug {
+      current
+    }
     color {
       hex
     }
