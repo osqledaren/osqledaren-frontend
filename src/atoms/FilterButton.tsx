@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import styled from '../styles/styled';
 import { navigate } from 'gatsby';
+import theme from '../styles/theme';
 
 interface Props {
   name: string;
@@ -32,7 +33,9 @@ const FilterButt = styled.div<FilterButtProps>`
   justify-content: center;
   max-width: 35vw;
   width: 72vw;
-  color: black;
+  color: ${props => {
+    return props.background == theme.colors.underhallning ? 'black' : 'white';
+  }};
   line-height: 12px;
   font-family: Avenir, Arial, Helvetica, sans-serif;
   letter-spacing: 1px;
