@@ -3,34 +3,38 @@ import styled from '../styles/styled';
 import H from '../atoms/H';
 import P from '../atoms/P';
 import Layout from '../organisms/Layout';
+import InfoWrapper from '../molecules/InfoWrapper';
 
 const About: FunctionComponent = () => (
   <Layout>
-    <AboutContainer>
-      <AboutText>
-        <H variant="4">Om Osqledaren</H>
-        <P size="12">
-          Osqledaren är Tekniska Högskolans Studentkårs tidning som når ut till
-          alla KTHs kårmedlemmar i cirka 10 000 exemplar, fyra gånger per läsår.
-          Tidningen har till uppgift att bevaka kåren och KTH, men skriver också
-          om andra ämnen som kan vara intressanta för teknologstudenter; som
-          till exempel nöje, teknik, karriär och utbildning.
-        </P>
-      </AboutText>
-      <div className="contact">
-        <H variant="4">Kontaktuppgifter</H>
-        <ContactList>
+    <InfoWrapper>
+      <AboutContainer>
+        <AboutText>
+          <H variant="4">Om Osqledaren</H>
           <P size="12">
-            <li>Chefredaktör och ansvarig utgivare:</li>
-            <li>Simon Sundin</li>
-            <li>076 58 74 666</li>
-            <li>osqledaren@ths.kth.se</li>
-            <li>Kårhuset Nymble, Drottning Kristinas väg 19 </li>
-            <li>Osqledaren, THS, 100 44 Stockholm</li>
+            Osqledaren är Tekniska Högskolans Studentkårs tidning som når ut
+            till alla KTHs kårmedlemmar i cirka 10 000 exemplar, fyra gånger per
+            läsår. Tidningen har till uppgift att bevaka kåren och KTH, men
+            skriver också om andra ämnen som kan vara intressanta för
+            teknologstudenter; som till exempel nöje, teknik, karriär och
+            utbildning.
           </P>
-        </ContactList>
-      </div>
-    </AboutContainer>
+        </AboutText>
+        <div className="contact">
+          <H variant="4">Kontaktuppgifter</H>
+          <ContactList>
+            <P size="12">
+              <li>Chefredaktör och ansvarig utgivare:</li>
+              <li>Simon Sundin</li>
+              <li>076 58 74 666</li>
+              <li>osqledaren@ths.kth.se</li>
+              <li>Kårhuset Nymble, Drottning Kristinas väg 19 </li>
+              <li>Osqledaren, THS, 100 44 Stockholm</li>
+            </P>
+          </ContactList>
+        </div>
+      </AboutContainer>
+    </InfoWrapper>
   </Layout>
 );
 

@@ -107,7 +107,7 @@ const Image = styled.div<{ expand: boolean }>`
 
 const Text = styled.div<{ expand: boolean; reverse: boolean }>`
   width: ${props => {
-    return props.expand ? '50%' : '50%';
+    return props.expand ? '50%' : '100%';
   }};
   padding: ${props => {
     if (props.expand) {

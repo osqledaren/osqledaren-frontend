@@ -3,6 +3,7 @@ import Layout from '../organisms/Layout';
 import ContentFeed from '../organisms/ContentFeed';
 import { graphql } from 'gatsby';
 import { Article } from '../utils/types';
+import ContentWrapper from '../molecules/ContentWrapper';
 
 interface Props {
   pageContext: {
@@ -19,7 +20,9 @@ interface Props {
 
 const Category: FC<Props> = ({ data: { allSanityArticle } }) => (
   <Layout>
-    <ContentFeed content={allSanityArticle.edges} />
+    <ContentWrapper>
+      <ContentFeed content={allSanityArticle.edges} />
+    </ContentWrapper>
   </Layout>
 );
 

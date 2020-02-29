@@ -33,16 +33,12 @@ const HeaderWrapper = styled.div`
   padding-top: 2%;
   @media (max-width: ${({ theme }) => theme.breakpoints.sm + 'px'}) {
     width: 80%;
-    padding-top: 0%;
-    padding-bottom: 10%;
+    margin-top: 5vh;
   }
 `;
 
 const Logo = styled(Img)`
   width: 50vw;
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm + 'px'}) {
-    display: none;
-  }
 `;
 
 export default Header;

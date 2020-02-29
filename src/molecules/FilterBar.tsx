@@ -42,6 +42,7 @@ const Bar = styled.div`
   max-height: 2vw;
   position: sticky;
   top: 0;
+  z-index: 10;
   @media (max-width: ${({ theme }) => theme.breakpoints.sm + 'px'}) {
     width: 100%;
     position: fixed;

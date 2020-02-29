@@ -3,6 +3,7 @@ import Layout from '../organisms/Layout';
 import ContentFeed from '../organisms/ContentFeed';
 import { useStaticQuery, graphql } from 'gatsby';
 import { Article } from '../utils/types';
+import ContentWrapper from '../molecules/ContentWrapper';
 
 const Index: FunctionComponent = () => {
   const {
@@ -26,7 +27,9 @@ const Index: FunctionComponent = () => {
   `);
   return (
     <Layout>
-      <ContentFeed content={allSanityArticle.edges} />
+      <ContentWrapper>
+        <ContentFeed content={allSanityArticle.edges} />
+      </ContentWrapper>
     </Layout>
   );
 };

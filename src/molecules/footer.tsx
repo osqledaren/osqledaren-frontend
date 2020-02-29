@@ -70,8 +70,8 @@ const Footer: FunctionComponent = () => {
 
 const FooterWrapper = styled.div`
   display: flex;
-  position: static;
-  bottom: 0;
+  justify-self: last baseline;
+
   width: 100%;
   height: 12rem;
   margin-top: 40px;
