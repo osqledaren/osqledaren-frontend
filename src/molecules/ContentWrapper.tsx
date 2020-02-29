@@ -2,7 +2,6 @@ import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import Filterbar from '../molecules/FilterBar';
 import theme from '../styles/theme';
-import Header from './header';
 
 const ContentWrapper: FunctionComponent = ({ children }) => (
   <div>
@@ -12,9 +11,16 @@ const ContentWrapper: FunctionComponent = ({ children }) => (
 );
 
 const Content = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 72vw;
   @media (max-width: ${theme.breakpoints.sm + 'px'}) {
     width: 100vw;
+  }
+  @media (min-width: ${theme.breakpoints.xl + 'px'}) {
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
   }
 `;
 

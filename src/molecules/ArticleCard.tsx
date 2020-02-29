@@ -74,7 +74,7 @@ const LinkWrapper = styled(Link)`
 `;
 const ArticleContent = styled.div<{ reverse: boolean; expand: boolean }>`
   display: flex;
-
+  justify-content: space-between;
   margin: 1rem;
   flex-direction: ${props => {
     return props.reverse && props.expand ? 'row-reverse' : 'row';
@@ -83,13 +83,17 @@ const ArticleContent = styled.div<{ reverse: boolean; expand: boolean }>`
     flex-direction: column;
     margin-right: 0;
   }
+  /*add the following to not reverse the articles on big screens*/
+  /*@media (min-width: ${theme.breakpoints.xl + 'px'}) {
+    flex-direction: row;
+  }*/
 `;
 
 const Image = styled.div<{ expand: boolean }>`
   display: ${props => {
     return props.expand ? '' : 'none';
   }};
-  width: 50%;
+  width: 45%;
   animation: fadeIn 0s forwards;
   animation-duration: 1.5s;
   opacity: 0;
@@ -107,21 +111,13 @@ const Image = styled.div<{ expand: boolean }>`
 
 const Text = styled.div<{ expand: boolean; reverse: boolean }>`
   width: ${props => {
-    return props.expand ? '50%' : '100%';
-  }};
-  padding: ${props => {
-    if (props.expand) {
-      return props.reverse ? '0 1rem 0 0' : '0 0 0 1rem';
-    } else {
-      return '0';
-    }
+    return props.expand ? '45%' : '100%';
   }};
   word-wrap: break-word;
   color: black;
 
   @media (max-width: ${theme.breakpoints.sm + 'px'}) {
     width: 100%;
-    padding: 0;
   }
 `;
 
