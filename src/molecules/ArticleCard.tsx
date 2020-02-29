@@ -83,17 +83,17 @@ const ArticleContent = styled.div<{ reverse: boolean; expand: boolean }>`
     flex-direction: column;
     margin-right: 0;
   }
-  /*add the following to not reverse the articles on big screens*/
-  /*@media (min-width: ${theme.breakpoints.xl + 'px'}) {
+  /*remove the following to follow the reverse logic on big screens*/
+  @media (min-width: ${theme.breakpoints.xl + 'px'}) {
     flex-direction: row;
-  }*/
+  }
 `;
 
 const Image = styled.div<{ expand: boolean }>`
   display: ${props => {
     return props.expand ? '' : 'none';
   }};
-  width: 45%;
+  width: 48%;
   animation: fadeIn 0s forwards;
   animation-duration: 1.5s;
   opacity: 0;
@@ -111,10 +111,9 @@ const Image = styled.div<{ expand: boolean }>`
 
 const Text = styled.div<{ expand: boolean; reverse: boolean }>`
   width: ${props => {
-    return props.expand ? '45%' : '100%';
+    return props.expand ? '48%' : '100%';
   }};
   word-wrap: break-word;
-  color: black;
 
   @media (max-width: ${theme.breakpoints.sm + 'px'}) {
     width: 100%;
