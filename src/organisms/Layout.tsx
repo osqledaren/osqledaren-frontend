@@ -2,8 +2,6 @@ import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import Header from '../molecules/header';
 import Footer from '../molecules/footer';
-import Filterbar from '../molecules/FilterBar';
-import theme from '../styles/theme';
 
 const Layout: FunctionComponent = ({ children }) => (
   <LayoutWrapper>
