@@ -33,7 +33,7 @@ const HeaderWrapper = styled.div`
   padding-top: 2%;
   @media (max-width: ${({ theme }) => theme.breakpoints.sm + 'px'}) {
     width: 80%;
-    margin-top: 5vh;
+    margin-top: 50px;
   }
 `;
 

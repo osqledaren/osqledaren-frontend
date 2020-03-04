@@ -3,7 +3,6 @@ import { graphql, useStaticQuery, Link } from 'gatsby';
 import MediaCard from './MediaCard';
 import Img from 'gatsby-image';
 import styled from '../styles/styled';
-import theme from '../styles/theme';
 import H from '../atoms/H';
 import P from '../atoms/P';
 import B from '../atoms/B';
@@ -79,12 +78,16 @@ const ArticleContent = styled.div<{ reverse: boolean; expand: boolean }>`
   flex-direction: ${props => {
     return props.reverse && props.expand ? 'row-reverse' : 'row';
   }};
-  @media (max-width: ${theme.breakpoints.sm + 'px'}) {
+  @media (max-width: ${props => {
+      return props.theme.breakpoints.sm + 'px';
+    }}) {
     flex-direction: column;
     margin-right: 0;
   }
   /*remove the following to follow the reverse logic on big screens*/
-  @media (min-width: ${theme.breakpoints.xl + 'px'}) {
+  @media (min-width: ${props => {
+      return props.theme.breakpoints.xl + 'px';
+    }}) {
     flex-direction: row;
   }
 `;
@@ -103,7 +106,9 @@ const Image = styled.div<{ expand: boolean }>`
     }
   }
 
-  @media (max-width: ${theme.breakpoints.sm + 'px'}) {
+  @media (max-width: ${props => {
+      return props.theme.breakpoints.sm + 'px';
+    }}) {
     width: 95%;
     margin-bottom: 1rem;
   }
@@ -115,7 +120,9 @@ const Text = styled.div<{ expand: boolean; reverse: boolean }>`
   }};
   word-wrap: break-word;
 
-  @media (max-width: ${theme.breakpoints.sm + 'px'}) {
+  @media (max-width: ${props => {
+      return props.theme.breakpoints.sm + 'px';
+    }}) {
     width: 100%;
   }
 `;
@@ -123,7 +130,9 @@ const Text = styled.div<{ expand: boolean; reverse: boolean }>`
 const Title = styled(H)`
   margin: 0;
   visibility: visible;
-  @media (max-width: ${theme.breakpoints.md + 'px'}) {
+  @media (max-width: ${props => {
+      return props.theme.breakpoints.md + 'px';
+    }}) {
     font-size: 20px;
     padding-top: 0rem;
   }
@@ -134,7 +143,9 @@ const Date = styled(B)<{ expand: boolean }>`
     return props.expand ? '' : 'none';
   }};
   color: gray;
-  @media (max-width: ${theme.breakpoints.md + 'px'}) {
+  @media (max-width: ${props => {
+      return props.theme.breakpoints.md + 'px';
+    }}) {
     margin: 1rem 0 1rem 0;
   }
   animation: fadeIn 0s forwards;
@@ -163,7 +174,9 @@ const Description = styled(P)<{ expand: boolean }>`
   -webkit-line-clamp: 5;
   overflow: hidden;
   text-overflow: ellipsis;
-  @media (max-width: ${theme.breakpoints.md + 'px'}) {
+  @media (max-width: ${props => {
+      return props.theme.breakpoints.md + 'px';
+    }}) {
     font-size: 16px;
     -webkit-line-clamp: 4;
   }
@@ -173,7 +186,9 @@ const Arrow = styled.div<{ expand: boolean }>`
   height: 100%;
   width: 5%;
   margin-right: 2%;
-  @media (max-width: ${theme.breakpoints.sm + 'px'}) {
+  @media (max-width: ${props => {
+      return props.theme.breakpoints.sm + 'px';
+    }}) {
     width: 8%;
   }
   &:hover {

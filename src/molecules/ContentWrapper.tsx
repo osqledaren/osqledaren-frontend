@@ -13,10 +13,14 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   width: 72vw;
-  @media (max-width: ${theme.breakpoints.sm + 'px'}) {
+  @media (max-width: ${props => {
+      return props.theme.breakpoints.sm + 'px';
+    }}) {
     width: 100vw;
   }
-  @media (min-width: ${theme.breakpoints.xl + 'px'}) {
+  @media (min-width: ${props => {
+      return props.theme.breakpoints.xl + 'px';
+    }}) {
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;

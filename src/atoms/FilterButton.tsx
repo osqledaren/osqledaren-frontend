@@ -33,7 +33,9 @@ const FilterButt = styled.div<FilterButtProps>`
   max-width: 35vw;
   width: 72vw;
   color: ${props => {
-    return props.background == theme.colors.underhallning ? 'black' : 'white';
+    return props.background == props.theme.colors.underhallning
+      ? 'black'
+      : 'white';
   }};
   line-height: 12px;
   font-family: Avenir, Arial, Helvetica, sans-serif;
