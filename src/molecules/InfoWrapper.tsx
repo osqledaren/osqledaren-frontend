@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import styled from '@emotion/styled';
+import styled from '../styles/styled';
 
 const InfoWrapper: FunctionComponent = ({ children }) => (
   <Content>{children}</Content>
