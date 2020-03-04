@@ -33,5 +33,7 @@ export const categoryFragment = graphql`
     color {
       hex
     }
+    menu
+    order
   }
 `;

@@ -22,14 +22,17 @@ const Filterbar: FunctionComponent = () => {
   `);
   return (
     <Bar>
-      {allSanityCategory.edges.map(({ node }) => (
-        <FilterButton
-          to={node.slug.current}
-          key={node.slug.current}
-          name={node.title}
-          background={node.color.hex}
-        ></FilterButton>
-      ))}
+      {allSanityCategory.edges
+        .filter(({ node }) => node.menu)
+        .sort((a, b) => a.node.order - b.node.order)
+        .map(({ node }) => (
+          <FilterButton
+            to={node.slug.current}
+            key={node.slug.current}
+            name={node.title}
+            background={node.color.hex}
+          ></FilterButton>
+        ))}
     </Bar>
   );
 };
