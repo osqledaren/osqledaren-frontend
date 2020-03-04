@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import Filterbar from '../molecules/FilterBar';
-import theme from '../styles/theme';
 
 const ContentWrapper: FunctionComponent = ({ children }) => (
   <div>
