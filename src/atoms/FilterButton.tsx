@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import styled from '../styles/styled';
 import { navigate } from 'gatsby';
-import theme from '../styles/theme';
 
 interface Props {
   name: string;
