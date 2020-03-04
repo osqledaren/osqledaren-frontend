@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import styled from '@emotion/styled';
+import styled from '../styles/styled';
 import Filterbar from '../molecules/FilterBar';
 
 const ContentWrapper: FunctionComponent = ({ children }) => (
