@@ -33,6 +33,11 @@ const Filterbar: FunctionComponent = () => {
             background={node.color.hex}
           ></FilterButton>
         ))}
+      <FilterButton
+        to="/podcasts"
+        name="Podcasts"
+        background="#999"
+      ></FilterButton>
     </Bar>
   );
 };
