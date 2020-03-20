@@ -55,7 +55,7 @@ const AboutText = styled.div`
   margin-top: 20px;
   max-width: 800px;
   @media (max-width: ${({ theme }) => theme.breakpoints.xl + 'px'}) {
-    margin: 0px;
+    margin-right: 0px;
   }
 `;
 
