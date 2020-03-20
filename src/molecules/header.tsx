@@ -1,25 +1,12 @@
 import React, { FunctionComponent } from 'react';
 import { graphql, useStaticQuery, Link } from 'gatsby';
-import Img from 'gatsby-image';
+import logo from '../images/Osqledaren_logga_svart.png';
 import styled from '../styles/styled';
 
 const Header: FunctionComponent = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      logo: file(relativePath: { eq: "logo-black.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 1000) {
-            ...GatsbyImageSharpFluid_noBase64
-          }
-        }
-      }
-    }
-  `);
   return (
     <HeaderWrapper>
-      <Link to="/">
-        <Logo fluid={data.logo.childImageSharp.fluid} />
-      </Link>
+      <img src={logo} style={{ width: '50vw' }} />
     </HeaderWrapper>
   );
 };
@@ -35,10 +22,6 @@ const HeaderWrapper = styled.div`
     width: 80%;
     margin-top: 50px;
   }
-`;
-
-const Logo = styled(Img)`
-  width: 50vw;
 `;
 
 export default Header;
