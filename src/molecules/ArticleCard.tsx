@@ -3,7 +3,6 @@ import { graphql, useStaticQuery, Link } from 'gatsby';
 import MediaCard from './MediaCard';
 import Img from 'gatsby-image';
 import styled from '../styles/styled';
-import theme from '../styles/theme';
 import H from '../atoms/H';
 import P from '../atoms/P';
 import B from '../atoms/B';
@@ -22,7 +21,6 @@ const ArticleCard: FunctionComponent<Props> = ({
   to = '/',
   expand = true,
 }) => {
-  //Update how to fetch images when the cms is ready, this only fetches a local image./Johannes
   const data = useStaticQuery(graphql`
     query {
       arrow: file(relativePath: { eq: "down.png" }) {
@@ -44,9 +42,11 @@ const ArticleCard: FunctionComponent<Props> = ({
     <MediaCard category={category}>
       <LinkWrapper to={to}>
         <ArticleContent reverse={reverse} expand={isExpanded}>
-          <Image expand={isExpanded}>
-            <Img fluid={mainImage.asset.fluid}></Img>
-          </Image>
+          {mainImage && (
+            <Image expand={isExpanded}>
+              <Img fluid={mainImage.asset.fluid}></Img>
+            </Image>
+          )}
           <Text expand={isExpanded} reverse={reverse}>
             <Title variant="4">{title ? title : 'Titel saknas'}</Title>
             <Date size="11" expand={isExpanded}>
@@ -73,14 +73,22 @@ const LinkWrapper = styled(Link)`
 `;
 const ArticleContent = styled.div<{ reverse: boolean; expand: boolean }>`
   display: flex;
-
+  justify-content: space-between;
   margin: 1rem;
   flex-direction: ${props => {
     return props.reverse && props.expand ? 'row-reverse' : 'row';
   }};
-  @media (max-width: ${theme.breakpoints.sm + 'px'}) {
+  @media (max-width: ${props => {
+      return props.theme.breakpoints.sm + 'px';
+    }}) {
     flex-direction: column;
     margin-right: 0;
+  }
+  /*remove the following to follow the reverse logic on big screens*/
+  @media (min-width: ${props => {
+      return props.theme.breakpoints.xl + 'px';
+    }}) {
+    flex-direction: row;
   }
 `;
 
@@ -88,7 +96,7 @@ const Image = styled.div<{ expand: boolean }>`
   display: ${props => {
     return props.expand ? '' : 'none';
   }};
-  width: 50%;
+  width: 48%;
   animation: fadeIn 0s forwards;
   animation-duration: 1.5s;
   opacity: 0;
@@ -98,7 +106,9 @@ const Image = styled.div<{ expand: boolean }>`
     }
   }
 
-  @media (max-width: ${theme.breakpoints.sm + 'px'}) {
+  @media (max-width: ${props => {
+      return props.theme.breakpoints.sm + 'px';
+    }}) {
     width: 95%;
     margin-bottom: 1rem;
   }
@@ -106,28 +116,23 @@ const Image = styled.div<{ expand: boolean }>`
 
 const Text = styled.div<{ expand: boolean; reverse: boolean }>`
   width: ${props => {
-    return props.expand ? '50%' : '50%';
-  }};
-  padding: ${props => {
-    if (props.expand) {
-      return props.reverse ? '0 1rem 0 0' : '0 0 0 1rem';
-    } else {
-      return '0';
-    }
+    return props.expand ? '48%' : '100%';
   }};
   word-wrap: break-word;
-  color: black;
 
-  @media (max-width: ${theme.breakpoints.sm + 'px'}) {
+  @media (max-width: ${props => {
+      return props.theme.breakpoints.sm + 'px';
+    }}) {
     width: 100%;
-    padding: 0;
   }
 `;
 
 const Title = styled(H)`
   margin: 0;
   visibility: visible;
-  @media (max-width: ${theme.breakpoints.md + 'px'}) {
+  @media (max-width: ${props => {
+      return props.theme.breakpoints.md + 'px';
+    }}) {
     font-size: 20px;
     padding-top: 0rem;
   }
@@ -138,7 +143,9 @@ const Date = styled(B)<{ expand: boolean }>`
     return props.expand ? '' : 'none';
   }};
   color: gray;
-  @media (max-width: ${theme.breakpoints.md + 'px'}) {
+  @media (max-width: ${props => {
+      return props.theme.breakpoints.md + 'px';
+    }}) {
     margin: 1rem 0 1rem 0;
   }
   animation: fadeIn 0s forwards;
@@ -167,7 +174,9 @@ const Description = styled(P)<{ expand: boolean }>`
   -webkit-line-clamp: 5;
   overflow: hidden;
   text-overflow: ellipsis;
-  @media (max-width: ${theme.breakpoints.md + 'px'}) {
+  @media (max-width: ${props => {
+      return props.theme.breakpoints.md + 'px';
+    }}) {
     font-size: 16px;
     -webkit-line-clamp: 4;
   }
@@ -177,7 +186,9 @@ const Arrow = styled.div<{ expand: boolean }>`
   height: 100%;
   width: 5%;
   margin-right: 2%;
-  @media (max-width: ${theme.breakpoints.sm + 'px'}) {
+  @media (max-width: ${props => {
+      return props.theme.breakpoints.sm + 'px';
+    }}) {
     width: 8%;
   }
   &:hover {

@@ -1,17 +1,24 @@
 import React, { FunctionComponent } from 'react';
 import styled from '../styles/styled';
+import { navigate } from 'gatsby';
 
 interface Props {
   name: string;
   background: string;
+  to?: string;
 }
 
 interface FilterButtProps {
   background: string;
 }
 
-const FilterButton: FunctionComponent<Props> = ({ name, background }) => (
-  <FilterButt background={background}>
+const FilterButton: FunctionComponent<Props> = ({ name, background, to }) => (
+  <FilterButt
+    background={background}
+    onClick={() => {
+      if (to) navigate(to);
+    }}
+  >
     <span>{name}</span>
   </FilterButt>
 );
@@ -25,7 +32,11 @@ const FilterButt = styled.div<FilterButtProps>`
   justify-content: center;
   max-width: 35vw;
   width: 72vw;
-  color: black;
+  color: ${props => {
+    return props.background == props.theme.colors.underhallning
+      ? 'black'
+      : 'white';
+  }};
   line-height: 12px;
   font-family: Avenir, Arial, Helvetica, sans-serif;
   letter-spacing: 1px;

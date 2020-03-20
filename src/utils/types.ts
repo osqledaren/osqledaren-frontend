@@ -8,6 +8,9 @@ export interface Category {
   title: string;
   description?: string;
   color: Color;
+  slug: Slug;
+  order: number;
+  menu: boolean;
 }
 
 export interface SanityImageFluid {
