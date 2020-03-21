@@ -63,7 +63,7 @@ exports.createPages = async ({ actions, graphql }) => {
   articleQuery.data.allSanityArticle.edges.forEach(({ node }) => {
     createPage({
       path: getArticleSlug(node.category.slug.current, node.slug.current),
-      component: path.resolve('src/templates/test.tsx'),
+      component: path.resolve('src/templates/Article.tsx'),
       context: {
         slug: node.slug.current,
       },
