@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery, Link } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from '../styles/styled';
 
@@ -17,7 +17,9 @@ const Header: FunctionComponent = () => {
   `);
   return (
     <HeaderWrapper>
-      <Logo fluid={data.logo.childImageSharp.fluid} />
+      <Link to="/">
+        <Logo fluid={data.logo.childImageSharp.fluid} />
+      </Link>
     </HeaderWrapper>
   );
 };
@@ -31,16 +33,12 @@ const HeaderWrapper = styled.div`
   padding-top: 2%;
   @media (max-width: ${({ theme }) => theme.breakpoints.sm + 'px'}) {
     width: 80%;
-    padding-top: 0%;
-    padding-bottom: 10%;
+    margin-top: 50px;
   }
 `;
 
 const Logo = styled(Img)`
   width: 50vw;
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm + 'px'}) {
-    display: none;
-  }
 `;
 
 export default Header;

@@ -1,23 +1,36 @@
 import React, { FunctionComponent } from 'react';
 import Layout from '../organisms/Layout';
-import ArticleCard from '../molecules/ArticleCard';
-const Index: FunctionComponent = () => (
-  <Layout>
-    <ArticleCard
-      to="/about"
-      category={'branch'}
-      title="En najs artikel om coola saker"
-      date="2020-01-01"
-    ></ArticleCard>
-    <ArticleCard category={'english'} reverse></ArticleCard>
-    <ArticleCard category={'olGraver'}></ArticleCard>
-    <ArticleCard
-      category={'underhallning'}
-      reverse
-      expand={false}
-    ></ArticleCard>
-    <ArticleCard category={'aktuellt'} expand={false}></ArticleCard>
-  </Layout>
-);
+import ContentFeed from '../organisms/ContentFeed';
+import { useStaticQuery, graphql } from 'gatsby';
+import { Article } from '../utils/types';
+import ContentWrapper from '../molecules/ContentWrapper';
 
+const Index: FunctionComponent = () => {
+  const {
+    allSanityArticle,
+  }: {
+    allSanityArticle: {
+      edges: Array<{
+        node: Article;
+      }>;
+    };
+  } = useStaticQuery(graphql`
+    query {
+      allSanityArticle(limit: 100) {
+        edges {
+          node {
+            ...Article
+          }
+        }
+      }
+    }
+  `);
+  return (
+    <Layout>
+      <ContentWrapper>
+        <ContentFeed content={allSanityArticle.edges} />
+      </ContentWrapper>
+    </Layout>
+  );
+};
 export default Index;

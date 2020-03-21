@@ -1,18 +1,25 @@
 import React, { FunctionComponent } from 'react';
 import styled from '../styles/styled';
+import { navigate } from 'gatsby';
 
 interface Props {
   name: string;
   background: string;
+  to?: string;
 }
 
 interface FilterButtProps {
   background: string;
 }
 
-const FilterButton: FunctionComponent<Props> = ({ name, background }) => (
-  <FilterButt background={background}>
-    <div className="segment">{name}</div>
+const FilterButton: FunctionComponent<Props> = ({ name, background, to }) => (
+  <FilterButt
+    background={background}
+    onClick={() => {
+      if (to) navigate(to);
+    }}
+  >
+    <span>{name}</span>
   </FilterButt>
 );
 
@@ -23,15 +30,21 @@ const FilterButt = styled.div<FilterButtProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 10%;
-  min-width: 20%;
-  color: black;
-  font-family: Arial, Helvetica, sans-serif;
+  max-width: 35vw;
+  width: 72vw;
+  color: ${props => {
+    return props.background == props.theme.colors.underhallning
+      ? 'black'
+      : 'white';
+  }};
+  line-height: 12px;
+  font-family: Avenir, Arial, Helvetica, sans-serif;
+  letter-spacing: 1px;
   font-weight: bold;
   text-transform: uppercase;
-  padding: 0.5%;
+  padding: 5px;
   font-size: 1vw;
-  height: 1.5vw;
+  height: 2vw;
   word-break: break-all;
   text-align: center;
   box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.25);
@@ -45,11 +58,10 @@ const FilterButt = styled.div<FilterButtProps>`
     overflow: hidden;
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.sm + 'px'}) {
-    height: 10vw;
-    color: black;
-    font-size: 2.5vw;
+    height: 7vw;
+    font-size: 0.5em;
     :hover {
-      height: 13vw;
+      height: 7vw;
     }
   }
 `;

@@ -1,9 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import styled from '../styles/styled';
 import theme from '../styles/theme';
+import { Category } from '../utils/types';
 
 interface CardProps {
-  category?: string; //Takes: branch, english, olGraver, underhallning, aktuellt, podcast as input
+  category?: Category; //Takes: branch, english, olGraver, underhallning, aktuellt, podcast as input
 }
 
 const MediaCard: FunctionComponent<CardProps> = ({ children, category }) => {
@@ -19,22 +20,25 @@ const MediaWrapper = styled.div<CardProps>`
   display: flex;
   flex-direction: row;
   align-content: center;
-  width: 60%;
+  background-color: white;
   margin-top: 2rem;
   text-decoration: none;
+  width: 100%;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   &:hover {
     box-shadow: 0 4px 5px rgba(0, 0, 0, 0.16), 0 4px 5px rgba(0, 0, 0, 0.22);
   }
-  @media (max-width: ${theme.breakpoints.md + 'px'}) {
-    width: 80%;
+
+  @media (min-width: ${theme.breakpoints.xl + 'px'}) {
+    width: 47%;
+    height: 100%;
   }
 `;
 
-const Color = styled.div<CardProps>`
+const Color = styled.div<{ category: Category }>`
   background: ${props => {
-    return theme.colors[props.category];
+    return props.category.color.hex;
   }};
   width: 12px;
   min-width: 12px;

@@ -1,4 +1,5 @@
 const path = require('path');
+const { getArticleSlug } = require('./src/utils/slug');
 
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
@@ -9,7 +10,29 @@ exports.createPages = async ({ actions, graphql }) => {
         edges {
           node {
             id
+            category {
+              slug {
+                current
+              }
+            }
             publishDate
+            slug {
+              current
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const categoryQuery = await graphql(`
+    {
+      allSanityCategory {
+        edges {
+          node {
+            title
+            id
+            description
             slug {
               current
             }
@@ -23,10 +46,24 @@ exports.createPages = async ({ actions, graphql }) => {
     throw new Error(articleQuery.errors);
   }
 
-  articleQuery.data.allSanityArticle.edges.forEach(({ node }) => {
+  if (categoryQuery.errors) {
+    throw new Error(categoryQuery.errors);
+  }
+
+  categoryQuery.data.allSanityCategory.edges.forEach(({ node }) => {
     createPage({
       path: node.slug.current,
-      component: path.resolve('src/templates/Article.tsx'),
+      component: path.resolve('./src/templates/Category.tsx'),
+      context: {
+        slug: node.slug.current,
+      },
+    });
+  });
+
+  articleQuery.data.allSanityArticle.edges.forEach(({ node }) => {
+    createPage({
+      path: getArticleSlug(node.category.slug.current, node.slug.current),
+      component: path.resolve('src/templates/test.tsx'),
       context: {
         slug: node.slug.current,
       },
