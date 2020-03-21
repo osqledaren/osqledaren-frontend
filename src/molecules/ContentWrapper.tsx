@@ -1,10 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import styled from '../styles/styled';
-import Filterbar from '../molecules/FilterBar';
 
 const ContentWrapper: FunctionComponent = ({ children }) => (
   <div>
-    <Filterbar />
     <Content>{children}</Content>
   </div>
 );
