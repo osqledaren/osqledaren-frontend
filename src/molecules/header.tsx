@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from 'react';
-import { graphql, useStaticQuery, Link } from 'gatsby';
 import logo from '../images/Osqledaren_logga_svart.png';
 import styled from '../styles/styled';
 
