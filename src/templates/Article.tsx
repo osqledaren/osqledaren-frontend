@@ -122,7 +122,7 @@ const CreatorInfo = styled(P)`
   margin: 0;
   margin-left: 20px;
   height: 100%;
-  justify-content: space-evenly;
+  justify-content: center;
 `;
 const MainImg = styled(Img)`
   width: 90%;
