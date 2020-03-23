@@ -17,13 +17,13 @@ interface Props {
 }
 const creators = [
   {
-    id: '1',
     name: 'Skrivare Skrivarsson',
+    mail: 'skrivare@osqledaren.se',
     contribution: 'Författare',
   },
   {
-    id: '2',
     name: 'Fotare Fotarsson',
+    mail: 'fotare@osqledaren.se',
     contribution: 'Fotograf',
   },
 ];
@@ -39,15 +39,15 @@ const ArticleTemp: FC<Props> = ({ data }) => {
 
           <CreatorsWrapper>
             {creators.map(creator => (
-              <CreatorInfo key={creator.id}>
+              <Creator key={creator.name}>
                 <CreatorImg
                   fluid={data.sanityArticle.mainImage.asset.fluid}
                 ></CreatorImg>
-                <NameDate>
-                  <span>{creator.name}</span>
-                  <span>{creator.contribution}</span>
-                </NameDate>
-              </CreatorInfo>
+                <CreatorInfo>
+                  <span>{creator.name + ' - ' + creator.contribution}</span>
+                  <a href={'mailto:' + creator.mail}>{creator.mail}</a>
+                </CreatorInfo>
+              </Creator>
             ))}
           </CreatorsWrapper>
 
@@ -69,6 +69,7 @@ const ArticleTemp: FC<Props> = ({ data }) => {
               '/' +
               data.sanityArticle.slug.current
             }
+            target="_blank"
             className="twitter-share-button"
             data-show-count="false"
           >
@@ -102,7 +103,7 @@ const CreatorsWrapper = styled.div`
     margin-bottom: 0px;
   }
 `;
-const CreatorInfo = styled.div`
+const Creator = styled.div`
   display: flex;
   height: 50px;
   margin: 10px 50px 10px 0;
@@ -115,7 +116,7 @@ const CreatorImg = styled(Img)`
   border: 1px solid #e7e7e7;
 `;
 
-const NameDate = styled(P)`
+const CreatorInfo = styled(P)`
   display: flex;
   flex-direction: column;
   margin: 0;
