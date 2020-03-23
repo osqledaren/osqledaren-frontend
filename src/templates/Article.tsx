@@ -8,6 +8,7 @@ import P from '../atoms/P';
 import InfoWrapper from '../molecules/InfoWrapper';
 import BlockContent from '@sanity/block-content-to-react';
 import styled from '../styles/styled';
+import TwitterIcon from '../images/Twitter_Logo_Blue.svg';
 
 interface Props {
   data: {
@@ -61,6 +62,18 @@ const ArticleTemp: FC<Props> = ({ data }) => {
             dataset="production"
           ></Content>
           <P>Publicerad: {data.sanityArticle.publishDate}</P>
+          <Twitter
+            href={
+              'https://twitter.com/share?url=https://osqledaren.se/' +
+              data.sanityArticle.category.slug.current +
+              '/' +
+              data.sanityArticle.slug.current
+            }
+            className="twitter-share-button"
+            data-show-count="false"
+          >
+            <img src={TwitterIcon} alt="Twitter logo" />
+          </Twitter>
         </ArticleWrapper>
       </InfoWrapper>
     </Layout>
@@ -119,6 +132,11 @@ const Content = styled(BlockContent)`
   font-size: 22px;
   font-family: Avenir;
   font-weight: 500;
+`;
+
+const Twitter = styled.a`
+  width: 80px;
+  align-self: flex-end;
 `;
 
 export default ArticleTemp;
