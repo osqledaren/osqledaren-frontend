@@ -28,6 +28,16 @@ const creators = [
   },
 ];
 
+function getImageSize() {
+  if (screen.width < 700) {
+    return (screen.width * 0.7).toFixed(0);
+  } else if (screen.width < 1200) {
+    return (screen.width * 0.4).toFixed(0);
+  } else {
+    return screen.width;
+  }
+}
+
 const ArticleTemp: FC<Props> = ({ data }) => {
   return (
     <Layout>
@@ -57,7 +67,10 @@ const ArticleTemp: FC<Props> = ({ data }) => {
           <MainImg fluid={data.sanityArticle.mainImage.asset.fluid}></MainImg>
           <Content
             blocks={data.sanityArticle._rawContent}
-            imageOptions={{ width: 250 }}
+            imageOptions={{
+              width: getImageSize(),
+              fit: 'max',
+            }}
             projectId="ih69fm79"
             dataset="production"
           ></Content>
@@ -84,6 +97,7 @@ const ArticleTemp: FC<Props> = ({ data }) => {
 const ArticleWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  max-width: 1000px;
   margin-top: 10px;
   padding: 2% 10%;
   background-color: white;
