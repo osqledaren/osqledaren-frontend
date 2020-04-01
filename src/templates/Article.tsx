@@ -9,24 +9,13 @@ import InfoWrapper from '../molecules/InfoWrapper';
 import BlockContent from '@sanity/block-content-to-react';
 import styled from '../styles/styled';
 import TwitterIcon from '../images/Twitter_Logo_Blue.svg';
+import smallLogo from '../images/logo-small.png';
 
 interface Props {
   data: {
     sanityArticle: Article;
   };
 }
-const creators = [
-  {
-    name: 'Skrivare Skrivarsson',
-    mail: 'skrivare@osqledaren.se',
-    contribution: 'Författare',
-  },
-  {
-    name: 'Fotare Fotarsson',
-    mail: 'fotare@osqledaren.se',
-    contribution: 'Fotograf',
-  },
-];
 
 function getImageSize() {
   if (screen.width < 700) {
@@ -46,22 +35,35 @@ const ArticleTemp: FC<Props> = ({ data }) => {
           <H variant="1" color={data.sanityArticle.category.color.hex}>
             {data.sanityArticle.title}
           </H>
-
           <CreatorsWrapper>
-            {creators.map(creator => (
-              <Creator key={creator.name}>
-                <CreatorImg
-                  fluid={data.sanityArticle.mainImage.asset.fluid}
-                ></CreatorImg>
+            {data.sanityArticle.creators.map(contribution => (
+              <Creator key={contribution.creator.id}>
+                {contribution.creator.profilePicture ? (
+                  <CreatorImg
+                    fluid={contribution.creator.profilePicture.asset.fluid}
+                  />
+                ) : (
+                  <NoProfilePic src={smallLogo} />
+                )}
                 <CreatorInfo>
-                  <span>{creator.name + ' - ' + creator.contribution}</span>
-                  <a href={'mailto:' + creator.mail}>{creator.mail}</a>
+                  <span>
+                    {contribution.creator.name + ' - ' + contribution.role.name}
+                  </span>
+                  {contribution.creator.mail ? (
+                    <a href={'mailto: ' + contribution.creator.mail}>
+                      contribution.creator.mail
+                    </a>
+                  ) : (
+                    <a href="mailto: osqledaren@ths.kth.se">
+                      osqledaren@ths.kth.se
+                    </a>
+                  )}
                 </CreatorInfo>
               </Creator>
             ))}
           </CreatorsWrapper>
 
-          <P size="22" lh="30">
+          <P size="20" lh="25">
             {data.sanityArticle.ingress}
           </P>
           <MainImg fluid={data.sanityArticle.mainImage.asset.fluid}></MainImg>
@@ -132,6 +134,12 @@ const CreatorImg = styled(Img)`
   border: 1px solid #e7e7e7;
 `;
 
+const NoProfilePic = styled.img`
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid #e7e7e7;
+`;
 const CreatorInfo = styled(P)`
   display: flex;
   flex-direction: column;
@@ -146,7 +154,7 @@ const MainImg = styled(Img)`
   margin: 5vh 0;
 `;
 const Content = styled(BlockContent)`
-  font-size: 22px;
+  font-size: 20px;
   font-family: Avenir;
   font-weight: 500;
 `;
@@ -166,6 +174,23 @@ export const query = graphql`
   query ArticlePage($slug: String!) {
     sanityArticle(slug: { current: { eq: $slug } }) {
       ...Article
+      creators {
+        creator {
+          name
+          id
+          profilePicture {
+            asset {
+              fluid {
+                ...GatsbySanityImageFluid
+              }
+            }
+          }
+        }
+        role {
+          name
+          description
+        }
+      }
     }
   }
 `;

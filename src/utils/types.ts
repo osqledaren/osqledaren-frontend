@@ -27,12 +27,13 @@ export interface Slug {
 
 export interface Creator {
   name: string;
+  id: string;
+  mail: string;
   profilePicture: SanityImageFluid;
 }
 
 export interface Role {
   name: string;
-  description: Text;
 }
 
 export interface Contribution {
