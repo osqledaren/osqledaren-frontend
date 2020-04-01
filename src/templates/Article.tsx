@@ -51,7 +51,7 @@ const ArticleTemp: FC<Props> = ({ data }) => {
                   </span>
                   {contribution.creator.mail ? (
                     <a href={'mailto: ' + contribution.creator.mail}>
-                      contribution.creator.mail
+                      {contribution.creator.mail}
                     </a>
                   ) : (
                     <a href="mailto: osqledaren@ths.kth.se">
