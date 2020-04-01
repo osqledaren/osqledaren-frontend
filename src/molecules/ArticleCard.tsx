@@ -60,6 +60,7 @@ const ArticleCard: FunctionComponent<Props> = ({
           </Text>
         </ArticleContent>
       </LinkWrapper>
+
       <Arrow expand={isExpanded} onClick={checkExpand}>
         <Img fluid={data.arrow.childImageSharp.fluid}></Img>
       </Arrow>
@@ -79,24 +80,25 @@ const ArticleContent = styled.div<{ reverse: boolean; expand: boolean }>`
     return props.reverse && props.expand ? 'row-reverse' : 'row';
   }};
   @media (max-width: ${props => {
-      return props.theme.breakpoints.sm + 'px';
-    }}) {
+    return props.theme.breakpoints.sm + 'px';
+  }}) {
     flex-direction: column;
     margin-right: 0;
   }
-  /*remove the following to follow the reverse logic on big screens*/
+  /*remove the following to follow the reverse logic on big screens
   @media (min-width: ${props => {
-      return props.theme.breakpoints.xl + 'px';
-    }}) {
+    return props.theme.breakpoints.xl + 'px';
+  }}) {
     flex-direction: row;
-  }
+  }*/
 `;
 
 const Image = styled.div<{ expand: boolean }>`
   display: ${props => {
     return props.expand ? '' : 'none';
   }};
-  width: 48%;
+  width: 40%;
+  align-self: center;
   animation: fadeIn 0s forwards;
   animation-duration: 1.5s;
   opacity: 0;
@@ -116,7 +118,7 @@ const Image = styled.div<{ expand: boolean }>`
 
 const Text = styled.div<{ expand: boolean; reverse: boolean }>`
   width: ${props => {
-    return props.expand ? '48%' : '100%';
+    return props.expand ? '55%' : '100%';
   }};
   word-wrap: break-word;
 
@@ -171,13 +173,14 @@ const Description = styled(P)<{ expand: boolean }>`
     }
   }
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 6;
   overflow: hidden;
   text-overflow: ellipsis;
   @media (max-width: ${props => {
       return props.theme.breakpoints.md + 'px';
     }}) {
-    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.15rem;
     -webkit-line-clamp: 4;
   }
 `;
