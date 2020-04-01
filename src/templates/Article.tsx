@@ -174,23 +174,6 @@ export const query = graphql`
   query ArticlePage($slug: String!) {
     sanityArticle(slug: { current: { eq: $slug } }) {
       ...Article
-      creators {
-        creator {
-          name
-          id
-          profilePicture {
-            asset {
-              fluid {
-                ...GatsbySanityImageFluid
-              }
-            }
-          }
-        }
-        role {
-          name
-          description
-        }
-      }
     }
   }
 `;
