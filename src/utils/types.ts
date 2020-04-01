@@ -25,9 +25,25 @@ export interface Slug {
   current: string;
 }
 
+export interface Creator {
+  name: string;
+  profilePicture: SanityImageFluid;
+}
+
+export interface Role {
+  name: string;
+  description: Text;
+}
+
+export interface Contribution {
+  creator: Creator;
+  role: Role;
+}
+
 export interface Article {
   slug: Slug;
   mainImage: SanityImageFluid;
+  creators: [Contribution];
   title: string;
   id: string;
   category: Category;

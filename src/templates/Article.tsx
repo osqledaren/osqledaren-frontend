@@ -74,20 +74,22 @@ const ArticleTemp: FC<Props> = ({ data }) => {
             projectId="ih69fm79"
             dataset="production"
           ></Content>
-          <P>Publicerad: {data.sanityArticle.publishDate}</P>
-          <Twitter
-            href={
-              'https://twitter.com/share?url=https://osqledaren.se/' +
-              data.sanityArticle.category.slug.current +
-              '/' +
-              data.sanityArticle.slug.current
-            }
-            target="_blank"
-            className="twitter-share-button"
-            data-show-count="false"
-          >
-            <img src={TwitterIcon} alt="Twitter logo" />
-          </Twitter>
+          <BottomRow>
+            <P>Publicerad: {data.sanityArticle.publishDate}</P>
+            <Twitter
+              href={
+                'https://twitter.com/share?url=https://osqledaren.se/' +
+                data.sanityArticle.category.slug.current +
+                '/' +
+                data.sanityArticle.slug.current
+              }
+              target="_blank"
+              className="twitter-share-button"
+              data-show-count="false"
+            >
+              <img src={TwitterIcon} alt="Twitter logo" />
+            </Twitter>
+          </BottomRow>
         </ArticleWrapper>
       </InfoWrapper>
     </Layout>
@@ -149,9 +151,13 @@ const Content = styled(BlockContent)`
   font-weight: 500;
 `;
 
+const BottomRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
 const Twitter = styled.a`
   width: 80px;
-  align-self: flex-end;
 `;
 
 export default ArticleTemp;
