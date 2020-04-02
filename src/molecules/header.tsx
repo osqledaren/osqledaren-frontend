@@ -1,16 +1,17 @@
 import React, { FunctionComponent } from 'react';
 import logo from '../images/Osqledaren_logga_svart.png';
 import styled from '../styles/styled';
+import { Link } from 'gatsby';
 
 const Header: FunctionComponent = () => {
   return (
-    <HeaderWrapper>
+    <HeaderWrapper to="/">
       <img src={logo} style={{ width: '50vw' }} />
     </HeaderWrapper>
   );
 };
 
-const HeaderWrapper = styled.div`
+const HeaderWrapper = styled(Link)`
   width: 50%;
   justify-content: center;
   display: flex;
