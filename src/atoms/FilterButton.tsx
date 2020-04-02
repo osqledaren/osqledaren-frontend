@@ -5,7 +5,7 @@ import { navigate } from 'gatsby';
 interface Props {
   name: string;
   background: string;
-  to?: string;
+  to: string;
 }
 
 interface FilterButtProps {
@@ -16,7 +16,7 @@ const FilterButton: FunctionComponent<Props> = ({ name, background, to }) => (
   <FilterButt
     background={background}
     onClick={() => {
-      if (to) navigate(to);
+      navigate(to);
     }}
   >
     <span>{name}</span>
