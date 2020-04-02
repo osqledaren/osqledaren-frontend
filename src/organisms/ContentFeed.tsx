@@ -14,7 +14,7 @@ const ContentFeed: FC<Props> = ({ content }) => {
     <>
       {content.map(({ node }, i) => (
         <ArticleCard
-          expand={i <= 2}
+          expand={i % 6 < 3}
           reverse={i % 2 === 1}
           to={getArticleSlug(node.category.slug.current, node.slug.current)}
           key={node.id}
