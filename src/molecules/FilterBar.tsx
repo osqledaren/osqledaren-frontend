@@ -3,6 +3,7 @@ import FilterButton from '../atoms/FilterButton';
 import styled from '../styles/styled';
 import { useStaticQuery, graphql } from 'gatsby';
 import { Category } from '../utils/types';
+import theme from '../styles/theme';
 
 const Filterbar: FunctionComponent = () => {
   const {
@@ -36,7 +37,7 @@ const Filterbar: FunctionComponent = () => {
       <FilterButton
         to="/podcasts"
         name="Podcasts"
-        background="#999"
+        background={theme.colors.podcast}
       ></FilterButton>
     </Bar>
   );
