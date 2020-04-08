@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useState } from 'react';
-import { graphql, useStaticQuery, Link } from 'gatsby';
+import { Link } from 'gatsby';
 import MediaCard from './MediaCard';
 import Img from 'gatsby-image';
 import arrowImg from '../images/down.png';
