@@ -8,8 +8,6 @@ import P from '../atoms/P';
 import InfoWrapper from '../molecules/InfoWrapper';
 import BlockContent from '@sanity/block-content-to-react';
 import styled from '../styles/styled';
-import TwitterIcon from '../images/Twitter_Logo_Blue.svg';
-import smallLogo from '../images/logo-small.png';
 
 interface Props {
   data: {
@@ -43,7 +41,7 @@ const ArticleTemp: FC<Props> = ({ data }) => {
                     fluid={contribution.creator.profilePicture.asset.fluid}
                   />
                 ) : (
-                  <NoProfilePic src={smallLogo} />
+                  <NoProfilePic src={'/icons/icon-256x256.png'} />
                 )}
                 <CreatorInfo>
                   <span>
@@ -89,7 +87,7 @@ const ArticleTemp: FC<Props> = ({ data }) => {
               className="twitter-share-button"
               data-show-count="false"
             >
-              <img src={TwitterIcon} alt="Twitter logo" />
+              <img src={'/icons/Twitter_Logo_Blue.svg'} alt="Twitter logo" />
             </Twitter>
           </BottomRow>
         </ArticleWrapper>
