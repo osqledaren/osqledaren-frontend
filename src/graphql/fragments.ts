@@ -8,6 +8,7 @@ export const articleFragment = graphql`
       creator {
         name
         id
+        mail
         profilePicture {
           asset {
             fluid(maxWidth: 960) {
