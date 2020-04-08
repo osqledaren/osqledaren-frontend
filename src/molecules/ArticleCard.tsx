@@ -80,17 +80,11 @@ const ArticleContent = styled.div<{ reverse: boolean; expand: boolean }>`
     return props.reverse && props.expand ? 'row-reverse' : 'row';
   }};
   @media (max-width: ${props => {
-    return props.theme.breakpoints.sm + 'px';
-  }}) {
+      return props.theme.breakpoints.sm + 'px';
+    }}) {
     flex-direction: column;
     margin-right: 0;
   }
-  /*remove the following to follow the reverse logic on big screens
-  @media (min-width: ${props => {
-    return props.theme.breakpoints.xl + 'px';
-  }}) {
-    flex-direction: row;
-  }*/
 `;
 
 const Image = styled.div<{ expand: boolean }>`
