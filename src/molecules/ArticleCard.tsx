@@ -2,7 +2,6 @@ import React, { FunctionComponent, useState } from 'react';
 import { Link } from 'gatsby';
 import MediaCard from './MediaCard';
 import Img from 'gatsby-image';
-import arrowImg from '../images/down.png';
 import styled from '../styles/styled';
 import H from '../atoms/H';
 import P from '../atoms/P';
@@ -53,7 +52,7 @@ const ArticleCard: FunctionComponent<Props> = ({
         </LinkWrapper>
 
         <ArrowWrapper expand={isExpanded} onClick={checkExpand}>
-          <Arrow expand={isExpanded} src={arrowImg}></Arrow>
+          <Arrow expand={isExpanded} src={'/icons/down.png'}></Arrow>
         </ArrowWrapper>
       </ArticleWrapper>
     </MediaCard>
