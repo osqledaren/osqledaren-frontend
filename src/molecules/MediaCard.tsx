@@ -31,7 +31,7 @@ const MediaWrapper = styled.div<CardProps>`
   }
 
   @media (min-width: ${theme.breakpoints.xl + 'px'}) {
-    width: 47%;
+    width: 75%;
     height: 100%;
   }
 `;
