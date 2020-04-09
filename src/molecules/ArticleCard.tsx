@@ -7,6 +7,7 @@ import H from '../atoms/H';
 import P from '../atoms/P';
 import B from '../atoms/B';
 import { Article } from '../utils/types';
+import arrow from '../images/down.png';
 
 interface Props {
   reverse?: boolean;
@@ -52,7 +53,7 @@ const ArticleCard: FunctionComponent<Props> = ({
         </LinkWrapper>
 
         <ArrowWrapper expand={isExpanded} onClick={checkExpand}>
-          <Arrow expand={isExpanded} src={'/icons/down.png'}></Arrow>
+          <Arrow expand={isExpanded} src={arrow}></Arrow>
         </ArrowWrapper>
       </ArticleWrapper>
     </MediaCard>
