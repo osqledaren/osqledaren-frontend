@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
-import { Link as IntLink } from 'gatsby';
+import { Link as InternalLink } from 'gatsby';
 import styled from '../styles/styled';
 import P from '../atoms/P';
-import ExtLink from '../atoms/Link';
+import ExternalLink from '../atoms/Link';
 import OlLogo from '../images/OL-logga-vit.png';
 import twitter from '../images/twitter-white.png';
 import facebook from '../images/facebook.png';
@@ -16,36 +16,34 @@ const Footer: FunctionComponent = () => {
         <Logo src={OlLogo} />
       </LogoContainer>
       <SocialMedia>
-        <ExtLink to="https://www.facebook.com/osqledaren">
+        <ExternalLink to="https://www.facebook.com/osqledaren">
           <Facebook src={facebook} />
-        </ExtLink>
-        <ExtLink to="https://www.instagram.com/osqledaren/">
+        </ExternalLink>
+        <ExternalLink to="https://www.instagram.com/osqledaren/">
           <SocialIcon src={instagram} />
-        </ExtLink>
-        <ExtLink to="https://twitter.com/osqledaren">
+        </ExternalLink>
+        <ExternalLink to="https://twitter.com/osqledaren">
           <SocialIcon src={twitter} />
-        </ExtLink>
-        <ExtLink to="https://github.com/osqledaren">
+        </ExternalLink>
+        <ExternalLink to="https://github.com/osqledaren">
           <SocialIcon src={github} />
-        </ExtLink>
+        </ExternalLink>
       </SocialMedia>
       <InfoWrapper>
         <Links>
           <PageLink to="/about">Om oss</PageLink>
           <PageLink to="/">Annonsera</PageLink>
         </Links>
-        <Info>
-          Ansvarig utgivare: Simon Sundin
-          <br></br>© 2008 - 2020 Osqledaren.
-        </Info>
+        <P color="white">
+          Ansvarig utgivare: Simon Sundin <br />© 2008 - 2020 Osqledaren.
+        </P>
       </InfoWrapper>
     </FooterWrapper>
   );
 };
 
 const FooterWrapper = styled.div`
-  display: inline-flex;
-  justify-self: baseline;
+  display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -56,48 +54,45 @@ const FooterWrapper = styled.div`
   background-color: black;
 `;
 
-const LogoContainer = styled(IntLink)`
-  display: inline-flex;
+const LogoContainer = styled(InternalLink)`
+  display: flex;
   align-items: center;
 `;
 
 const Logo = styled.img`
+  width: 16vw;
   max-width: 140px;
   min-width: 80px;
-  height: auto;
-  width: 16vw;
 `;
 
 const SocialMedia = styled.div`
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   width: 30vw;
   @media (max-width: ${({ theme }) => theme.breakpoints.sm + 'px'}) {
-    width: 50vw;
+    width: 60vw;
   }
 `;
 
 const SocialIcon = styled.img`
-  width: 5vw;
+  width: 4vw;
   max-width: 70px;
-  min-width: 30px;
+  min-width: 35px;
   :hover {
     cursor: pointer;
   }
 `;
 
 const Facebook = styled(SocialIcon)`
+  width: 2vw;
   max-width: 33px;
-  width: 3vw;
-  min-width: 16px;
+  min-width: 18px;
 `;
 
 const InfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  color: white;
 `;
 
 const Links = styled.div`
@@ -110,16 +105,12 @@ const Links = styled.div`
   }
 `;
 
-const PageLink = styled(IntLink)`
+const PageLink = styled(InternalLink)`
   font-size: 16pt;
   color: white;
   :hover {
     text-decoration: none;
   }
-`;
-
-const Info = styled(P)`
-  color: white;
 `;
 
 export default Footer;
