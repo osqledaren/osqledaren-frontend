@@ -94,13 +94,15 @@ const AboutContainer = styled.div`
   flex-wrap: wrap;
   background-color: white;
   padding: 0 5%;
-  margin: 0 5%;
-  margin-top: 20px;
+  margin: 20px 5% 0 5%;
   justify-content: space-around;
   @media (max-width: ${({ theme }) => theme.breakpoints.xl + 280 + 'px'}) {
     flex-direction: column;
     > div {
       width: 100%;
     }
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm + 'px'}) {
+    margin: 20px 1% 0 1%;
   }
 `;
