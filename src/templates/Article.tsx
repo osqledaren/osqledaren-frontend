@@ -5,6 +5,7 @@ import { Article } from '../utils/types';
 import Img from 'gatsby-image';
 import H from '../atoms/H';
 import P from '../atoms/P';
+import Link from '../atoms/Link';
 import InfoWrapper from '../molecules/InfoWrapper';
 import BlockContent from '@sanity/block-content-to-react';
 import styled from '../styles/styled';
@@ -79,15 +80,12 @@ const ArticleTemp: FC<Props> = ({ data }) => {
           <BottomRow>
             <P>Publicerad: {data.sanityArticle.publishDate}</P>
             <Twitter
-              href={
+              to={
                 'https://twitter.com/share?url=https://osqledaren.se/' +
                 data.sanityArticle.category.slug.current +
                 '/' +
                 data.sanityArticle.slug.current
               }
-              target="_blank"
-              className="twitter-share-button"
-              data-show-count="false"
             >
               <img src={TwitterLogo} alt="Twitter logo" />
             </Twitter>
@@ -121,6 +119,7 @@ const CreatorsWrapper = styled.div`
     margin-bottom: 0px;
   }
 `;
+
 const Creator = styled.div`
   display: flex;
   height: 50px;
@@ -140,6 +139,7 @@ const NoProfilePic = styled.img`
   border-radius: 50%;
   border: 1px solid #e7e7e7;
 `;
+
 const CreatorInfo = styled(P)`
   display: flex;
   flex-direction: column;
@@ -148,11 +148,13 @@ const CreatorInfo = styled(P)`
   height: 100%;
   justify-content: center;
 `;
+
 const MainImg = styled(Img)`
   width: 90%;
   align-self: center;
   margin: 5vh 0;
 `;
+
 const Content = styled(BlockContent)`
   font-size: 20px;
   font-family: Avenir;
@@ -164,7 +166,8 @@ const BottomRow = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
-const Twitter = styled.a`
+
+const Twitter = styled(Link)`
   width: 80px;
 `;
 
