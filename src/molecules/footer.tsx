@@ -32,7 +32,7 @@ const Footer: FunctionComponent = () => {
       <InfoWrapper>
         <Links>
           <PageLink to="/about">Om oss</PageLink>
-          <PageLink to="/">Annonsera</PageLink>
+          <PageLink to="/advertise">Annonsera</PageLink>
         </Links>
         <P color="white">
           Ansvarig utgivare: Simon Sundin <br />© 2008 - 2020 Osqledaren.

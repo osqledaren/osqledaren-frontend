@@ -21,7 +21,11 @@ const ContentFeed: FC<Props> = ({ content }) => {
           <ArticleCard
             expand={i % 6 < 3}
             reverse={i % 2 === 1}
-            to={getArticleSlug(node.category.slug.current, node.slug.current)}
+            to={
+              node.slug.current === 'about' || node.slug.current === 'advertise'
+                ? node.slug.current
+                : getArticleSlug(node.category.slug.current, node.slug.current)
+            }
             key={node.id}
             article={node}
           ></ArticleCard>
