@@ -7,6 +7,9 @@ const InfoWrapper: FunctionComponent = ({ children }) => (
 
 const Content = styled.div`
   width: 72vw;
+  @media (max-width: ${({ theme }) => theme.breakpoints.xl + 'px'}) {
+    width: 95vw;
+  }
 `;
 
 export default InfoWrapper;
