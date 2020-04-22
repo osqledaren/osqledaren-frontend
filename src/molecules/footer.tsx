@@ -1,133 +1,116 @@
 import React, { FunctionComponent } from 'react';
-import { graphql, useStaticQuery, Link } from 'gatsby';
-import Img from 'gatsby-image';
-import styled from '@emotion/styled';
+import { Link as InternalLink } from 'gatsby';
+import styled from '../styles/styled';
+import P from '../atoms/P';
+import ExternalLink from '../atoms/Link';
+import OlLogo from '../images/OL-logga-vit.png';
+import twitter from '../images/twitter-white.png';
+import facebook from '../images/facebook.png';
+import instagram from '../images/instagram.png';
+import github from '../images/github.png';
 
 const Footer: FunctionComponent = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      logo: file(relativePath: { eq: "OL-logga-vit.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 1000) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      facebook: file(relativePath: { eq: "facebook.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 1000) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      instagram: file(relativePath: { eq: "instagram.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 1000) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      github: file(relativePath: { eq: "github.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 1000) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `);
-
-  const goTo = (url: string) => (): void => {
-    window.location.href = url;
-  };
-
   return (
     <FooterWrapper>
       <LogoContainer to="/">
-        <Logo fluid={data.logo.childImageSharp.fluid} />
+        <Logo src={OlLogo} />
       </LogoContainer>
       <SocialMedia>
-        <FacebookWrapper onClick={goTo('https://www.facebook.com/osqledaren')}>
-          <Img fluid={data.facebook.childImageSharp.fluid} />
-        </FacebookWrapper>
-        <InstagramWrapper
-          onClick={goTo('https://www.instagram.com/osqledaren/')}
-        >
-          <Img fluid={data.instagram.childImageSharp.fluid} />
-        </InstagramWrapper>
-        <GithubWrapper onClick={goTo('https://github.com/osqledaren')}>
-          <Img fluid={data.github.childImageSharp.fluid} />
-        </GithubWrapper>
+        <ExternalLink to="https://www.facebook.com/osqledaren">
+          <Facebook src={facebook} />
+        </ExternalLink>
+        <ExternalLink to="https://www.instagram.com/osqledaren/">
+          <SocialIcon src={instagram} />
+        </ExternalLink>
+        <ExternalLink to="https://twitter.com/osqledaren">
+          <SocialIcon src={twitter} />
+        </ExternalLink>
+        <ExternalLink to="https://github.com/osqledaren">
+          <SocialIcon src={github} />
+        </ExternalLink>
       </SocialMedia>
-      <Links>
-        <PageLink to="/about">About</PageLink>
-        <PageLink to="/">Advertize</PageLink>
-        <PageLink to="/">Apply to OL</PageLink>
-      </Links>
+      <InfoWrapper>
+        <Links>
+          <PageLink to="/about">Om oss</PageLink>
+          <PageLink to="/">Annonsera</PageLink>
+        </Links>
+        <P color="white">
+          Ansvarig utgivare: Simon Sundin <br />© 2008 - 2020 Osqledaren.
+        </P>
+      </InfoWrapper>
     </FooterWrapper>
   );
 };
 
 const FooterWrapper = styled.div`
   display: flex;
-  justify-self: last baseline;
-
-  width: 100%;
-  height: 12rem;
-  margin-top: 40px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 92vw;
+  padding-left: 4vw;
+  padding-right: 4vw;
+  margin-top: 5vh;
   background-color: black;
 `;
 
-const LogoContainer = styled(Link)`
-  display: inline-flex;
-  margin-left: 4vw;
+const LogoContainer = styled(InternalLink)`
+  display: flex;
   align-items: center;
 `;
 
-const Logo = styled(Img)`
-  max-width: 80%;
-  height: auto;
-  width: 16vh;
+const Logo = styled.img`
+  width: 16vw;
+  max-width: 140px;
+  min-width: 80px;
 `;
 
 const SocialMedia = styled.div`
+  display: flex;
   align-items: center;
-  justify-content: center;
-  display: inline-flex;
+  justify-content: space-evenly;
   width: 30vw;
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm + 'px'}) {
+    width: 60vw;
+  }
 `;
 
-const FacebookWrapper = styled.div`
-  max-width: 80%;
-  height: auto;
-  width: 3vh;
-  margin: 10%;
+const SocialIcon = styled.img`
+  width: 4vw;
+  max-width: 70px;
+  min-width: 35px;
+  :hover {
+    cursor: pointer;
+  }
 `;
 
-const InstagramWrapper = styled.div`
-  max-width: 80%;
-  height: auto;
-  width: 5vh;
+const Facebook = styled(SocialIcon)`
+  width: 2vw;
+  max-width: 33px;
+  min-width: 18px;
 `;
 
-const GithubWrapper = styled.div`
-  max-width: 100%;
-  height: auto;
-  width: 5vh;
-  margin: 10%;
+const InfoWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 const Links = styled.div`
-  display: block;
-  position: absolute;
-  right: 10%;
-  margin-top: 8vh;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  @media (max-width: ${({ theme }) => theme.breakpoints.md + 'px'}) {
+    margin-top: 3vh;
+  }
 `;
 
-const PageLink = styled(Link)`
-  display: block;
-  padding: 0.25rem;
+const PageLink = styled(InternalLink)`
+  font-size: 16pt;
   color: white;
+  :hover {
+    text-decoration: none;
+  }
 `;
 
 export default Footer;

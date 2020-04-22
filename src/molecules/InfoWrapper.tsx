@@ -9,10 +9,8 @@ const Content = styled.div`
   display: flex;
   justify-content: center;
   width: 72vw;
-  @media (max-width: ${props => {
-      return props.theme.breakpoints.sm + 'px';
-    }}) {
-    width: 100vw;
+  @media (max-width: ${({ theme }) => theme.breakpoints.xl + 'px'}) {
+    width: 95vw;
   }
 `;
 

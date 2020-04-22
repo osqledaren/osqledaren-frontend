@@ -12,15 +12,20 @@ interface Props {
 const ContentFeed: FC<Props> = ({ content }) => {
   return (
     <>
-      {content.map(({ node }, i) => (
-        <ArticleCard
-          expand={i <= 2}
-          reverse={i % 2 === 1}
-          to={getArticleSlug(node.category.slug.current, node.slug.current)}
-          key={node.id}
-          article={node}
-        ></ArticleCard>
-      ))}
+      {content
+        .sort(
+          (a, b) =>
+            Date.parse(b.node.publishDate) - Date.parse(a.node.publishDate)
+        )
+        .map(({ node }, i) => (
+          <ArticleCard
+            expand={i % 6 < 3}
+            reverse={i % 2 === 1}
+            to={getArticleSlug(node.category.slug.current, node.slug.current)}
+            key={node.id}
+            article={node}
+          ></ArticleCard>
+        ))}
     </>
   );
 };
