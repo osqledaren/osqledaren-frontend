@@ -4,6 +4,23 @@ export const articleFragment = graphql`
   fragment Article on SanityArticle {
     title
     id
+    creators {
+      creator {
+        name
+        id
+        mail
+        profilePicture {
+          asset {
+            fluid(maxWidth: 960) {
+              ...GatsbySanityImageFluid
+            }
+          }
+        }
+      }
+      role {
+        name
+      }
+    }
     mainImage {
       asset {
         fluid(maxWidth: 960) {

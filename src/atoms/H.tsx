@@ -5,11 +5,14 @@ type HVariant = '1' | '2' | '3' | '4';
 interface Props {
   size?: string;
   variant?: HVariant;
+  color?: string;
 }
 
 const H = styled.h1<Props>`
   font-family: Avenir;
-  color: black;
+  color: ${({ color }) => {
+    return color ? color : 'black';
+  }};
   font-weight: 700;
   font-size: ${({ size, variant, theme }) => {
     if (size) return size + 'px';
