@@ -18,12 +18,12 @@ interface Props {
   };
 }
 
-const ArticleTemp: FC<Props> = ({ data }) => {
+const ArticleTemplate: FC<Props> = ({ data }) => {
   return (
     <Layout>
       <InfoWrapper>
         <ArticleWrapper>
-          <H variant="1" color={data.sanityArticle.category.color.hex}>
+          <H variant="2" color={data.sanityArticle.category.color.hex}>
             {data.sanityArticle.title}
           </H>
           <CreatorsWrapper>
@@ -130,6 +130,10 @@ const CreatorInfo = styled(P)`
   margin-left: 20px;
   height: 100%;
   justify-content: center;
+  word-break: normal;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
 `;
 
 const MainImg = styled(Img)`
@@ -163,7 +167,7 @@ const Twitter = styled(Link)`
   width: 80px;
 `;
 
-export default ArticleTemp;
+export default ArticleTemplate;
 
 export const query = graphql`
   query ArticlePage($slug: String!) {
