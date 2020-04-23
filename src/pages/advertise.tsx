@@ -16,7 +16,7 @@ const Advertise: FunctionComponent = () => (
         <Infotext>
           <About>
             <H variant="3">Annonsera</H>
-            <P size="19" lh="22">
+            <P>
               Med sin upplaga på ca 10 000 ex är Osqledaren Sveriges största
               tekniska studenttidning. Tidningen är helt annonsfinansierad och
               skickas kostnadsfritt hem till alla kårmedlemmar vid Kungliga
@@ -25,7 +25,7 @@ const Advertise: FunctionComponent = () => (
               drivs ideellt av studenter under ledning av en heltidsarvoderad
               chefredaktör (tillika ansvarig utgivare).
             </P>
-            <P size="19" lh="22">
+            <P>
               Tillsammans skriver vi om det som händer på KTH, studentkåren,
               nöje, teknik, arbetsmarknad och annat som intresserar studenterna.
               Ambitionerna är höga både vad gäller det redaktionella innehållet
@@ -35,121 +35,104 @@ const Advertise: FunctionComponent = () => (
               välbekant sätt, regelbundet och i stor volym.{' '}
             </P>
           </About>
-          <Plan>
-            <H variant="3">Utgivningsplan</H>
-            <Dates>
-              <Date>
-                <H variant="4">Utgåva 1</H>
-                <P size="17" lh="22">
-                  Manusstopp: 10/9 {<br />} Utgivning: 8/10
-                </P>
-              </Date>
-              <Date>
-                <H variant="4">Utgåva 2</H>
-                <P size="17" lh="22">
-                  Manusstopp: 24/10 {<br />} Utgivning: 19/11
-                </P>
-              </Date>
-              <Date>
-                <H variant="4">Utgåva 3</H>
-                <P size="17" lh="22">
-                  Manusstopp: 14/1 {<br />} Utgivning: 11/2
-                </P>
-              </Date>
-              <Date>
-                <H variant="4">Utgåva 4</H>
-                <P size="17" lh="22">
-                  Manusstopp: 25/3 {<br />} Utgivning: 19/4
-                </P>
-              </Date>
-            </Dates>
-          </Plan>
+          <Contact>
+            <H variant="3">Kontakt</H>
+            <P>
+              Vill ni annonsera i Osqledaren? <br></br>
+              <b>
+                Maila oss:{' '}
+                <a href="mailto:osqledaren@ths.kth.se">osqledaren@ths.kth.se</a>{' '}
+              </b>
+            </P>
+          </Contact>
         </Infotext>
 
         <Physical>
           <H variant="3">Annons i fysisk tidning</H>
+          <P>
+            <li>Tryckteknik: Fyrafärgs CMYK.</li>
+            <li>Upplösning: 300 dpi</li>
+            <li>Utfall: 3mm</li>
+            <li>Inlaga: 120g TF Obestruket Offset</li>
+            <li>Omslag: 240g TF Obestruket Offset</li>
+          </P>
+
           <Sections>
-            <Section>
-              <H variant="4">Info</H>
-              <P size="19" lh="22">
-                Tryckteknik: Fyrafärgs CMYK.
-              </P>
-              <P size="19" lh="22">
-                Upplösning: 300 dpi
-              </P>
-              <P size="19" lh="22">
-                Utfall: 3mm
-              </P>
-              <P size="19" lh="22">
-                Inlaga: 120g TF Obestruket Offset
-              </P>
-              <P size="19" lh="22">
-                Omslag: 240g TF Obestruket Offset
-              </P>
-            </Section>
             <Section>
               <H variant="4">Baksida</H>
               <SectionContent>
                 <img src={Backside}></img>
-                <P size="19" lh="22">
+                <P size="18">
                   Mått: 208 x 230 mm <br />
                   <b>32 000 kr</b>
                 </P>
               </SectionContent>
             </Section>
             <Section>
-              <H variant="4">Halvsida liggande/stående</H>
+              <H variant="4">Halvsida</H>
               <SectionContent>
                 <img src={HalfPage}></img>
-                <P size="19" lh="22">
-                  Mått: 208 x 135 mm / 104 x 270 mm <br />
+                <P size="18">
+                  Liggande: 208 x 135 mm <br /> Stående: 104 x 270 mm <br />
                   <b>15 000 kr</b>
                 </P>
               </SectionContent>
             </Section>
             <Section>
-              <H variant="4">Helsida, första uppslaget</H>
-
+              <H variant="4">Helsida</H>
               <SectionContent>
                 <img src={WholePage}></img>
-                <P size="19" lh="22">
+                <P size="18">
                   Mått: 208 x 270 mm <br />
-                  <b>26 000 kr</b>
+                  <b>
+                    Inlaga - 24 000 kr
+                    <br />
+                    Första uppslaget - 26 000 kr
+                  </b>
                 </P>
               </SectionContent>
             </Section>
             <Section>
-              <H variant="4">Kvartssida stående</H>
+              <H variant="4">Kvartssida</H>
               <SectionContent>
                 <img src={QuarterPage}></img>
-                <P size="19" lh="22">
-                  Mått: 52 x 67,5 mm <br />
+                <P size="18">
+                  Stående: 52 x 67,5 mm <br />
                   <b>10 000 kr</b>
-                </P>
-              </SectionContent>
-            </Section>
-            <Section>
-              <H variant="4">Helsida, inlaga</H>
-              <SectionContent>
-                <img src={WholePage}></img>
-                <P size="19" lh="22">
-                  Mått: 208 x 270 mm <br />
-                  <b>24 000 kr</b>
                 </P>
               </SectionContent>
             </Section>
           </Sections>
         </Physical>
-        <Contact>
-          <H variant="2">Kontakt</H>
-          <P size="25" lh="31">
-            Vill ni annonsera i Osqledaren? <br></br>
-            <b>
-              Maila oss:{' '}
-              <a href="mailto:osqledaren@ths.kth.se">osqledaren@ths.kth.se</a>{' '}
-            </b>
-          </P>
-        </Contact>
+        <Plan>
+          <H variant="3">Utgivningsplan 2019/2020</H>
+          <Dates>
+            <Date>
+              <H variant="4">Utgåva 1</H>
+              <P size="17" lh="22">
+                Manusstopp: 10/9 {<br />} Utgivning: 8/10
+              </P>
+            </Date>
+            <Date>
+              <H variant="4">Utgåva 2</H>
+              <P size="17" lh="22">
+                Manusstopp: 24/10 {<br />} Utgivning: 19/11
+              </P>
+            </Date>
+            <Date>
+              <H variant="4">Utgåva 3</H>
+              <P size="17" lh="22">
+                Manusstopp: 14/1 {<br />} Utgivning: 11/2
+              </P>
+            </Date>
+            <Date>
+              <H variant="4">Utgåva 4</H>
+              <P size="17" lh="22">
+                Manusstopp: 25/3 {<br />} Utgivning: 19/4
+              </P>
+            </Date>
+          </Dates>
+        </Plan>
       </AdvertiseContainer>
     </InfoWrapper>
   </Layout>
@@ -192,7 +175,8 @@ const About = styled.div`
 `;
 
 const Plan = styled.div`
-  width: 40%;
+  width: 100%;
+  margin-top: 20px;
 `;
 
 const Dates = styled.div`
@@ -203,7 +187,7 @@ const Dates = styled.div`
 
 const Date = styled.div`
   min-width: 150px;
-  margin-right: 0 5px;
+  margin-right: 10px;
 `;
 
 const Physical = styled.div`
@@ -219,14 +203,11 @@ const Sections = styled(Dates)`
   }
 `;
 const Section = styled.div`
-  width: 30%;
-  margin-right: 5px;
+  width: 50%;
   margin-top: 20px;
-  @media (max-width: ${({ theme }) => theme.breakpoints.xl + 'px'}) {
-    width: 40%;
-  }
   @media (max-width: ${({ theme }) => theme.breakpoints.sm + 'px'}) {
     width: 100%;
+    margin-right: 5px;
   }
 `;
 
@@ -234,7 +215,7 @@ const SectionContent = styled.div`
   display: flex;
   flex-direction: column;
   > img {
-    width: 100%;
+    width: 60%;
     height: 100%;
     margin-right: 30px;
   }
@@ -242,11 +223,11 @@ const SectionContent = styled.div`
     flex-direction: row;
     width: 100%;
     > img {
-      width: 50%;
+      width: 30%;
     }
   }
 `;
 
 const Contact = styled.div`
-  border-top: solid lightgray 1px;
+  margin-top: 20px;
 `;

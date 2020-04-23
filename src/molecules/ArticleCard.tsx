@@ -39,7 +39,7 @@ const ArticleCard: FunctionComponent<Props> = ({
               </Image>
             )}
             <Text expand={isExpanded} reverse={reverse}>
-              <Title variant="4">{title ? title : 'Titel saknas'}</Title>
+              <Title variant="3">{title ? title : 'Titel saknas'}</Title>
               <Date size="11" expand={isExpanded}>
                 {publishDate ? publishDate : 'Datum saknas'}
               </Date>
@@ -75,7 +75,7 @@ const LinkWrapper = styled(Link)`
 `;
 const ArticleContent = styled.div<{ reverse: boolean; expand: boolean }>`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin: 1rem;
   flex-direction: ${props => {
     return props.reverse && props.expand ? 'row-reverse' : 'row';
@@ -93,10 +93,12 @@ const Image = styled.div<{ expand: boolean }>`
     return props.expand ? '' : 'none';
   }};
   width: 40%;
+  max-width: 400px;
   align-self: center;
   animation: fadeIn 0s forwards;
   animation-duration: 1.5s;
   opacity: 0;
+
   @keyframes fadeIn {
     to {
       opacity: 1;
@@ -116,21 +118,25 @@ const Text = styled.div<{ expand: boolean; reverse: boolean }>`
     return props.expand ? '55%' : '100%';
   }};
   word-wrap: break-word;
-
+  padding: ${props => {
+    return props.reverse ? '0 20px 0 0' : '0 0 0 20px';
+  }};
   @media (max-width: ${props => {
       return props.theme.breakpoints.sm + 'px';
     }}) {
     width: 100%;
+    padding: 0;
   }
+  margin-top: ${props => {
+    return props.expand ? '1rem' : '0';
+  }};
 `;
 
 const Title = styled(H)`
   margin: 0;
   visibility: visible;
-  @media (max-width: ${props => {
-      return props.theme.breakpoints.md + 'px';
-    }}) {
-    font-size: 18px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.xl + 'px'}) {
+    font-size: ${({ theme }) => theme.hSize[4]};
     padding-top: 0rem;
   }
 `;
@@ -171,13 +177,6 @@ const Description = styled(P)<{ expand: boolean }>`
   -webkit-line-clamp: 6;
   overflow: hidden;
   text-overflow: ellipsis;
-  @media (max-width: ${props => {
-      return props.theme.breakpoints.md + 'px';
-    }}) {
-    font-size: 1rem;
-    line-height: 1.15rem;
-    -webkit-line-clamp: 4;
-  }
 `;
 
 const ArrowWrapper = styled.div<{ expand: boolean }>`

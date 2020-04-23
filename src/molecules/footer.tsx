@@ -31,10 +31,14 @@ const Footer: FunctionComponent = () => {
       </SocialMedia>
       <InfoWrapper>
         <Links>
-          <PageLink to="/about">Om oss</PageLink>
-          <PageLink to="/advertise">Annonsera</PageLink>
+          <PageLink to="/about">
+            <P color="white">Om oss</P>
+          </PageLink>
+          <PageLink to="/advertise">
+            <P color="white">Annonsera</P>
+          </PageLink>
         </Links>
-        <P color="white">
+        <P size="16pt" color="white">
           Ansvarig utgivare: Simon Sundin <br />© 2008 - 2020 Osqledaren.
         </P>
       </InfoWrapper>
@@ -100,13 +104,9 @@ const Links = styled.div`
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  @media (max-width: ${({ theme }) => theme.breakpoints.md + 'px'}) {
-    margin-top: 3vh;
-  }
 `;
 
 const PageLink = styled(InternalLink)`
-  font-size: 16pt;
   color: white;
   :hover {
     text-decoration: none;

@@ -8,7 +8,7 @@ const InfoWrapper: FunctionComponent = ({ children }) => (
 const Content = styled.div`
   display: flex;
   justify-content: center;
-  width: 72vw;
+  width: 60vw;
   @media (max-width: ${({ theme }) => theme.breakpoints.xl + 'px'}) {
     width: 95vw;
   }

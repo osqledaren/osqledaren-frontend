@@ -19,7 +19,7 @@ const FilterButton: FunctionComponent<Props> = ({ name, background, to }) => (
       navigate(to);
     }}
   >
-    <span>{name}</span>
+    {name}
   </FilterButt>
 );
 
@@ -43,9 +43,12 @@ const FilterButt = styled.div<FilterButtProps>`
   font-weight: bold;
   text-transform: uppercase;
   padding: 5px;
-  font-size: 1vw;
+  font-size: 0.8vw;
   height: 2vw;
   word-break: break-all;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
   text-align: center;
   box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.25);
   :hover {
@@ -56,6 +59,9 @@ const FilterButt = styled.div<FilterButtProps>`
     transition: height 0.35s;
     height: 2.5vw;
     overflow: hidden;
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoints.xl + 'px'}) {
+    font-size: 1vw;
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.sm + 'px'}) {
     height: 7vw;

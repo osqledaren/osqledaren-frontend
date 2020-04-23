@@ -46,12 +46,15 @@ const Bar = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 72vw;
+  width: 60vw;
   padding-bottom: 2%;
   max-height: 2vw;
   position: sticky;
   top: 0;
   z-index: 10;
+  @media (max-width: ${({ theme }) => theme.breakpoints.xl + 'px'}) {
+    width: 85vw;
+  }
   @media (max-width: ${({ theme }) => theme.breakpoints.sm + 'px'}) {
     width: 100%;
     position: fixed;

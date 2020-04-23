@@ -13,6 +13,10 @@ const P = styled.p<Props>`
   font-weight: 500;
   line-height: ${({ lh }) => (lh ? lh + 'px' : theme.pLineHeight)};
   font-size: ${({ size }) => (size ? size + 'px' : theme.pSize)};
+  @media (min-width: ${({ theme }) => theme.breakpoints.xl + 'px'}) {
+    line-height: ${({ lh }) => (lh ? lh + 'px' : theme.pLineHeightXl)};
+    font-size: ${({ size }) => (size ? size + 'px' : theme.pSizeXl)};
+  }
 `;
 
 export default P;

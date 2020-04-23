@@ -18,12 +18,12 @@ interface Props {
   };
 }
 
-const ArticleTemp: FC<Props> = ({ data }) => {
+const ArticleTemplate: FC<Props> = ({ data }) => {
   return (
     <Layout>
       <InfoWrapper>
         <ArticleWrapper>
-          <H variant="1" color={data.sanityArticle.category.color.hex}>
+          <H variant="2" color={data.sanityArticle.category.color.hex}>
             {data.sanityArticle.title}
           </H>
           <CreatorsWrapper>
@@ -36,7 +36,7 @@ const ArticleTemp: FC<Props> = ({ data }) => {
                 ) : (
                   <NoProfilePic src={smallOL} />
                 )}
-                <CreatorInfo>
+                <CreatorInfo size="16pt">
                   <span>
                     {contribution.creator.name + ' - ' + contribution.role.name}
                   </span>
@@ -54,7 +54,7 @@ const ArticleTemp: FC<Props> = ({ data }) => {
             ))}
           </CreatorsWrapper>
 
-          <Ingress>{data.sanityArticle.ingress}</Ingress>
+          <P>{data.sanityArticle.ingress}</P>
           <MainImg fluid={data.sanityArticle.mainImage.asset.fluid}></MainImg>
           <Content
             blocks={data.sanityArticle._rawContent}
@@ -83,14 +83,13 @@ const ArticleTemp: FC<Props> = ({ data }) => {
 const ArticleWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 1000px;
+  width: 95%;
   margin-top: 10px;
   padding: 2% 10%;
   background-color: white;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.16), 0 4px 5px rgba(0, 0, 0, 0.22);
   @media (max-width: ${({ theme }) => theme.breakpoints.sm + 'px'}) {
     padding: 0 5%;
-    background-color: white;
   }
 `;
 
@@ -131,16 +130,12 @@ const CreatorInfo = styled(P)`
   margin-left: 20px;
   height: 100%;
   justify-content: center;
+  word-break: normal;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
 `;
 
-const Ingress = styled(P)`
-  font-size: 20px;
-  line-height: 25px;
-  @media (min-width: ${({ theme }) => theme.breakpoints.xl + 'px'}) {
-    font-size: 25px;
-    line-height: 30px;
-  }
-`;
 const MainImg = styled(Img)`
   width: 90%;
   align-self: center;
@@ -172,7 +167,7 @@ const Twitter = styled(Link)`
   width: 80px;
 `;
 
-export default ArticleTemp;
+export default ArticleTemplate;
 
 export const query = graphql`
   query ArticlePage($slug: String!) {
