@@ -54,9 +54,7 @@ const ArticleTemp: FC<Props> = ({ data }) => {
             ))}
           </CreatorsWrapper>
 
-          <P size="20" lh="25">
-            {data.sanityArticle.ingress}
-          </P>
+          <Ingress>{data.sanityArticle.ingress}</Ingress>
           <MainImg fluid={data.sanityArticle.mainImage.asset.fluid}></MainImg>
           <Content
             blocks={data.sanityArticle._rawContent}
@@ -135,6 +133,14 @@ const CreatorInfo = styled(P)`
   justify-content: center;
 `;
 
+const Ingress = styled(P)`
+  font-size: 20px;
+  line-height: 25px;
+  @media (min-width: ${({ theme }) => theme.breakpoints.xl + 'px'}) {
+    font-size: 25px;
+    line-height: 30px;
+  }
+`;
 const MainImg = styled(Img)`
   width: 90%;
   align-self: center;
@@ -143,9 +149,13 @@ const MainImg = styled(Img)`
 
 const Content = styled(BlockContent)`
   font-size: 20px;
+  @media (min-width: ${({ theme }) => theme.breakpoints.xl + 'px'}) {
+    font-size: 25px;
+  }
   font-family: Avenir;
   font-weight: 500;
   > figure {
+    margin: 0;
     > img {
       width: 100%;
     }
