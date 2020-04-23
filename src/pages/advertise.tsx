@@ -35,46 +35,47 @@ const Advertise: FunctionComponent = () => (
               välbekant sätt, regelbundet och i stor volym.{' '}
             </P>
           </About>
-          <Plan>
-            <H variant="3">Utgivningsplan</H>
-            <Dates>
-              <Date>
-                <H variant="4">Utgåva 1</H>
-                <P size="17" lh="22">
-                  Manusstopp: 10/9 {<br />} Utgivning: 8/10
-                </P>
-              </Date>
-              <Date>
-                <H variant="4">Utgåva 2</H>
-                <P size="17" lh="22">
-                  Manusstopp: 24/10 {<br />} Utgivning: 19/11
-                </P>
-              </Date>
-              <Date>
-                <H variant="4">Utgåva 3</H>
-                <P size="17" lh="22">
-                  Manusstopp: 14/1 {<br />} Utgivning: 11/2
-                </P>
-              </Date>
-              <Date>
-                <H variant="4">Utgåva 4</H>
-                <P size="17" lh="22">
-                  Manusstopp: 25/3 {<br />} Utgivning: 19/4
-                </P>
-              </Date>
-            </Dates>
-          </Plan>
+
+          <Contact>
+            <H variant="3">Kontakt</H>
+            <P>
+              Vill ni annonsera i Osqledaren? <br></br>
+              <b>
+                Maila oss:{' '}
+                <a href="mailto:osqledaren@ths.kth.se">osqledaren@ths.kth.se</a>{' '}
+              </b>
+            </P>
+          </Contact>
         </Infotext>
-        <Contact>
-          <H variant="3">Kontakt</H>
-          <P>
-            Vill ni annonsera i Osqledaren? <br></br>
-            <b>
-              Maila oss:{' '}
-              <a href="mailto:osqledaren@ths.kth.se">osqledaren@ths.kth.se</a>{' '}
-            </b>
-          </P>
-        </Contact>
+        <Plan>
+          <H variant="3">Utgivningsplan</H>
+          <Dates>
+            <Date>
+              <H variant="4">Utgåva 1</H>
+              <P size="17" lh="22">
+                Manusstopp: 10/9 {<br />} Utgivning: 8/10
+              </P>
+            </Date>
+            <Date>
+              <H variant="4">Utgåva 2</H>
+              <P size="17" lh="22">
+                Manusstopp: 24/10 {<br />} Utgivning: 19/11
+              </P>
+            </Date>
+            <Date>
+              <H variant="4">Utgåva 3</H>
+              <P size="17" lh="22">
+                Manusstopp: 14/1 {<br />} Utgivning: 11/2
+              </P>
+            </Date>
+            <Date>
+              <H variant="4">Utgåva 4</H>
+              <P size="17" lh="22">
+                Manusstopp: 25/3 {<br />} Utgivning: 19/4
+              </P>
+            </Date>
+          </Dates>
+        </Plan>
         <Physical>
           <H variant="3">Annons i fysisk tidning</H>
           <Sections>
@@ -165,6 +166,7 @@ const Infotext = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  border-bottom: solid lightgray 1px;
   @media (max-width: ${({ theme }) => theme.breakpoints.xl + 'px'}) {
     flex-direction: column;
     > div {
@@ -180,7 +182,12 @@ const About = styled.div`
 `;
 
 const Plan = styled.div`
-  width: 30%;
+  width: 100%;
+  margin-top: 20px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.xl + 'px'}) {
+    width: 60%;
+  }
 `;
 
 const Dates = styled.div`
@@ -236,6 +243,5 @@ const SectionContent = styled.div`
 `;
 
 const Contact = styled.div`
-  border-bottom: solid lightgray 1px;
   margin-top: 20px;
 `;
