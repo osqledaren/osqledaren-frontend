@@ -35,7 +35,6 @@ const Advertise: FunctionComponent = () => (
               välbekant sätt, regelbundet och i stor volym.{' '}
             </P>
           </About>
-
           <Contact>
             <H variant="3">Kontakt</H>
             <P>
