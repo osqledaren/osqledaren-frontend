@@ -6,15 +6,9 @@ interface Props extends GatsbyLinkProps<{}> {
   defaultStyling?: boolean;
 }
 
-const Link: FunctionComponent<Props> = ({ children, to, ref, ...other }) => {
+const Link: FunctionComponent<Props> = ({ children, to, ref }) => {
   return (
-    <StyledLink
-      href={to}
-      ref={ref}
-      target="_blank"
-      rel="noopener noreferrer"
-      {...other}
-    >
+    <StyledLink href={to} ref={ref} target="_blank" rel="noopener noreferrer">
       {children}
     </StyledLink>
   );
