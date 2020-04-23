@@ -6,21 +6,29 @@ import { Link } from 'gatsby';
 const Header: FunctionComponent = () => {
   return (
     <HeaderWrapper to="/">
-      <img src={logo} style={{ width: '50vw' }} />
+      <HeaderImage src={logo} />
     </HeaderWrapper>
   );
 };
 
 const HeaderWrapper = styled(Link)`
-  width: 50%;
-  justify-content: center;
   display: flex;
+  width: 100vw;
+  justify-content: center;
   align-items: center;
-  flex-direction: column;
-  padding-top: 2%;
+  padding: 1vh 0;
   @media (max-width: ${({ theme }) => theme.breakpoints.sm + 'px'}) {
-    width: 80%;
     margin-top: 50px;
+  }
+`;
+
+const HeaderImage = styled.img`
+  width: 35%;
+  @media (max-width: ${({ theme }) => theme.breakpoints.xl + 'px'}) {
+    width: 50%;
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm + 'px'}) {
+    width: 85%;
   }
 `;
 
