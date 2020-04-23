@@ -36,7 +36,7 @@ const ArticleTemp: FC<Props> = ({ data }) => {
                 ) : (
                   <NoProfilePic src={smallOL} />
                 )}
-                <CreatorInfo>
+                <CreatorInfo size="16pt">
                   <span>
                     {contribution.creator.name + ' - ' + contribution.role.name}
                   </span>
@@ -83,6 +83,7 @@ const ArticleTemp: FC<Props> = ({ data }) => {
 const ArticleWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  width: 95%;
   margin-top: 10px;
   padding: 2% 10%;
   background-color: white;
