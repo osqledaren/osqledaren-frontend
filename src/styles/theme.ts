@@ -18,8 +18,10 @@ const theme = {
     '4': '24px',
     '5': '16px',
   },
-  pSize: '14px',
-  pLineHeight: '16px',
+  pSize: '20px',
+  pLineHeight: '25px',
+  pSizeXl: '22px',
+  pLineHeightXl: '27px',
   breakpoints: {
     sm: 636,
     md: 768,

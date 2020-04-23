@@ -10,18 +10,12 @@ const ContentWrapper: FunctionComponent = ({ children }) => (
 const Content = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 72vw;
   @media (max-width: ${props => {
       return props.theme.breakpoints.sm + 'px';
     }}) {
     width: 100vw;
-  }
-  @media (min-width: ${props => {
-      return props.theme.breakpoints.xl + 'px';
-    }}) {
-    flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
   }
 `;
 

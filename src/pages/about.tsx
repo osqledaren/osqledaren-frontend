@@ -25,7 +25,7 @@ const About: FunctionComponent = () => {
         <AboutContainer>
           <AboutText>
             <H variant="3">Om Osqledaren</H>
-            <P size="19" lh="22">
+            <P>
               Osqledaren är Tekniska Högskolans Studentkårs tidning som når ut
               till alla KTHs kårmedlemmar i cirka 10 000 exemplar, fyra gånger
               per läsår. Tidningen har till uppgift att bevaka kåren och KTH,
@@ -33,7 +33,7 @@ const About: FunctionComponent = () => {
               teknologstudenter; som till exempel nöje, teknik, karriär och
               utbildning.
             </P>
-            <P size="19" lh="22">
+            <P>
               Vill ni annonsera i Osqledaren?{' '}
               <Link to="/advertise">Klicka här!</Link>
             </P>
@@ -42,7 +42,7 @@ const About: FunctionComponent = () => {
           <Contact>
             <H variant="3">Kontaktuppgifter</H>
             <ContactList>
-              <P size="19" lh="22">
+              <P>
                 <li>Chefredaktör: Robin Kammerlander</li>
                 <br />
                 <li>Ansvarig utgivare:</li>
@@ -71,7 +71,7 @@ export default About;
 
 const Contact = styled.div`
   margin-top: 20px;
-  @media (max-width: ${({ theme }) => theme.breakpoints.xl + 350 + 'px'}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.xl + 1000 + 'px'}) {
     order: 3;
   }
 `;
@@ -87,20 +87,18 @@ const ImageWrapper = styled.div`
 
 const AboutText = styled.div`
   margin-top: 20px;
-  max-width: 600px;
-  @media (max-width: ${({ theme }) => theme.breakpoints.xl + 350 + 'px'}) {
-    max-width: 90vw;
-  }
+  max-width: 800px;
 `;
 
 const AboutContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  width: 100%;
   background-color: white;
   padding: 0 5%;
   margin: 20px 0;
-  justify-content: space-around;
+  justify-content: space-between;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   @media (max-width: ${({ theme }) => theme.breakpoints.xl + 350 + 'px'}) {
     flex-direction: column;

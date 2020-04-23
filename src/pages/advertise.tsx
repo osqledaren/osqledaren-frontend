@@ -16,7 +16,7 @@ const Advertise: FunctionComponent = () => (
         <Infotext>
           <About>
             <H variant="3">Annonsera</H>
-            <P size="19" lh="22">
+            <P>
               Med sin upplaga på ca 10 000 ex är Osqledaren Sveriges största
               tekniska studenttidning. Tidningen är helt annonsfinansierad och
               skickas kostnadsfritt hem till alla kårmedlemmar vid Kungliga
@@ -25,7 +25,7 @@ const Advertise: FunctionComponent = () => (
               drivs ideellt av studenter under ledning av en heltidsarvoderad
               chefredaktör (tillika ansvarig utgivare).
             </P>
-            <P size="19" lh="22">
+            <P>
               Tillsammans skriver vi om det som händer på KTH, studentkåren,
               nöje, teknik, arbetsmarknad och annat som intresserar studenterna.
               Ambitionerna är höga både vad gäller det redaktionella innehållet
@@ -65,33 +65,32 @@ const Advertise: FunctionComponent = () => (
             </Dates>
           </Plan>
         </Infotext>
-
+        <Contact>
+          <H variant="3">Kontakt</H>
+          <P>
+            Vill ni annonsera i Osqledaren? <br></br>
+            <b>
+              Maila oss:{' '}
+              <a href="mailto:osqledaren@ths.kth.se">osqledaren@ths.kth.se</a>{' '}
+            </b>
+          </P>
+        </Contact>
         <Physical>
           <H variant="3">Annons i fysisk tidning</H>
           <Sections>
             <Section>
               <H variant="4">Info</H>
-              <P size="19" lh="22">
-                Tryckteknik: Fyrafärgs CMYK.
-              </P>
-              <P size="19" lh="22">
-                Upplösning: 300 dpi
-              </P>
-              <P size="19" lh="22">
-                Utfall: 3mm
-              </P>
-              <P size="19" lh="22">
-                Inlaga: 120g TF Obestruket Offset
-              </P>
-              <P size="19" lh="22">
-                Omslag: 240g TF Obestruket Offset
-              </P>
+              <P>Tryckteknik: Fyrafärgs CMYK.</P>
+              <P>Upplösning: 300 dpi</P>
+              <P>Utfall: 3mm</P>
+              <P>Inlaga: 120g TF Obestruket Offset</P>
+              <P>Omslag: 240g TF Obestruket Offset</P>
             </Section>
             <Section>
               <H variant="4">Baksida</H>
               <SectionContent>
                 <img src={Backside}></img>
-                <P size="19" lh="22">
+                <P>
                   Mått: 208 x 230 mm <br />
                   <b>32 000 kr</b>
                 </P>
@@ -101,7 +100,7 @@ const Advertise: FunctionComponent = () => (
               <H variant="4">Halvsida liggande/stående</H>
               <SectionContent>
                 <img src={HalfPage}></img>
-                <P size="19" lh="22">
+                <P>
                   Mått: 208 x 135 mm / 104 x 270 mm <br />
                   <b>15 000 kr</b>
                 </P>
@@ -112,7 +111,7 @@ const Advertise: FunctionComponent = () => (
 
               <SectionContent>
                 <img src={WholePage}></img>
-                <P size="19" lh="22">
+                <P>
                   Mått: 208 x 270 mm <br />
                   <b>26 000 kr</b>
                 </P>
@@ -122,7 +121,7 @@ const Advertise: FunctionComponent = () => (
               <H variant="4">Kvartssida stående</H>
               <SectionContent>
                 <img src={QuarterPage}></img>
-                <P size="19" lh="22">
+                <P>
                   Mått: 52 x 67,5 mm <br />
                   <b>10 000 kr</b>
                 </P>
@@ -132,7 +131,7 @@ const Advertise: FunctionComponent = () => (
               <H variant="4">Helsida, inlaga</H>
               <SectionContent>
                 <img src={WholePage}></img>
-                <P size="19" lh="22">
+                <P>
                   Mått: 208 x 270 mm <br />
                   <b>24 000 kr</b>
                 </P>
@@ -140,16 +139,6 @@ const Advertise: FunctionComponent = () => (
             </Section>
           </Sections>
         </Physical>
-        <Contact>
-          <H variant="2">Kontakt</H>
-          <P size="25" lh="31">
-            Vill ni annonsera i Osqledaren? <br></br>
-            <b>
-              Maila oss:{' '}
-              <a href="mailto:osqledaren@ths.kth.se">osqledaren@ths.kth.se</a>{' '}
-            </b>
-          </P>
-        </Contact>
       </AdvertiseContainer>
     </InfoWrapper>
   </Layout>
@@ -176,7 +165,6 @@ const Infotext = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border-bottom: solid lightgray 1px;
   @media (max-width: ${({ theme }) => theme.breakpoints.xl + 'px'}) {
     flex-direction: column;
     > div {
@@ -192,7 +180,7 @@ const About = styled.div`
 `;
 
 const Plan = styled.div`
-  width: 40%;
+  width: 30%;
 `;
 
 const Dates = styled.div`
@@ -203,7 +191,7 @@ const Dates = styled.div`
 
 const Date = styled.div`
   min-width: 150px;
-  margin-right: 0 5px;
+  margin-right: 5px;
 `;
 
 const Physical = styled.div`
@@ -248,5 +236,6 @@ const SectionContent = styled.div`
 `;
 
 const Contact = styled.div`
-  border-top: solid lightgray 1px;
+  border-bottom: solid lightgray 1px;
+  margin-top: 20px;
 `;
