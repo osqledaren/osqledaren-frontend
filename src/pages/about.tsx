@@ -35,7 +35,7 @@ const About: FunctionComponent = () => {
             </P>
             <P size="19" lh="22">
               Vill ni annonsera i Osqledaren?{' '}
-              <Link to="/advertize">Klicka här!</Link>
+              <Link to="/advertise">Klicka här!</Link>
             </P>
           </AboutText>
 
@@ -101,6 +101,7 @@ const AboutContainer = styled.div`
   padding: 0 5%;
   margin: 20px 0;
   justify-content: space-around;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   @media (max-width: ${({ theme }) => theme.breakpoints.xl + 350 + 'px'}) {
     flex-direction: column;
   }

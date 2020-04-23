@@ -163,7 +163,7 @@ const AdvertiseContainer = styled.div`
   margin-top: 20px;
   background-color: white;
   padding: 5%;
-
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   @media (max-width: ${({ theme }) => theme.breakpoints.xl + 'px'}) {
     flex-direction: column;
     > div {
@@ -209,10 +209,11 @@ const Date = styled.div`
 const Physical = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
+  margin: 20px 0;
 `;
 
 const Sections = styled(Dates)`
+  display: flex;
   @media (max-width: ${({ theme }) => theme.breakpoints.sm + 'px'}) {
     flex-direction: column;
   }
@@ -234,6 +235,7 @@ const SectionContent = styled.div`
   flex-direction: column;
   > img {
     width: 100%;
+    height: 100%;
     margin-right: 30px;
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.sm + 'px'}) {
