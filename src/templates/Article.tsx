@@ -18,16 +18,6 @@ interface Props {
   };
 }
 
-function getImageSize() {
-  if (screen.width < 700) {
-    return (screen.width * 0.7).toFixed(0);
-  } else if (screen.width < 1200) {
-    return (screen.width * 0.4).toFixed(0);
-  } else {
-    return screen.width;
-  }
-}
-
 const ArticleTemp: FC<Props> = ({ data }) => {
   return (
     <Layout>
@@ -70,10 +60,6 @@ const ArticleTemp: FC<Props> = ({ data }) => {
           <MainImg fluid={data.sanityArticle.mainImage.asset.fluid}></MainImg>
           <Content
             blocks={data.sanityArticle._rawContent}
-            imageOptions={{
-              width: getImageSize(),
-              fit: 'max',
-            }}
             projectId="ih69fm79"
             dataset="production"
           ></Content>
@@ -159,6 +145,11 @@ const Content = styled(BlockContent)`
   font-size: 20px;
   font-family: Avenir;
   font-weight: 500;
+  > figure {
+    > img {
+      width: 100%;
+    }
+  }
 `;
 
 const BottomRow = styled.div`
