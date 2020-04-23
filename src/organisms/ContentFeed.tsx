@@ -23,7 +23,7 @@ const ContentFeed: FC<Props> = ({ content }) => {
             reverse={i % 2 === 1}
             to={
               node.slug.current === 'about' || node.slug.current === 'advertise'
-                ? node.slug.current
+                ? '/' + node.slug.current
                 : getArticleSlug(node.category.slug.current, node.slug.current)
             }
             key={node.id}
