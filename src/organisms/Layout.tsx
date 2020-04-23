@@ -24,6 +24,7 @@ const LayoutWrapper = styled.div`
 `;
 
 const Content = styled.div`
+  display: flex;
   flex-grow: 1;
 `;
 

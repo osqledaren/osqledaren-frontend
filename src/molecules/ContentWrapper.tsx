@@ -2,9 +2,7 @@ import React, { FunctionComponent } from 'react';
 import styled from '../styles/styled';
 
 const ContentWrapper: FunctionComponent = ({ children }) => (
-  <div>
-    <Content>{children}</Content>
-  </div>
+  <Content>{children}</Content>
 );
 
 const Content = styled.div`
