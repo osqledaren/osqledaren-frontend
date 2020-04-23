@@ -46,8 +46,66 @@ const Advertise: FunctionComponent = () => (
             </P>
           </Contact>
         </Infotext>
+
+        <Physical>
+          <H variant="3">Annons i fysisk tidning</H>
+          <P>
+            <li>Tryckteknik: Fyrafärgs CMYK.</li>
+            <li>Upplösning: 300 dpi</li>
+            <li>Utfall: 3mm</li>
+            <li>Inlaga: 120g TF Obestruket Offset</li>
+            <li>Omslag: 240g TF Obestruket Offset</li>
+          </P>
+
+          <Sections>
+            <Section>
+              <H variant="4">Baksida</H>
+              <SectionContent>
+                <img src={Backside}></img>
+                <P size="18">
+                  Mått: 208 x 230 mm <br />
+                  <b>32 000 kr</b>
+                </P>
+              </SectionContent>
+            </Section>
+            <Section>
+              <H variant="4">Halvsida</H>
+              <SectionContent>
+                <img src={HalfPage}></img>
+                <P size="18">
+                  Liggande: 208 x 135 mm <br /> Stående: 104 x 270 mm <br />
+                  <b>15 000 kr</b>
+                </P>
+              </SectionContent>
+            </Section>
+            <Section>
+              <H variant="4">Helsida</H>
+              <SectionContent>
+                <img src={WholePage}></img>
+                <P size="18">
+                  Mått: 208 x 270 mm <br />
+                  <b>
+                    Inlaga - 24 000 kr
+                    <br />
+                    Första uppslaget - 26 000 kr
+                  </b>
+                </P>
+              </SectionContent>
+            </Section>
+            <Section>
+              <H variant="4">Kvartssida</H>
+              <SectionContent>
+                <img src={QuarterPage}></img>
+                <P size="18">
+                  Stående: 52 x 67,5 mm <br />
+                  <b>10 000 kr</b>
+                </P>
+              </SectionContent>
+            </Section>
+          </Sections>
+        </Physical>
         <Plan>
-          <H variant="3">Utgivningsplan</H>
+          <H variant="3">Utgivningsplan 2019/2020</H>
           <Dates>
             <Date>
               <H variant="4">Utgåva 1</H>
@@ -75,70 +133,6 @@ const Advertise: FunctionComponent = () => (
             </Date>
           </Dates>
         </Plan>
-        <Physical>
-          <H variant="3">Annons i fysisk tidning</H>
-          <Sections>
-            <Section>
-              <H variant="4">Info</H>
-              <P>Tryckteknik: Fyrafärgs CMYK.</P>
-              <P>Upplösning: 300 dpi</P>
-              <P>Utfall: 3mm</P>
-              <P>Inlaga: 120g TF Obestruket Offset</P>
-              <P>Omslag: 240g TF Obestruket Offset</P>
-            </Section>
-            <Section>
-              <H variant="4">Baksida</H>
-              <SectionContent>
-                <img src={Backside}></img>
-                <P>
-                  Mått: 208 x 230 mm <br />
-                  <b>32 000 kr</b>
-                </P>
-              </SectionContent>
-            </Section>
-            <Section>
-              <H variant="4">Halvsida liggande/stående</H>
-              <SectionContent>
-                <img src={HalfPage}></img>
-                <P>
-                  Mått: 208 x 135 mm / 104 x 270 mm <br />
-                  <b>15 000 kr</b>
-                </P>
-              </SectionContent>
-            </Section>
-            <Section>
-              <H variant="4">Helsida, första uppslaget</H>
-
-              <SectionContent>
-                <img src={WholePage}></img>
-                <P>
-                  Mått: 208 x 270 mm <br />
-                  <b>26 000 kr</b>
-                </P>
-              </SectionContent>
-            </Section>
-            <Section>
-              <H variant="4">Kvartssida stående</H>
-              <SectionContent>
-                <img src={QuarterPage}></img>
-                <P>
-                  Mått: 52 x 67,5 mm <br />
-                  <b>10 000 kr</b>
-                </P>
-              </SectionContent>
-            </Section>
-            <Section>
-              <H variant="4">Helsida, inlaga</H>
-              <SectionContent>
-                <img src={WholePage}></img>
-                <P>
-                  Mått: 208 x 270 mm <br />
-                  <b>24 000 kr</b>
-                </P>
-              </SectionContent>
-            </Section>
-          </Sections>
-        </Physical>
       </AdvertiseContainer>
     </InfoWrapper>
   </Layout>
@@ -183,10 +177,6 @@ const About = styled.div`
 const Plan = styled.div`
   width: 100%;
   margin-top: 20px;
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.xl + 'px'}) {
-    width: 60%;
-  }
 `;
 
 const Dates = styled.div`
@@ -197,7 +187,7 @@ const Dates = styled.div`
 
 const Date = styled.div`
   min-width: 150px;
-  margin-right: 5px;
+  margin-right: 10px;
 `;
 
 const Physical = styled.div`
@@ -213,14 +203,11 @@ const Sections = styled(Dates)`
   }
 `;
 const Section = styled.div`
-  width: 30%;
-  margin-right: 5px;
+  width: 50%;
   margin-top: 20px;
-  @media (max-width: ${({ theme }) => theme.breakpoints.xl + 'px'}) {
-    width: 40%;
-  }
   @media (max-width: ${({ theme }) => theme.breakpoints.sm + 'px'}) {
     width: 100%;
+    margin-right: 5px;
   }
 `;
 
@@ -228,7 +215,7 @@ const SectionContent = styled.div`
   display: flex;
   flex-direction: column;
   > img {
-    width: 100%;
+    width: 60%;
     height: 100%;
     margin-right: 30px;
   }
@@ -236,7 +223,7 @@ const SectionContent = styled.div`
     flex-direction: row;
     width: 100%;
     > img {
-      width: 50%;
+      width: 30%;
     }
   }
 `;
