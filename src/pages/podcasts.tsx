@@ -22,8 +22,10 @@ const Podcasts: FC<Props> = () => (
   <Layout>
     <ContentWrapper>
       <PodcastWrapper>
-        <H>Här kommer du snart att kunna lyssna på podcasts från OL!</H>
-        <H>(Podcasts from OL coming soon)</H>
+        <H variant="3">
+          Här kommer du snart att kunna lyssna på podcasts från OL!
+        </H>
+        <H variant="3">(Podcasts from OL coming soon)</H>
       </PodcastWrapper>
     </ContentWrapper>
   </Layout>
@@ -33,7 +35,6 @@ export default Podcasts;
 
 const PodcastWrapper = styled.div`
   padding: 20px;
-  margin: auto;
   background-color: white;
   border-radius: 20px;
 `;

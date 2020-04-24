@@ -8,8 +8,8 @@ const PageNotFound: FC = () => (
   <Layout>
     <ContentWrapper>
       <NotFoundWrapper>
-        <H>Hm... Sidan du letar efter verkar inte finnas.</H>
-        <H>(The page you are looking for does not seem to exist)</H>
+        <H variant="3">Hm... Sidan du letar efter verkar inte finnas.</H>
+        <H variant="3">(The page you are looking for does not seem to exist)</H>
       </NotFoundWrapper>
     </ContentWrapper>
   </Layout>
@@ -19,7 +19,6 @@ export default PageNotFound;
 
 const NotFoundWrapper = styled.div`
   padding: 20px;
-  margin: auto;
   background-color: white;
   border-radius: 20px;
 `;
