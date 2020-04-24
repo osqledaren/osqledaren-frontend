@@ -144,9 +144,11 @@ const MainImg = styled(Img)`
 `;
 
 const Content = styled(BlockContent)`
-  font-size: 20px;
+  font-size: ${({ theme }) => theme.pSize};
+  line-height: ${({ theme }) => theme.pLineHeight};
   @media (min-width: ${({ theme }) => theme.breakpoints.xl + 'px'}) {
-    font-size: 25px;
+    font-size: ${({ theme }) => theme.pSizeXl};
+    line-height: ${({ theme }) => theme.pLineHeightXl};
   }
   font-family: Avenir;
   font-weight: 500;
