@@ -62,14 +62,16 @@ const ArticleTemplate: FC<Props> = ({ data }) => {
             dataset="production"
           ></Content>
           <BottomRow>
-            <P>Publicerad: {data.sanityArticle.publishDate}</P>
+            <P size="16">Publicerad: {data.sanityArticle.publishDate}</P>
             <Twitter
-              to={
+              href={
                 'https://twitter.com/share?url=https://osqledaren.se/' +
                 data.sanityArticle.category.slug.current +
                 '/' +
                 data.sanityArticle.slug.current
               }
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <img src={TwitterLogo} alt="Twitter logo" />
             </Twitter>
@@ -163,7 +165,7 @@ const BottomRow = styled.div`
   align-items: center;
 `;
 
-const Twitter = styled(Link)`
+const Twitter = styled.a`
   width: 80px;
 `;
 
