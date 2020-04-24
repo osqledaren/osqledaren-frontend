@@ -5,7 +5,6 @@ import { Article } from '../utils/types';
 import Img from 'gatsby-image';
 import H from '../atoms/H';
 import P from '../atoms/P';
-import Link from '../atoms/Link';
 import InfoWrapper from '../molecules/InfoWrapper';
 import BlockContent from '@sanity/block-content-to-react';
 import styled from '../styles/styled';
