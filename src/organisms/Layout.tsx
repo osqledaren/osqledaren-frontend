@@ -20,7 +20,7 @@ const LayoutWrapper = styled.div`
   align-items: center;
   justify-content: flex-start;
   min-height: 100vh;
-  background-color: ${theme.colors.background};
+  background-color: blue;/*${theme.colors.background};*/
 `;
 
 const Content = styled.div`
