@@ -107,8 +107,8 @@ const Image = styled(Img)<{ expand: boolean }>`
   @media (max-width: ${props => {
       return props.theme.breakpoints.sm + 'px';
     }}) {
-    width: 95%;
-    max-width: 95%;
+    width: 75%;
+    max-width: 75%;
     margin-bottom: 1rem;
   }
 `;
