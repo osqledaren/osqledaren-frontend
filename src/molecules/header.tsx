@@ -18,7 +18,7 @@ const HeaderWrapper = styled(Link)`
   align-items: center;
   padding: 1vh 0;
   @media (max-width: ${({ theme }) => theme.breakpoints.sm + 'px'}) {
-    margin-top: 50px;
+    margin-top: 0px;
   }
 `;
 
