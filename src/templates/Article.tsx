@@ -106,7 +106,7 @@ const CreatorsWrapper = styled.div`
 
 const Creator = styled.div`
   display: flex;
-  height: 50px;
+  height: 100%;
   margin: 10px 50px 10px 0;
 `;
 
@@ -146,10 +146,6 @@ const MainImg = styled(Img)`
 const Content = styled(BlockContent)`
   font-size: ${({ theme }) => theme.pSize};
   line-height: ${({ theme }) => theme.pLineHeight};
-  @media (min-width: ${({ theme }) => theme.breakpoints.xl + 'px'}) {
-    font-size: ${({ theme }) => theme.pSizeXl};
-    line-height: ${({ theme }) => theme.pLineHeightXl};
-  }
   font-family: Avenir;
   font-weight: 500;
   > figure {

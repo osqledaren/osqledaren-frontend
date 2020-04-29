@@ -47,7 +47,9 @@ const About: FunctionComponent = () => {
                 <br />
                 <li>Ansvarig utgivare:</li>
                 <li>Simon Sundin</li>
-                <li>076 58 74 666</li>
+                <li>
+                  <a href="tel:087909888">08 79 09 888</a>
+                </li>
                 <li>
                   <a href="mailto:osqledaren@ths.kth.se">
                     osqledaren@ths.kth.se

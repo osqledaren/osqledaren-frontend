@@ -34,9 +34,7 @@ const ArticleCard: FunctionComponent<Props> = ({
         <LinkWrapper to={to}>
           <ArticleContent reverse={reverse} expand={isExpanded}>
             {mainImage && (
-              <Image expand={isExpanded}>
-                <Img fluid={mainImage.asset.fluid}></Img>
-              </Image>
+              <Image expand={isExpanded} fluid={mainImage.asset.fluid}></Image>
             )}
             <Text expand={isExpanded} reverse={reverse}>
               <Title variant="3">{title ? title : 'Titel saknas'}</Title>
@@ -88,12 +86,13 @@ const ArticleContent = styled.div<{ reverse: boolean; expand: boolean }>`
   }
 `;
 
-const Image = styled.div<{ expand: boolean }>`
+const Image = styled(Img)<{ expand: boolean }>`
   display: ${props => {
     return props.expand ? '' : 'none';
   }};
+
   width: 40%;
-  max-width: 400px;
+  max-width: 14rem;
   align-self: center;
   animation: fadeIn 0s forwards;
   animation-duration: 1.5s;
@@ -109,6 +108,7 @@ const Image = styled.div<{ expand: boolean }>`
       return props.theme.breakpoints.sm + 'px';
     }}) {
     width: 95%;
+    max-width: 95%;
     margin-bottom: 1rem;
   }
 `;
@@ -119,7 +119,7 @@ const Text = styled.div<{ expand: boolean; reverse: boolean }>`
   }};
   word-wrap: break-word;
   padding: ${props => {
-    return props.reverse ? '0 20px 0 0' : '0 0 0 20px';
+    return props.expand ? (props.reverse ? '0 20px 0 0' : '0 0 0 20px') : '0';
   }};
   @media (max-width: ${props => {
       return props.theme.breakpoints.sm + 'px';
