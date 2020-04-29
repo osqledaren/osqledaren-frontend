@@ -57,6 +57,7 @@ const Bar = styled.div`
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.sm + 'px'}) {
     width: 100%;
+    margin-bottom: 2rem;
   }
 `;
 
