@@ -9,6 +9,7 @@ const Content = styled.div`
   display: flex;
   justify-content: center;
   width: 60vw;
+  min-height: 66vh;
   @media (max-width: ${({ theme }) => theme.breakpoints.xl + 'px'}) {
     width: 95vw;
   }
