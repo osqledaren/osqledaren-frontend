@@ -32,6 +32,7 @@ const FilterButt = styled.div<FilterButtProps>`
   justify-content: center;
   max-width: 35vw;
   width: 72vw;
+  cursor: pointer;
   color: ${props => {
     return props.background == props.theme.colors.underhallning
       ? 'black'
