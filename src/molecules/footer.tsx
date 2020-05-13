@@ -37,6 +37,9 @@ const Footer: FunctionComponent = () => {
           <PageLink to="/advertise">
             <P color="white">Annonsera</P>
           </PageLink>
+          <ExternalLink to="https://archive.osqledaren.se">
+            <UnderlineP color="white">Arkiv</UnderlineP>
+          </ExternalLink>
         </Links>
         <P size="16pt" color="white">
           Ansvarig utgivare: Simon Sundin <br />© 2008 - 2020 Osqledaren.
@@ -111,6 +114,10 @@ const PageLink = styled(InternalLink)`
   :hover {
     text-decoration: none;
   }
+`;
+
+const UnderlineP = styled(P)`
+  text-decoration: underline;
 `;
 
 export default Footer;
