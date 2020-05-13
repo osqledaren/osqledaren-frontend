@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import Layout from '../organisms/Layout';
 import { Article } from '../utils/types';
-import ContentWrapper from '../molecules/ContentWrapper';
 import InfoWrapper from '../molecules/InfoWrapper';
 
 import H from '../atoms/H';
