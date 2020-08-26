@@ -105,30 +105,30 @@ const Advertise: FunctionComponent = () => (
           </Sections>
         </Physical>
         <Plan>
-          <H variant="3">Utgivningsplan 2019/2020</H>
+          <H variant="3">Utgivningsplan 2020/2021</H>
           <Dates>
             <Date>
               <H variant="4">Utgåva 1</H>
               <P size="17" lh="22">
-                Manusstopp: 10/9 {<br />} Utgivning: 8/10
+                Manusstopp: 16/9 {<br />} Utgivning: 6/10
               </P>
             </Date>
             <Date>
               <H variant="4">Utgåva 2</H>
               <P size="17" lh="22">
-                Manusstopp: 24/10 {<br />} Utgivning: 19/11
+                Manusstopp: 21/10 {<br />} Utgivning: 12/11
               </P>
             </Date>
             <Date>
               <H variant="4">Utgåva 3</H>
               <P size="17" lh="22">
-                Manusstopp: 14/1 {<br />} Utgivning: 11/2
+                Manusstopp: 26/1 {<br />} Utgivning: 13/2
               </P>
             </Date>
             <Date>
               <H variant="4">Utgåva 4</H>
               <P size="17" lh="22">
-                Manusstopp: 25/3 {<br />} Utgivning: 19/4
+                Manusstopp: 14/4 {<br />} Utgivning: 4/5
               </P>
             </Date>
           </Dates>
