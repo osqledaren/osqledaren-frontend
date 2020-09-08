@@ -46,7 +46,7 @@ const About: FunctionComponent = () => {
                 <li>Chefredaktör: Cornelia Thane</li>
                 <br />
                 <li>Ansvarig utgivare:</li>
-                <li>Simon Sundin</li>
+                <li>Cornelia Thane</li>
                 <li>
                   <a href="tel:087909888">08 79 09 888</a>
                 </li>
