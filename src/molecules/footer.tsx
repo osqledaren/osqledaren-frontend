@@ -42,7 +42,7 @@ const Footer: FunctionComponent = () => {
           </ExternalLink>
         </Links>
         <P size="16pt" color="white">
-          Ansvarig utgivare: Simon Sundin <br />© 2008 - 2020 Osqledaren.
+          Ansvarig utgivare: Cornelia Thane <br />© 2008 - 2020 Osqledaren.
         </P>
       </InfoWrapper>
     </FooterWrapper>
