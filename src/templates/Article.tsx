@@ -99,6 +99,8 @@ const CreatorsWrapper = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   margin-bottom: 40px;
+  margin-left: -10px;
+  width: 100%;
   @media (max-width: ${({ theme }) => theme.breakpoints.sm + 'px'}) {
     margin-bottom: 0px;
   }
@@ -106,11 +108,15 @@ const CreatorsWrapper = styled.div`
 
 const Creator = styled.div`
   display: flex;
-  height: 100%;
-  margin: 10px 50px 10px 0;
+  flex: 0 0 calc(50% - 10px);
+  width: 100%;
+  flex-grow: 1;
+  margin: 0 0 10px 10px;
+  align-items: center;
 `;
 
 const CreatorImg = styled(Img)`
+  min-width: 50px;
   width: 50px;
   height: 50px;
   border-radius: 50%;
