@@ -4,7 +4,7 @@
 
 ### Requirements
 
-- Node v.10.16.3
+- Node v.14.8.0
 - Yarn pkg manager
 - Gatsby cli
 
