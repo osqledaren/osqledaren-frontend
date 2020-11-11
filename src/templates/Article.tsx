@@ -113,6 +113,9 @@ const Creator = styled.div`
   flex-grow: 1;
   margin: 0 0 10px 10px;
   align-items: center;
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm + 'px'}) {
+    min-width: 100%;
+  }
 `;
 
 const CreatorImg = styled(Img)`
