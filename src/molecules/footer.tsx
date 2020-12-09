@@ -37,9 +37,6 @@ const Footer: FunctionComponent = () => {
           <PageLink to="/advertise">
             <P color="white">Annonsera</P>
           </PageLink>
-          <ExternalLink to="https://docs.google.com/forms/d/e/1FAIpQLSdvwSrOgJ9GiJ0whnDvjKNvmfiffqGAC2z3PjxVeLoFKbZf4g/viewform?usp=sf_link">
-            <UnderlineP color="white">Utskick</UnderlineP>
-          </ExternalLink>
           <ExternalLink to="http://archive.osqledaren.se">
             <UnderlineP color="white">Arkiv</UnderlineP>
           </ExternalLink>

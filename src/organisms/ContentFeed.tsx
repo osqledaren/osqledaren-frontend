@@ -22,7 +22,7 @@ const ContentFeed: FC<Props> = ({ content }) => {
             expand={i % 6 < 3}
             reverse={i % 2 === 1}
             to={
-              node.slug.current === 'about' || node.slug.current === 'advertise'
+              node.slug.current === 'about' || node.slug.current === 'advertise' || node.slug.current === 'subscribe' || node.slug.current === 'podcast'
                 ? '/' + node.slug.current
                 : getArticleSlug(node.category.slug.current, node.slug.current)
             }
