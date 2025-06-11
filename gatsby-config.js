@@ -11,12 +11,12 @@ module.exports = {
         name: "images",
       },
     },
-    {
+    /*{
       resolve: "gatsby-source-podcast",
       options: {
         podcasts: ["https://anchor.fm/s/17740998/podcast/rss"],
       },
-    },
+    },*/
     {
       resolve: "gatsby-source-sanity",
       options: {

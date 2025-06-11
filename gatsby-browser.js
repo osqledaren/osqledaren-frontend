@@ -1,7 +1,6 @@
-import AppWrapper from './src/utils/AppWrapper';
+import { ThemeProvider } from "@emotion/react";
+import theme from "./src/styles/theme"; // Adjust path to your theme object
 
-export const wrapRootElement = AppWrapper;
-
-// trigger an immediate page refresh when an update is found,
-// source: https://github.com/gatsbyjs/gatsby/issues/9087
-export const onServiceWorkerUpdateReady = () => window.location.reload();
+export const wrapRootElement = ({ element }) => (
+  <ThemeProvider theme={theme}>{element}</ThemeProvider>
+);
